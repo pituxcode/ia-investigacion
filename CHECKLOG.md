@@ -33,9 +33,23 @@
 - [ ] Preparar materiales de apoyo para participantes
 
 ### Estado actual
-**En progreso**: Inicialización completada, pendiente validación del plan
+**Pausado**: Proyecto inicializado, estructura lista, plan validado
 
-### Próxima acción
-Validar plan de trabajo con el usuario y comenzar con la estructura de carpetas
+### Próxima acción (post-almuerzo)
+Comenzar documentación del Módulo 1: Marco ético y escritura aumentada
+
+### Resumen del programa oficial (programa-taller.pdf)
+
+**Módulo 1 (09:00-11:00)**: Marco ético y escritura aumentada
+- Política y ética (política institucional, copyright, propiedad intelectual)
+- Prompt engineering académico (estructura IMRyD)
+- Uso responsable de IA en publicaciones indexadas
+- Herramientas de búsqueda bibliográfica con IA (Elicit, Scispace)
+- Demostración de flujo de trabajo
+
+**Módulo 2 (11:15-13:00)**: Pulido, Inglés y Envío
+- IA para inglés académico (DeepL Write, Grammarly, Gemini)
+- Lenguajes de marcado (Markdown, LaTeX, Typst)
+- Revisión final para envío de manuscrito
 
 ---
