@@ -4,7 +4,7 @@
 
 Este módulo te guía desde la formulación de preguntas de investigación hasta la organización de literatura relevante. Aprenderás a usar IA como asistente en las etapas iniciales del proceso investigativo.
 
-## Actividad 1.2: Preguntas de investigación con meta prompting
+## Preguntas de investigación con meta prompting
 
 **Duración:** 30 minutos
 
@@ -118,7 +118,7 @@ Las políticas editoriales sobre IA son un tema que:
 
 ---
 
-## Actividad 1.3: Búsqueda bibliográfica con IA
+## Búsqueda bibliográfica con IA
 
 **Duración:** 40 minutos
 
@@ -281,7 +281,7 @@ Al terminar, deberías tener:
 
 ---
 
-## Actividad 1.4: Fichas de trabajo
+## Fichas de trabajo
 
 **Duración:** 35 minutos
 
@@ -469,9 +469,9 @@ Al terminar, deberías tener:
 
 | Actividad | Producto |
 |-----------|----------|
-| 1.2 Preguntas de investigación | Pregunta refinada mediante meta prompting |
-| 1.3 Búsqueda bibliográfica | 5-10 papers relevantes con notas |
-| 1.4 Fichas de trabajo | Fichas estructuradas + esquema de revisión |
+| Preguntas de investigación | Pregunta refinada mediante meta prompting |
+| Búsqueda bibliográfica | 5-10 papers relevantes con notas |
+| Fichas de trabajo | Fichas estructuradas + esquema de revisión |
 
 ::: {.callout-note}
 ## Pausa para café

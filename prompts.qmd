@@ -15,13 +15,13 @@ Este capítulo reúne todos los prompts utilizados en el taller, listos para cop
 
 ## Prompts del Módulo 1
 
-### 1.2 Preguntas de investigación
+### Preguntas de investigación
 
 #### Meta prompt inicial
 
 Usa este prompt para que la IA te ayude a clarificar tu pregunta de investigación:
 
-```
+```text
 Soy investigador/a en [TU ÁREA DE INVESTIGACIÓN].
 
 Estoy trabajando en un proyecto sobre [DESCRIPCIÓN BREVE DEL PROYECTO].
@@ -40,7 +40,7 @@ Antes de ayudarme a refinarla, hazme preguntas para entender mejor:
 
 Después de responder las preguntas del modelo:
 
-```
+```text
 Con base en mis respuestas, genera 3 versiones alternativas de mi
 pregunta de investigación, ordenadas de más general a más específica.
 
@@ -54,7 +54,7 @@ Para cada versión, explica:
 
 Para descomponer una pregunta amplia:
 
-```
+```text
 Mi pregunta de investigación es: "[TU PREGUNTA]"
 
 Ayúdame a:
@@ -65,22 +65,22 @@ Ayúdame a:
 
 ---
 
-### 1.3 Búsqueda bibliográfica
+### Búsqueda bibliográfica
 
 #### Búsqueda en Elicit
 
 Escribe directamente tu pregunta en formato de investigación:
 
-```
+```text
 How are scientific publishers responding to generative AI use
 in manuscript preparation?
 ```
 
-```
+```text
 What are the effects of [INTERVENCIÓN] on [OUTCOME] in [POBLACIÓN]?
 ```
 
-```
+```text
 What methodologies are used to study [FENÓMENO] in [CONTEXTO]?
 ```
 
@@ -88,28 +88,28 @@ What methodologies are used to study [FENÓMENO] in [CONTEXTO]?
 
 Preguntas útiles para hacer a un paper individual:
 
-```
+```text
 ¿Cuál es la pregunta de investigación principal de este estudio?
 ```
 
-```
+```text
 Resume los hallazgos principales en 5 puntos concisos.
 ```
 
-```
+```text
 ¿Cuál es la metodología utilizada? Incluye: tipo de estudio,
 muestra, instrumentos de recolección de datos.
 ```
 
-```
+```text
 ¿Cuáles son las limitaciones mencionadas por los autores?
 ```
 
-```
+```text
 ¿Qué recomendaciones hace este artículo para futuras investigaciones?
 ```
 
-```
+```text
 ¿Cómo se relaciona este estudio con [TU TEMA]?
 ```
 
@@ -117,28 +117,28 @@ muestra, instrumentos de recolección de datos.
 
 Para resultados más académicos:
 
-```
+```text
 Busca solo en literatura peer-reviewed:
 [TU PREGUNTA DE INVESTIGACIÓN]
 ```
 
-```
+```text
 What does the academic literature say about [TEMA]?
 Focus on peer-reviewed sources from the last 5 years.
 ```
 
-```
+```text
 Provide a systematic overview of research on [TEMA].
 Include only empirical studies with clear methodology.
 ```
 
 ---
 
-### 1.4 Fichas de trabajo
+### Fichas de trabajo
 
 #### Generar ficha de un paper
 
-```
+```text
 Ayúdame a crear una ficha de trabajo académica para este paper:
 
 [PEGA EL ABSTRACT O INFORMACIÓN DEL PAPER]
@@ -156,7 +156,7 @@ Genera una ficha con:
 
 #### Identificar patrones en la literatura
 
-```
+```text
 Tengo fichas de [NÚMERO] papers sobre [TEMA]. Los temas principales son:
 
 1. [Paper 1 - Apellido, Año]: [tema principal]
@@ -172,7 +172,7 @@ Ayúdame a:
 
 #### Estructurar revisión de literatura
 
-```
+```text
 Basándote en los patrones identificados, sugiere una estructura
 para una sección de revisión de literatura que:
 
@@ -189,7 +189,7 @@ Los papers disponibles son:
 
 #### Comparar metodologías
 
-```
+```text
 Compara las metodologías de estos estudios:
 
 1. [Estudio 1]: [metodología]
@@ -209,11 +209,11 @@ Genera una tabla comparativa con:
 
 ## Prompts del Módulo 2
 
-### 2.1 Estructurar documento
+### Estructurar documento
 
 #### Generar estructura de artículo
 
-```
+```text
 Genera la estructura en Markdown para un artículo académico
 sobre [TU TEMA].
 
@@ -226,7 +226,7 @@ ir en cada sección.
 
 #### Adaptar estructura a revista específica
 
-```
+```text
 Tengo esta estructura de artículo en Markdown:
 
 [PEGA TU ESTRUCTURA]
@@ -241,7 +241,7 @@ Adapta la estructura para cumplir con las guías de autor de
 
 #### Sugerir subsecciones
 
-```
+```text
 Estoy escribiendo un artículo sobre [TEMA] usando metodología
 [TIPO DE METODOLOGÍA].
 
@@ -256,11 +256,11 @@ considerando las mejores prácticas en [TU DISCIPLINA].
 
 ---
 
-### 2.2 Redacción en español
+### Redacción en español
 
 #### Generar borrador de sección
 
-```
+```text
 Actúa como asistente de redacción académica en español.
 
 Necesito escribir la sección de [NOMBRE DE SECCIÓN] para un
@@ -280,7 +280,7 @@ afirmaciones que no puedas respaldar con los puntos que te di.
 
 #### Mejorar claridad y fluidez
 
-```
+```text
 Revisa este texto académico y mejora:
 1. Claridad: simplifica oraciones complejas sin perder precisión
 2. Precisión: elimina ambigüedades
@@ -294,7 +294,7 @@ Mantén el tono académico formal. No cambies el significado.
 
 #### Verificar consistencia de estilo
 
-```
+```text
 Revisa este texto y asegura consistencia en:
 - Uso de tiempos verbales (pasado para métodos y resultados)
 - Persona gramatical (tercera persona o impersonal)
@@ -308,7 +308,7 @@ Indica los cambios que hagas y por qué.
 
 #### Expandir desde notas
 
-```
+```text
 Expande estas notas en prosa académica formal en español:
 
 [PEGA TUS NOTAS O BULLET POINTS]
@@ -322,7 +322,7 @@ Requisitos:
 
 #### Generar transiciones
 
-```
+```text
 Tengo estos dos párrafos consecutivos que necesitan una mejor
 transición entre ellos:
 
@@ -338,11 +338,11 @@ fluidamente ambos párrafos. Explica la lógica de cada opción.
 
 ---
 
-### 2.3 Traducción al inglés
+### Traducción al inglés
 
 #### Traducción académica especializada
 
-```
+```text
 Actúa como traductor especializado en textos académicos de
 [TU DISCIPLINA].
 
@@ -365,7 +365,7 @@ Texto a traducir:
 
 #### Crear glosario terminológico
 
-```
+```text
 Estoy por traducir un artículo sobre [TEMA] en el área de
 [TU DISCIPLINA].
 
@@ -381,7 +381,7 @@ múltiples opciones válidas.
 
 #### Traducir con glosario
 
-```
+```text
 Traduce este texto al inglés académico usando el glosario
 terminológico que te proporciono para mantener consistencia:
 
@@ -394,7 +394,7 @@ TEXTO A TRADUCIR:
 
 #### Refinar traducción
 
-```
+```text
 Revisa esta traducción al inglés académico y mejora:
 
 1. Naturalidad: ¿suena como lo escribiría un nativo?
@@ -415,7 +415,7 @@ Indica los cambios específicos que hagas y por qué.
 
 #### Alternativas de expresión
 
-```
+```text
 Dame 3 formas alternativas de expresar esta idea en inglés
 académico:
 
@@ -428,11 +428,11 @@ Para cada alternativa, indica:
 
 ---
 
-### 2.4 Revisión final
+### Revisión final
 
 #### Revisión completa de manuscrito
 
-```
+```text
 Actúa como editor de una revista académica de [TU ÁREA].
 
 Revisa este manuscrito y genera un informe con:
@@ -463,7 +463,7 @@ Revisa este manuscrito y genera un informe con:
 
 #### Verificar citas y referencias
 
-```
+```text
 Extrae todas las citas en el texto (formato Autor, año) y
 compáralas con la lista de referencias.
 
@@ -481,7 +481,7 @@ Identifica:
 
 #### Revisar abstract
 
-```
+```text
 Revisa este abstract y verifica que contenga:
 
 1. Contexto/problema (1-2 oraciones)
@@ -500,7 +500,7 @@ El límite es [NÚMERO] palabras.
 
 #### Generar declaración de uso de IA
 
-```
+```text
 Genera una declaración de uso de IA para mi manuscrito con
 estos datos:
 
@@ -518,7 +518,7 @@ contenido y asumen responsabilidad completa.
 
 #### Checklist personalizado
 
-```
+```text
 Estoy preparando un manuscrito para enviar a [NOMBRE DE REVISTA].
 
 Basándote en las instrucciones estándar para autores de revistas
@@ -547,7 +547,7 @@ Formato: lista de verificación con casillas [ ]
 
 ### Proporciona contexto
 
-```
+```text
 [CONTEXTO]: Soy investigador/a en [ÁREA] preparando un artículo
 para [TIPO DE REVISTA].
 
@@ -558,14 +558,14 @@ para [TIPO DE REVISTA].
 
 ### Pide formatos estructurados
 
-```
+```text
 Responde en formato de tabla con las siguientes columnas:
 - Columna 1
 - Columna 2
 - Columna 3
 ```
 
-```
+```text
 Genera una lista numerada con:
 1. [Categoría 1]
 2. [Categoría 2]
@@ -576,16 +576,16 @@ Genera una lista numerada con:
 
 Si la respuesta no es satisfactoria:
 
-```
+```text
 La respuesta anterior fue [muy general/muy técnica/no enfocada en X].
 Por favor, refínala para [ESPECIFICACIÓN].
 ```
 
-```
+```text
 Expande el punto [NÚMERO] con más detalle sobre [ASPECTO].
 ```
 
-```
+```text
 Simplifica esta explicación para [AUDIENCIA ESPECÍFICA].
 ```
 
@@ -595,7 +595,7 @@ Simplifica esta explicación para [AUDIENCIA ESPECÍFICA].
 
 Para proyectos complejos, puedes crear un "sistema" de prompts relacionados:
 
-```
+```text
 === PROMPT 1: DIAGNÓSTICO ===
 Antes de comenzar, hazme 5 preguntas para entender mejor
 [LO QUE NECESITO].
@@ -615,4 +615,4 @@ Incorpora las críticas y genera una versión mejorada.
 === PROMPT 5: VERIFICACIÓN ===
 Lista las afirmaciones factuales que debo verificar manualmente
 y sugiere fuentes donde podría verificarlas.
-```
+```text

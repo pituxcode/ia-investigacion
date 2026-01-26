@@ -1,0 +1,43 @@
+<script>
+// Add copy button to all pre elements that don't have one
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('pre.text').forEach(function(pre) {
+    // Create button container
+    const container = document.createElement('div');
+    container.className = 'code-copy-container';
+    container.style.position = 'relative';
+
+    // Wrap pre in container
+    pre.parentNode.insertBefore(container, pre);
+    container.appendChild(pre);
+
+    // Create copy button
+    const button = document.createElement('button');
+    button.className = 'code-copy-button';
+    button.setAttribute('title', 'Copiar');
+    button.innerHTML = '<i class="bi bi-clipboard"></i>';
+    button.style.cssText = 'position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.25rem 0.5rem; border: none; background: #f8f9fa; border-radius: 4px; cursor: pointer; opacity: 0; transition: opacity 0.2s;';
+
+    container.appendChild(button);
+
+    // Show button on hover
+    container.addEventListener('mouseenter', function() {
+      button.style.opacity = '1';
+    });
+    container.addEventListener('mouseleave', function() {
+      button.style.opacity = '0';
+    });
+
+    // Copy functionality
+    button.addEventListener('click', function() {
+      const code = pre.querySelector('code') ? pre.querySelector('code').textContent : pre.textContent;
+      navigator.clipboard.writeText(code).then(function() {
+        button.innerHTML = '<i class="bi bi-check"></i>';
+        setTimeout(function() {
+          button.innerHTML = '<i class="bi bi-clipboard"></i>';
+        }, 2000);
+      });
+    });
+  });
+});
+</script>

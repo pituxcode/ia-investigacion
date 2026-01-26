@@ -1,13 +1,13 @@
 # Bienvenida {.unnumbered}
 
-## Acerca de este cuadernillo
+## Acerca de este documento
 
 Esta guía práctica acompaña el taller **"Herramientas de IA para la Productividad Científica"** de la Universidad de Aysén. Está diseñada para que puedas:
 
-- Seguir las actividades durante el taller
-- Consultar los conceptos clave después
-- Copiar y adaptar los prompts a tu propio trabajo
-- Usar las herramientas de forma autónoma
+- Seguir las actividades durante el taller.
+- Consultar los conceptos clave después.
+- Copiar y adaptar los prompts a tu propio trabajo.
+- Usar las herramientas de forma autónoma.
 
 ::: {.callout-note}
 ## Información del taller
@@ -23,18 +23,20 @@ Esta guía práctica acompaña el taller **"Herramientas de IA para la Productiv
 
 El taller se organiza en dos módulos:
 
-### Módulo 1: Marco ético y escritura aumentada (09:00-11:00)
+### M1: Marco ético y escritura aumentada 
+**(09:00-11:00)**
 
 | Tiempo | Actividad |
 |--------|-----------|
-| 15 min | Contexto: qué es un LLM, alucinaciones, meta prompting |
-| 30 min | Preguntas de investigación con IA |
-| 40 min | Búsqueda bibliográfica (Elicit, SciSpace, Perplexity) |
-| 35 min | Fichas de trabajo para organizar hallazgos |
+| 15 min | **Un breve repaso.** ¿Qué es un LLM?, ¿Qué son las alucinaciones?, técnicas de prompting (meta prompting), la importancia del contexto (del prompt engineering al context engineering). |
+| 30 min | **Preguntas de investigación con IA.** Uso de asistentes de IA para enmarcar la investigación |
+| 40 min | **Búsqueda bibliográfica.** Herramientas para búsquedas bibliográficas para investigación académica (Semantic Scholar, Elicit, SciSpace, Perplexity) |
+| 35 min | **Organización del trabajo de investigación.** Fichas de trabajo para organizar hallazgos y preparar documento |
 
-### Café (11:00-11:15)
+**Café (11:00-11:15)**
 
-### Módulo 2: Pulido, inglés y envío (11:15-13:00)
+### M2: Pulido, inglés y envío 
+**(11:15-13:00)**
 
 | Actividad |
 |-----------|
@@ -50,11 +52,9 @@ Este cuadernillo ofrece **dos caminos** para cada actividad, según tu nivel de 
 ::: {.callout-tip}
 ## Camino A: Nivel básico
 
-**Para ti si:** Prefieres interfaces simples y visuales.
-
-**Herramientas:** ChatGPT, Claude o Gemini en su versión web.
-
-**Flujo:** Copiar texto → pegar en chat → copiar resultado → guardar.
+- Prefieres interfaces simples y visuales.
+- **Herramientas:** ChatGPT, Claude o Gemini en su versión web
+- **Flujo:** Copiar texto → pegar en chat → copiar resultado → guardar.
 :::
 
 ::: {.callout-tip}

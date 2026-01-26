@@ -6,7 +6,7 @@ Este módulo te guía desde el borrador inicial hasta un manuscrito listo para e
 
 ---
 
-## Actividad 2.1: Estructurar documento con Markdown
+## Estructurar documento con Markdown
 
 **Duración:** 25 minutos
 
@@ -184,7 +184,7 @@ Crea la estructura Markdown para tu artículo:
 
 ---
 
-## Actividad 2.2: Redacción en español con IA
+## Redacción en español con IA
 
 **Duración:** 30 minutos
 
@@ -304,7 +304,7 @@ Revisa este texto y asegura consistencia en:
 
 ---
 
-## Actividad 2.3: Traducción al inglés académico
+## Traducción al inglés académico
 
 **Duración:** 30 minutos
 
@@ -437,7 +437,7 @@ Texto a traducir:
 
 ---
 
-## Actividad 2.4: Revisión final y lista de verificación
+## Revisión final y lista de verificación
 
 **Duración:** 20 minutos
 
@@ -606,10 +606,10 @@ Siempre revisa las instrucciones específicas de la revista.
 
 | Actividad | Producto |
 |-----------|----------|
-| 2.1 Estructurar documento | Esqueleto en Markdown de tu artículo |
-| 2.2 Redacción en español | Borrador mejorado de al menos una sección |
-| 2.3 Traducción al inglés | Sección traducida al inglés académico |
-| 2.4 Revisión final | Checklist personalizado + informe de revisión |
+| Estructurar documento | Esqueleto en Markdown de tu artículo |
+| Redacción en español | Borrador mejorado de al menos una sección |
+| Traducción al inglés | Sección traducida al inglés académico |
+| Revisión final | Checklist personalizado + informe de revisión |
 
 ---
 
