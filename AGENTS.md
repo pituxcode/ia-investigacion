@@ -23,7 +23,7 @@ capacitacion-ia-investigacion/
 ├── AGENTS.md              # Este archivo
 ├── CHECKLOG.md            # Registro de cambios entre sesiones
 ├── descripcion.md         # Descripción general del taller
-├── programa-inicial.md    # Programa oficial del taller
+├── programa-taller.pdf    # Programa oficial del taller (versión institucional)
 ├── docs/                  # Documentación detallada
 │   ├── modulo-1/          # Marco ético y escritura aumentada
 │   └── modulo-2/          # Pulido, Inglés y Envío

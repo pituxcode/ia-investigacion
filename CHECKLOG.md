@@ -10,7 +10,8 @@
 - [x] Inicialización del repositorio Git
 - [x] Creación de AGENTS.md con estructura del proyecto
 - [x] Creación de CHECKLOG.md para seguimiento
-- [x] Revisión de documentos base (descripcion.md, programa-inicial.md)
+- [x] Revisión de documentos base (descripcion.md, programa-taller.pdf)
+- [x] Eliminado programa-inicial.md (reemplazado por PDF oficial)
 
 ### Plan de trabajo propuesto
 
