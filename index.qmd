@@ -1,0 +1,124 @@
+# Bienvenida {.unnumbered}
+
+## Acerca de este cuadernillo
+
+Esta guía práctica acompaña el taller **"Herramientas de IA para la Productividad Científica"** de la Universidad de Aysén. Está diseñada para que puedas:
+
+- Seguir las actividades durante el taller
+- Consultar los conceptos clave después
+- Copiar y adaptar los prompts a tu propio trabajo
+- Usar las herramientas de forma autónoma
+
+::: {.callout-note}
+## Información del taller
+
+| | |
+|---|---|
+| **Fecha** | 28 de enero 2026, 09:00-13:00 |
+| **Lugar** | Sala D6-Campus Lillo |
+| **Audiencia** | Cuerpo académico |
+:::
+
+## Estructura del taller
+
+El taller se organiza en dos módulos:
+
+### Módulo 1: Marco ético y escritura aumentada (09:00-11:00)
+
+| Tiempo | Actividad |
+|--------|-----------|
+| 15 min | Contexto: qué es un LLM, alucinaciones, meta prompting |
+| 30 min | Preguntas de investigación con IA |
+| 40 min | Búsqueda bibliográfica (Elicit, SciSpace, Perplexity) |
+| 35 min | Fichas de trabajo para organizar hallazgos |
+
+### Café (11:00-11:15)
+
+### Módulo 2: Pulido, inglés y envío (11:15-13:00)
+
+| Actividad |
+|-----------|
+| Estructurar documento con Markdown |
+| Redacción en español con IA |
+| Traducción al inglés académico |
+| Revisión final y lista de verificación |
+
+## Dos caminos para cada actividad
+
+Este cuadernillo ofrece **dos caminos** para cada actividad, según tu nivel de experiencia técnica:
+
+::: {.callout-tip}
+## Camino A: Nivel básico
+
+**Para ti si:** Prefieres interfaces simples y visuales.
+
+**Herramientas:** ChatGPT, Claude o Gemini en su versión web.
+
+**Flujo:** Copiar texto → pegar en chat → copiar resultado → guardar.
+:::
+
+::: {.callout-tip}
+## Camino B: Nivel avanzado
+
+**Para ti si:** Ya usas VS Code, R o herramientas de línea de comandos.
+
+**Herramientas:** VS Code + Gemini CLI, RStudio con asistente de IA.
+
+**Flujo:** Edición directa con IA integrada en tu editor.
+:::
+
+Puedes elegir el camino que mejor se adapte a tu forma de trabajar. Ambos logran el mismo resultado.
+
+## Cómo usar esta guía
+
+### Durante el taller
+
+1. Sigue las actividades en orden
+2. Usa los callouts de **Actividad** para las tareas prácticas
+3. Copia los prompts desde el capítulo [Prompts](prompts.qmd)
+4. Pregunta si algo no queda claro
+
+### Después del taller
+
+1. Consulta el capítulo [Fundamentos](fundamentos.qmd) para profundizar en la teoría
+2. Adapta los prompts a tus propias preguntas de investigación
+3. Revisa las [políticas editoriales](recursos.qmd) antes de enviar un manuscrito
+4. Usa la lista de verificación para asegurar cumplimiento
+
+## Convenciones
+
+En este cuadernillo usamos los siguientes elementos:
+
+::: {.callout-note}
+## Nota
+Información complementaria o aclaratoria.
+:::
+
+::: {.callout-tip}
+## Actividad
+Tareas prácticas para realizar durante el taller.
+:::
+
+::: {.callout-warning}
+## Atención
+Puntos importantes que no debes olvidar.
+:::
+
+::: {.callout-important}
+## Crítico
+Aspectos éticos o de cumplimiento obligatorio.
+:::
+
+```
+Bloques de código como este
+contienen prompts para copiar
+```
+
+## Requisitos previos
+
+Para aprovechar al máximo el taller, necesitas:
+
+- [ ] Cuenta en ChatGPT, Claude o Gemini (versión gratuita es suficiente)
+- [ ] Navegador web actualizado
+- [ ] Una pregunta de investigación o tema en el que estés trabajando
+- [ ] (Opcional) VS Code instalado si quieres probar el Camino B

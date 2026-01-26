@@ -1,0 +1,481 @@
+# Módulo 1: Marco ético y escritura aumentada
+
+**Duración:** 09:00-11:00 (2 horas)
+
+Este módulo te guía desde la formulación de preguntas de investigación hasta la organización de literatura relevante. Aprenderás a usar IA como asistente en las etapas iniciales del proceso investigativo.
+
+## Actividad 1.2: Preguntas de investigación con meta prompting
+
+**Duración:** 30 minutos
+
+### Objetivo
+
+Usar la técnica de *meta prompting* para refinar y mejorar tus preguntas de investigación.
+
+### ¿Qué es meta prompting?
+
+En lugar de escribir directamente tu pregunta, le pides a la IA que te ayude a formularla mejor. Es como tener un colega que te hace preguntas para clarificar tu pensamiento.
+
+::: {.callout-tip}
+## Actividad práctica
+
+Piensa en un proyecto de investigación actual o potencial. Puede ser:
+
+- Un artículo que estés escribiendo
+- Una tesis o proyecto que estés dirigiendo
+- Una pregunta que te gustaría explorar
+:::
+
+### Paso 1: El meta prompt inicial
+
+Copia y adapta este prompt:
+
+```
+Soy investigador/a en [TU ÁREA].
+
+Estoy trabajando en un proyecto sobre [DESCRIPCIÓN BREVE].
+
+Mi pregunta de investigación preliminar es:
+[TU PREGUNTA ACTUAL]
+
+Antes de ayudarme a refinarla, hazme preguntas para entender mejor:
+- El contexto de mi investigación
+- Los vacíos en la literatura que intento abordar
+- Las limitaciones metodológicas que enfrento
+- El público al que va dirigida la publicación
+```
+
+::: {.panel-tabset}
+
+## Camino A: Chat web
+
+1. Abre ChatGPT, Claude o Gemini en tu navegador
+2. Pega el meta prompt adaptado a tu caso
+3. Responde las preguntas que te haga el modelo
+4. Guarda la conversación o copia la pregunta refinada final
+
+## Camino B: CLI/Editor
+
+1. Abre tu terminal o VS Code
+2. Si usas Gemini CLI:
+   ```bash
+   gemini chat
+   ```
+3. Pega el meta prompt
+4. Guarda la salida en un archivo:
+   ```bash
+   # En la conversación, puedes exportar con:
+   /save preguntas-investigacion.md
+   ```
+
+:::
+
+### Paso 2: Refinamiento iterativo
+
+Después de que el modelo te haga preguntas, respóndelas. Luego pídele:
+
+```
+Con base en mis respuestas, genera 3 versiones alternativas de mi
+pregunta de investigación, ordenadas de más general a más específica.
+
+Para cada versión, explica:
+- Qué enfoque metodológico sugiere
+- Qué tipo de revista podría publicarlo
+- Qué limitaciones tendría
+```
+
+### Paso 3: Validar con políticas editoriales (caso práctico)
+
+Usaremos las políticas de IA de las editoriales como caso de estudio para practicar:
+
+```
+Mi pregunta de investigación es: "¿Cómo están respondiendo las
+principales editoriales científicas al uso de IA generativa en
+la redacción de manuscritos?"
+
+Ayúdame a:
+1. Identificar subpreguntas más específicas
+2. Sugerir un marco teórico apropiado
+3. Proponer una metodología viable
+```
+
+::: {.callout-note}
+## ¿Por qué este tema?
+Las políticas editoriales sobre IA son un tema que:
+
+- Es relevante para todos los asistentes
+- Tiene literatura reciente disponible
+- Permite practicar búsqueda bibliográfica en la siguiente actividad
+:::
+
+### Resumen de la actividad
+
+| Paso | Acción | Resultado |
+|------|--------|-----------|
+| 1 | Meta prompt inicial | El modelo te hace preguntas clarificadoras |
+| 2 | Refinamiento | Obtienes versiones alternativas de tu pregunta |
+| 3 | Validación | Aplicas la técnica a un caso concreto |
+
+---
+
+## Actividad 1.3: Búsqueda bibliográfica con IA
+
+**Duración:** 40 minutos
+
+### Objetivo
+
+Explorar tres herramientas de IA diseñadas específicamente para búsqueda de literatura científica.
+
+::: {.callout-warning}
+## Importante
+A diferencia de ChatGPT o Claude, estas herramientas trabajan con papers **reales**. No inventan referencias porque buscan en bases de datos académicas.
+:::
+
+### Herramienta 1: Elicit
+
+**URL:** [elicit.com](https://elicit.com)
+
+Elicit es un asistente de investigación que busca papers reales y extrae información clave.
+
+::: {.panel-tabset}
+
+## Camino A: Interfaz web
+
+1. Ve a [elicit.com](https://elicit.com) y crea una cuenta gratuita
+2. En la barra de búsqueda, escribe tu pregunta de investigación
+3. Elicit mostrará papers relevantes con:
+   - Resumen generado
+   - Hallazgos principales
+   - Metodología
+4. Usa "Extract data" para crear una tabla comparativa de papers
+
+## Camino B: Exportación estructurada
+
+1. Realiza la búsqueda en Elicit
+2. Selecciona los papers relevantes
+3. Exporta como CSV o BibTeX
+4. Importa en tu gestor de referencias (Zotero, Mendeley)
+
+:::
+
+::: {.callout-tip}
+## Actividad práctica
+
+Busca en Elicit:
+
+```
+How are scientific publishers responding to generative AI use
+in manuscript preparation?
+```
+
+Identifica 5 papers relevantes y anota:
+
+- Autor(es) y año
+- Hallazgo principal
+- Metodología usada
+:::
+
+### Herramienta 2: SciSpace
+
+**URL:** [typeset.io](https://typeset.io)
+
+SciSpace permite "conversar" con papers individuales para extraer información específica.
+
+::: {.panel-tabset}
+
+## Camino A: Chat con papers
+
+1. Ve a [typeset.io](https://typeset.io)
+2. Sube un PDF o busca un paper por título
+3. Usa el chat para hacer preguntas específicas:
+   - "¿Cuál es la metodología de este estudio?"
+   - "¿Cuáles son las limitaciones mencionadas?"
+   - "Resume los hallazgos principales en 3 puntos"
+4. Copia las respuestas a tu documento
+
+## Camino B: Análisis sistemático
+
+1. Crea una colección en SciSpace con tus papers
+2. Usa "Literature Review" para generar síntesis
+3. Exporta las notas en formato estructurado
+4. Integra con tu flujo de trabajo en VS Code/Quarto
+
+:::
+
+::: {.callout-tip}
+## Actividad práctica
+
+Encuentra un paper de tu búsqueda en Elicit y ábrelo en SciSpace. Pregúntale:
+
+```
+¿Qué recomendaciones hace este artículo para investigadores
+que quieren usar IA en su trabajo académico?
+```
+:::
+
+### Herramienta 3: Perplexity
+
+**URL:** [perplexity.ai](https://perplexity.ai)
+
+Perplexity combina búsqueda web con síntesis de información, citando fuentes.
+
+::: {.panel-tabset}
+
+## Camino A: Búsqueda con fuentes
+
+1. Ve a [perplexity.ai](https://perplexity.ai)
+2. Escribe tu pregunta de investigación
+3. Revisa la respuesta Y las fuentes citadas
+4. Haz clic en las fuentes para verificarlas
+5. Usa "Focus: Academic" para priorizar fuentes académicas
+
+## Camino B: Investigación profunda
+
+1. Activa el modo "Pro" o "Academic" si está disponible
+2. Pide específicamente fuentes peer-reviewed:
+   ```
+   Busca solo en literatura peer-reviewed: [tu pregunta]
+   ```
+3. Exporta la bibliografía generada
+4. Verifica cada fuente en Google Scholar o base de datos original
+
+:::
+
+::: {.callout-warning}
+## Verificación obligatoria
+Aunque Perplexity cita fuentes, **siempre verifica** que:
+
+- La fuente existe
+- La cita es correcta
+- La interpretación es fiel al original
+:::
+
+::: {.callout-tip}
+## Actividad práctica
+
+Busca en Perplexity (modo Academic si está disponible):
+
+```
+What are the current editorial policies of Elsevier, Springer
+Nature, and Taylor & Francis regarding AI use in manuscripts?
+```
+
+Compara las fuentes citadas con lo que encontraste en Elicit.
+:::
+
+### Comparación de herramientas
+
+| Herramienta | Mejor para | Limitaciones |
+|-------------|------------|--------------|
+| **Elicit** | Búsqueda sistemática, extracción de datos | Solo papers en inglés, plan gratuito limitado |
+| **SciSpace** | Análisis profundo de papers individuales | Requiere tener el paper |
+| **Perplexity** | Visión general rápida, fuentes diversas | No exclusivamente académico, verificar siempre |
+
+### Resumen de la actividad
+
+Al terminar, deberías tener:
+
+- [ ] 5-10 papers relevantes identificados
+- [ ] Notas sobre hallazgos principales de cada uno
+- [ ] Una idea de qué herramienta prefieres para tu flujo de trabajo
+
+---
+
+## Actividad 1.4: Fichas de trabajo
+
+**Duración:** 35 minutos
+
+### Objetivo
+
+Organizar los hallazgos de tu búsqueda bibliográfica en fichas estructuradas que faciliten la escritura posterior.
+
+### ¿Por qué fichas de trabajo?
+
+Las fichas de trabajo te permiten:
+
+- Sistematizar la información de múltiples fuentes
+- Identificar patrones y vacíos en la literatura
+- Tener "bloques" listos para construir tu argumento
+- Citar correctamente al momento de escribir
+
+### Estructura de una ficha
+
+Cada ficha debe contener:
+
+| Campo | Descripción |
+|-------|-------------|
+| **Referencia** | Cita completa en formato APA/Vancouver |
+| **Tema principal** | Una frase que capture el aporte del paper |
+| **Resumen** | 3-5 oraciones con los puntos clave |
+| **Citas textuales** | Fragmentos relevantes con número de página |
+| **Conexiones** | Cómo se relaciona con otros papers/tu investigación |
+| **Notas propias** | Ideas, críticas, preguntas que te surgen |
+
+### Paso 1: Generar fichas con IA
+
+::: {.panel-tabset}
+
+## Camino A: Chat web
+
+Usa este prompt para cada paper:
+
+```
+Ayúdame a crear una ficha de trabajo académica para este paper:
+
+[PEGA EL ABSTRACT O INFORMACIÓN DEL PAPER]
+
+Genera una ficha con:
+1. Referencia completa (formato APA 7)
+2. Tema principal (una frase)
+3. Resumen (3-5 oraciones)
+4. Metodología (tipo de estudio, muestra, instrumentos)
+5. Hallazgos principales (lista de 3-5 puntos)
+6. Limitaciones mencionadas por los autores
+7. Sugerencias de cómo se relaciona con el tema:
+   "Políticas editoriales sobre IA en publicaciones científicas"
+```
+
+## Camino B: Plantilla automatizada
+
+Crea un archivo `ficha-template.md`:
+
+```markdown
+# Ficha: [Apellido, Año]
+
+## Referencia
+[Cita APA 7]
+
+## Tema principal
+[Una frase]
+
+## Resumen
+[3-5 oraciones]
+
+## Metodología
+- Tipo de estudio:
+- Muestra:
+- Instrumentos:
+
+## Hallazgos principales
+1.
+2.
+3.
+
+## Limitaciones
+-
+
+## Conexiones con mi investigación
+-
+
+## Notas propias
+-
+```
+
+Usa Gemini CLI para llenar cada ficha:
+
+```bash
+gemini --prompt "Llena esta plantilla de ficha académica con
+información del siguiente abstract: [ABSTRACT]" < ficha-template.md
+```
+
+:::
+
+::: {.callout-tip}
+## Actividad práctica
+
+Crea fichas para 3 de los papers que encontraste en la actividad anterior. Prioriza los más relevantes para tu pregunta de investigación.
+:::
+
+### Paso 2: Sintetizar patrones
+
+Una vez que tengas varias fichas, usa este prompt para identificar patrones:
+
+```
+Tengo fichas de X papers sobre [TEMA]. Los temas principales son:
+
+1. [Paper 1]: [tema principal]
+2. [Paper 2]: [tema principal]
+3. [Paper 3]: [tema principal]
+...
+
+Ayúdame a:
+1. Identificar los principales puntos de consenso
+2. Identificar los principales puntos de debate
+3. Detectar vacíos en la literatura
+4. Sugerir cómo mi investigación podría contribuir
+```
+
+### Paso 3: Estructurar el documento
+
+Con los patrones identificados, genera un esquema para tu revisión de literatura:
+
+```
+Basándote en los patrones identificados, sugiere una estructura
+para una sección de revisión de literatura que:
+
+- Tenga 3-5 subsecciones temáticas
+- Fluya de lo general a lo específico
+- Termine señalando el vacío que mi investigación aborda
+- Use los papers que he fichado como evidencia
+```
+
+::: {.panel-tabset}
+
+## Camino A: Documento en Google Docs
+
+1. Crea un nuevo documento
+2. Pega el esquema generado
+3. Bajo cada subsección, lista los papers relevantes
+4. Copia fragmentos de tus fichas como punto de partida
+
+## Camino B: Documento Quarto/Markdown
+
+Crea un archivo `revision-literatura.qmd`:
+
+```markdown
+---
+title: "Revisión de literatura"
+format: html
+bibliography: references.bib
+---
+
+## Sección 1: [Tema]
+
+[Síntesis de papers relevantes]
+
+## Sección 2: [Tema]
+
+[Síntesis de papers relevantes]
+
+## Vacío identificado
+
+[Cómo tu investigación contribuye]
+```
+
+:::
+
+### Resumen de la actividad
+
+Al terminar, deberías tener:
+
+- [ ] 3+ fichas de trabajo completas
+- [ ] Patrones y vacíos identificados
+- [ ] Un esquema preliminar de revisión de literatura
+- [ ] Papers organizados por tema/subsección
+
+---
+
+## Resumen del Módulo 1
+
+| Actividad | Producto |
+|-----------|----------|
+| 1.2 Preguntas de investigación | Pregunta refinada mediante meta prompting |
+| 1.3 Búsqueda bibliográfica | 5-10 papers relevantes con notas |
+| 1.4 Fichas de trabajo | Fichas estructuradas + esquema de revisión |
+
+::: {.callout-note}
+## Pausa para café
+11:00-11:15
+
+Regresamos con el Módulo 2: Pulido, inglés y envío.
+:::

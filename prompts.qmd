@@ -1,0 +1,618 @@
+# Prompts del taller
+
+Este capítulo reúne todos los prompts utilizados en el taller, listos para copiar y adaptar a tu investigación.
+
+::: {.callout-tip}
+## Cómo usar estos prompts
+
+1. Copia el prompt completo
+2. Reemplaza los campos entre `[CORCHETES]` con tu información
+3. Pega en ChatGPT, Claude, Gemini o tu herramienta preferida
+4. Ajusta según las respuestas que obtengas
+:::
+
+---
+
+## Prompts del Módulo 1
+
+### 1.2 Preguntas de investigación
+
+#### Meta prompt inicial
+
+Usa este prompt para que la IA te ayude a clarificar tu pregunta de investigación:
+
+```
+Soy investigador/a en [TU ÁREA DE INVESTIGACIÓN].
+
+Estoy trabajando en un proyecto sobre [DESCRIPCIÓN BREVE DEL PROYECTO].
+
+Mi pregunta de investigación preliminar es:
+[TU PREGUNTA DE INVESTIGACIÓN ACTUAL]
+
+Antes de ayudarme a refinarla, hazme preguntas para entender mejor:
+- El contexto de mi investigación
+- Los vacíos en la literatura que intento abordar
+- Las limitaciones metodológicas que enfrento
+- El público al que va dirigida la publicación
+```
+
+#### Refinamiento de pregunta
+
+Después de responder las preguntas del modelo:
+
+```
+Con base en mis respuestas, genera 3 versiones alternativas de mi
+pregunta de investigación, ordenadas de más general a más específica.
+
+Para cada versión, explica:
+- Qué enfoque metodológico sugiere
+- Qué tipo de revista podría publicarlo
+- Qué limitaciones tendría
+```
+
+#### Desglose en subpreguntas
+
+Para descomponer una pregunta amplia:
+
+```
+Mi pregunta de investigación es: "[TU PREGUNTA]"
+
+Ayúdame a:
+1. Identificar 3-5 subpreguntas más específicas
+2. Sugerir un marco teórico apropiado
+3. Proponer una metodología viable para cada subpregunta
+```
+
+---
+
+### 1.3 Búsqueda bibliográfica
+
+#### Búsqueda en Elicit
+
+Escribe directamente tu pregunta en formato de investigación:
+
+```
+How are scientific publishers responding to generative AI use
+in manuscript preparation?
+```
+
+```
+What are the effects of [INTERVENCIÓN] on [OUTCOME] in [POBLACIÓN]?
+```
+
+```
+What methodologies are used to study [FENÓMENO] in [CONTEXTO]?
+```
+
+#### Chat con papers en SciSpace
+
+Preguntas útiles para hacer a un paper individual:
+
+```
+¿Cuál es la pregunta de investigación principal de este estudio?
+```
+
+```
+Resume los hallazgos principales en 5 puntos concisos.
+```
+
+```
+¿Cuál es la metodología utilizada? Incluye: tipo de estudio,
+muestra, instrumentos de recolección de datos.
+```
+
+```
+¿Cuáles son las limitaciones mencionadas por los autores?
+```
+
+```
+¿Qué recomendaciones hace este artículo para futuras investigaciones?
+```
+
+```
+¿Cómo se relaciona este estudio con [TU TEMA]?
+```
+
+#### Búsqueda en Perplexity
+
+Para resultados más académicos:
+
+```
+Busca solo en literatura peer-reviewed:
+[TU PREGUNTA DE INVESTIGACIÓN]
+```
+
+```
+What does the academic literature say about [TEMA]?
+Focus on peer-reviewed sources from the last 5 years.
+```
+
+```
+Provide a systematic overview of research on [TEMA].
+Include only empirical studies with clear methodology.
+```
+
+---
+
+### 1.4 Fichas de trabajo
+
+#### Generar ficha de un paper
+
+```
+Ayúdame a crear una ficha de trabajo académica para este paper:
+
+[PEGA EL ABSTRACT O INFORMACIÓN DEL PAPER]
+
+Genera una ficha con:
+1. Referencia completa (formato APA 7)
+2. Tema principal (una frase)
+3. Resumen (3-5 oraciones)
+4. Metodología (tipo de estudio, muestra, instrumentos)
+5. Hallazgos principales (lista de 3-5 puntos)
+6. Limitaciones mencionadas por los autores
+7. Sugerencias de cómo se relaciona con el tema:
+   "[TU TEMA DE INVESTIGACIÓN]"
+```
+
+#### Identificar patrones en la literatura
+
+```
+Tengo fichas de [NÚMERO] papers sobre [TEMA]. Los temas principales son:
+
+1. [Paper 1 - Apellido, Año]: [tema principal]
+2. [Paper 2 - Apellido, Año]: [tema principal]
+3. [Paper 3 - Apellido, Año]: [tema principal]
+
+Ayúdame a:
+1. Identificar los principales puntos de consenso entre estos estudios
+2. Identificar los principales puntos de debate o contradicción
+3. Detectar vacíos en la literatura (qué no se ha investigado)
+4. Sugerir cómo mi investigación podría contribuir a este campo
+```
+
+#### Estructurar revisión de literatura
+
+```
+Basándote en los patrones identificados, sugiere una estructura
+para una sección de revisión de literatura que:
+
+- Tenga 3-5 subsecciones temáticas
+- Fluya de lo general a lo específico
+- Termine señalando el vacío que mi investigación aborda
+- Use los papers que he fichado como evidencia
+
+Mi pregunta de investigación es: "[TU PREGUNTA]"
+
+Los papers disponibles son:
+[LISTA DE PAPERS CON TEMAS PRINCIPALES]
+```
+
+#### Comparar metodologías
+
+```
+Compara las metodologías de estos estudios:
+
+1. [Estudio 1]: [metodología]
+2. [Estudio 2]: [metodología]
+3. [Estudio 3]: [metodología]
+
+Genera una tabla comparativa con:
+- Tipo de estudio (cualitativo/cuantitativo/mixto)
+- Muestra (tamaño, características)
+- Instrumentos de recolección
+- Técnicas de análisis
+- Fortalezas
+- Limitaciones
+```
+
+---
+
+## Prompts del Módulo 2
+
+### 2.1 Estructurar documento
+
+#### Generar estructura de artículo
+
+```
+Genera la estructura en Markdown para un artículo académico
+sobre [TU TEMA].
+
+El artículo es de tipo [EMPÍRICO / REVISIÓN / TEÓRICO].
+
+Incluye todas las secciones estándar con subsecciones
+apropiadas. Agrega comentarios breves indicando qué debe
+ir en cada sección.
+```
+
+#### Adaptar estructura a revista específica
+
+```
+Tengo esta estructura de artículo en Markdown:
+
+[PEGA TU ESTRUCTURA]
+
+Adapta la estructura para cumplir con las guías de autor de
+[NOMBRE DE REVISTA]. Los requisitos específicos son:
+
+- [Requisito 1]
+- [Requisito 2]
+- [Requisito 3]
+```
+
+#### Sugerir subsecciones
+
+```
+Estoy escribiendo un artículo sobre [TEMA] usando metodología
+[TIPO DE METODOLOGÍA].
+
+Mi sección de [NOMBRE DE SECCIÓN] actualmente tiene esta
+estructura:
+
+[PEGA ESTRUCTURA ACTUAL]
+
+Sugiere subsecciones adicionales que fortalecerían esta sección,
+considerando las mejores prácticas en [TU DISCIPLINA].
+```
+
+---
+
+### 2.2 Redacción en español
+
+#### Generar borrador de sección
+
+```
+Actúa como asistente de redacción académica en español.
+
+Necesito escribir la sección de [NOMBRE DE SECCIÓN] para un
+artículo sobre [TEMA].
+
+Información clave que debe incluir:
+- [Punto 1]
+- [Punto 2]
+- [Punto 3]
+
+Contexto: [BREVE DESCRIPCIÓN DEL ESTUDIO]
+
+Genera un borrador de [NÚMERO] palabras en estilo académico
+formal. Usa voz activa cuando sea posible. No incluyas
+afirmaciones que no puedas respaldar con los puntos que te di.
+```
+
+#### Mejorar claridad y fluidez
+
+```
+Revisa este texto académico y mejora:
+1. Claridad: simplifica oraciones complejas sin perder precisión
+2. Precisión: elimina ambigüedades
+3. Fluidez: mejora las transiciones entre párrafos
+4. Concisión: elimina redundancias
+
+Mantén el tono académico formal. No cambies el significado.
+
+[PEGA TU TEXTO]
+```
+
+#### Verificar consistencia de estilo
+
+```
+Revisa este texto y asegura consistencia en:
+- Uso de tiempos verbales (pasado para métodos y resultados)
+- Persona gramatical (tercera persona o impersonal)
+- Terminología (usa siempre los mismos términos para conceptos clave)
+- Formato de números y porcentajes
+
+Indica los cambios que hagas y por qué.
+
+[PEGA TU TEXTO]
+```
+
+#### Expandir desde notas
+
+```
+Expande estas notas en prosa académica formal en español:
+
+[PEGA TUS NOTAS O BULLET POINTS]
+
+Requisitos:
+- Extensión: [NÚMERO] palabras aproximadamente
+- Estilo: académico formal
+- Incluir conectores apropiados entre ideas
+- Mantener la secuencia lógica de las notas
+```
+
+#### Generar transiciones
+
+```
+Tengo estos dos párrafos consecutivos que necesitan una mejor
+transición entre ellos:
+
+Párrafo 1:
+[PEGA PÁRRAFO 1]
+
+Párrafo 2:
+[PEGA PÁRRAFO 2]
+
+Genera 3 opciones de oración de transición que conecten
+fluidamente ambos párrafos. Explica la lógica de cada opción.
+```
+
+---
+
+### 2.3 Traducción al inglés
+
+#### Traducción académica especializada
+
+```
+Actúa como traductor especializado en textos académicos de
+[TU DISCIPLINA].
+
+Traduce el siguiente texto del español al inglés académico.
+
+Instrucciones:
+1. Usa terminología estándar de [TU DISCIPLINA] en inglés
+2. Mantén el registro formal académico
+3. Adapta expresiones idiomáticas al equivalente en inglés académico
+4. Conserva la estructura argumentativa del original
+5. Si hay términos que podrían traducirse de varias formas,
+   usa el más común en revistas de alto impacto
+
+No traduzcas literalmente. Produce un texto que suene natural
+para un lector académico anglófono.
+
+Texto a traducir:
+[PEGA TU TEXTO EN ESPAÑOL]
+```
+
+#### Crear glosario terminológico
+
+```
+Estoy por traducir un artículo sobre [TEMA] en el área de
+[TU DISCIPLINA].
+
+Genera un glosario bilingüe con los 15-20 términos técnicos
+más importantes. Formato tabla:
+
+| Español | Inglés | Notas de uso |
+|---------|--------|--------------|
+
+Incluye términos que podrían tener traducciones ambiguas o
+múltiples opciones válidas.
+```
+
+#### Traducir con glosario
+
+```
+Traduce este texto al inglés académico usando el glosario
+terminológico que te proporciono para mantener consistencia:
+
+GLOSARIO:
+[PEGA TU GLOSARIO]
+
+TEXTO A TRADUCIR:
+[PEGA TU TEXTO]
+```
+
+#### Refinar traducción
+
+```
+Revisa esta traducción al inglés académico y mejora:
+
+1. Naturalidad: ¿suena como lo escribiría un nativo?
+2. Precisión: ¿se mantiene el significado original?
+3. Convenciones: ¿sigue las normas del inglés académico?
+   - Hedging apropiado (may, might, suggest, appear to)
+   - Voz pasiva donde corresponde
+   - Conectores formales
+
+Original en español:
+[TEXTO ESPAÑOL]
+
+Traducción a revisar:
+[TEXTO INGLÉS]
+
+Indica los cambios específicos que hagas y por qué.
+```
+
+#### Alternativas de expresión
+
+```
+Dame 3 formas alternativas de expresar esta idea en inglés
+académico:
+
+"[FRASE O PÁRRAFO]"
+
+Para cada alternativa, indica:
+- El matiz que aporta
+- En qué contexto sería más apropiada
+```
+
+---
+
+### 2.4 Revisión final
+
+#### Revisión completa de manuscrito
+
+```
+Actúa como editor de una revista académica de [TU ÁREA].
+
+Revisa este manuscrito y genera un informe con:
+
+1. ESTRUCTURA
+   - ¿Están todas las secciones requeridas?
+   - ¿La organización es lógica?
+
+2. CLARIDAD
+   - ¿Hay oraciones confusas o ambiguas?
+   - ¿Los argumentos son fáciles de seguir?
+
+3. CONSISTENCIA
+   - ¿Los tiempos verbales son consistentes?
+   - ¿La terminología es consistente?
+   - ¿Las abreviaturas están definidas en primer uso?
+
+4. POSIBLES PROBLEMAS
+   - ¿Hay afirmaciones sin respaldo?
+   - ¿Hay saltos lógicos?
+   - ¿Falta información importante?
+
+5. RECOMENDACIONES PRIORITARIAS
+   - Lista las 3-5 mejoras más importantes
+
+[PEGA TU MANUSCRITO]
+```
+
+#### Verificar citas y referencias
+
+```
+Extrae todas las citas en el texto (formato Autor, año) y
+compáralas con la lista de referencias.
+
+TEXTO:
+[PEGA TU TEXTO]
+
+REFERENCIAS:
+[PEGA TU LISTA DE REFERENCIAS]
+
+Identifica:
+1. Citas en el texto que no están en las referencias
+2. Referencias que no están citadas en el texto
+3. Posibles inconsistencias en nombres o años
+```
+
+#### Revisar abstract
+
+```
+Revisa este abstract y verifica que contenga:
+
+1. Contexto/problema (1-2 oraciones)
+2. Objetivo del estudio (1 oración)
+3. Metodología (1-2 oraciones)
+4. Resultados principales (2-3 oraciones)
+5. Conclusión/implicaciones (1-2 oraciones)
+
+Abstract:
+[PEGA TU ABSTRACT]
+
+Indica qué elementos faltan o están débiles.
+Sugiere mejoras específicas.
+El límite es [NÚMERO] palabras.
+```
+
+#### Generar declaración de uso de IA
+
+```
+Genera una declaración de uso de IA para mi manuscrito con
+estos datos:
+
+- Herramienta(s) usada(s): [LISTA DE HERRAMIENTAS]
+- Versión(es): [VERSIONES]
+- Propósito(s): [PARA QUÉ SE USÓ]
+- Secciones asistidas: [QUÉ PARTES]
+
+Genera la declaración en inglés siguiendo el formato requerido
+por [ELSEVIER / SPRINGER NATURE / TAYLOR & FRANCIS].
+
+Incluye la afirmación de que los autores revisaron todo el
+contenido y asumen responsabilidad completa.
+```
+
+#### Checklist personalizado
+
+```
+Estoy preparando un manuscrito para enviar a [NOMBRE DE REVISTA].
+
+Basándote en las instrucciones estándar para autores de revistas
+académicas de [TU ÁREA], genera un checklist detallado que incluya:
+
+1. Requisitos del manuscrito (formato, extensión, secciones)
+2. Requisitos de figuras y tablas
+3. Requisitos de referencias
+4. Documentos adicionales (cover letter, declaraciones)
+5. Requisitos éticos (si aplica)
+
+Formato: lista de verificación con casillas [ ]
+```
+
+---
+
+## Consejos para mejores prompts
+
+### Sé específico
+
+| Menos efectivo | Más efectivo |
+|----------------|--------------|
+| "Ayúdame con mi investigación" | "Ayúdame a refinar mi pregunta de investigación sobre [TEMA] para una revista de [ÁREA]" |
+| "Busca papers" | "Busca estudios empíricos de los últimos 5 años sobre [TEMA] en contexto [ESPECÍFICO]" |
+| "Resume esto" | "Resume en 3 puntos los hallazgos principales relacionados con [ASPECTO ESPECÍFICO]" |
+
+### Proporciona contexto
+
+```
+[CONTEXTO]: Soy investigador/a en [ÁREA] preparando un artículo
+para [TIPO DE REVISTA].
+
+[TAREA]: [LO QUE NECESITAS]
+
+[RESTRICCIONES]: El resultado debe [CARACTERÍSTICAS DESEADAS]
+```
+
+### Pide formatos estructurados
+
+```
+Responde en formato de tabla con las siguientes columnas:
+- Columna 1
+- Columna 2
+- Columna 3
+```
+
+```
+Genera una lista numerada con:
+1. [Categoría 1]
+2. [Categoría 2]
+3. [Categoría 3]
+```
+
+### Itera y refina
+
+Si la respuesta no es satisfactoria:
+
+```
+La respuesta anterior fue [muy general/muy técnica/no enfocada en X].
+Por favor, refínala para [ESPECIFICACIÓN].
+```
+
+```
+Expande el punto [NÚMERO] con más detalle sobre [ASPECTO].
+```
+
+```
+Simplifica esta explicación para [AUDIENCIA ESPECÍFICA].
+```
+
+---
+
+## Plantilla: Sistema de prompts
+
+Para proyectos complejos, puedes crear un "sistema" de prompts relacionados:
+
+```
+=== PROMPT 1: DIAGNÓSTICO ===
+Antes de comenzar, hazme 5 preguntas para entender mejor
+[LO QUE NECESITO].
+
+=== PROMPT 2: GENERACIÓN ===
+Basándote en mis respuestas, genera [PRODUCTO DESEADO].
+
+=== PROMPT 3: CRÍTICA ===
+Revisa críticamente lo que generaste. Identifica:
+- Posibles errores o imprecisiones
+- Aspectos que podrían mejorarse
+- Información faltante
+
+=== PROMPT 4: REFINAMIENTO ===
+Incorpora las críticas y genera una versión mejorada.
+
+=== PROMPT 5: VERIFICACIÓN ===
+Lista las afirmaciones factuales que debo verificar manualmente
+y sugiere fuentes donde podría verificarlas.
+```

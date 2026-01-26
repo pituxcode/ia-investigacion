@@ -1,0 +1,637 @@
+# Módulo 2: Pulido, inglés y envío
+
+**Duración:** 11:15-13:00 (1 hora 45 minutos)
+
+Este módulo te guía desde el borrador inicial hasta un manuscrito listo para enviar. Aprenderás a estructurar documentos, pulir tu redacción en español, traducir al inglés académico y verificar el cumplimiento de políticas editoriales.
+
+---
+
+## Actividad 2.1: Estructurar documento con Markdown
+
+**Duración:** 25 minutos
+
+### Objetivo
+
+Aprender a usar Markdown para estructurar documentos académicos de forma eficiente, aprovechando la compatibilidad con herramientas de IA.
+
+### ¿Por qué Markdown?
+
+Markdown es un lenguaje de marcado simple que:
+
+- Es texto plano (funciona en cualquier editor)
+- Se convierte fácilmente a Word, PDF, HTML
+- Es ideal para trabajar con IA (formato que los modelos entienden bien)
+- Separa contenido de formato (te enfocas en escribir)
+
+::: {.callout-note}
+## Markdown vs. Word
+| Aspecto | Word | Markdown |
+|---------|------|----------|
+| Formato | Visual (WYSIWYG) | Texto con marcas |
+| Colaboración con IA | Copiar/pegar fragmentos | Flujo directo |
+| Control de versiones | Difícil | Fácil (es texto) |
+| Exportación | Limitada | Múltiples formatos |
+:::
+
+### Sintaxis básica de Markdown
+
+```markdown
+# Título principal (H1)
+## Sección (H2)
+### Subsección (H3)
+
+Texto normal con **negrita** y *cursiva*.
+
+- Lista con viñetas
+- Otro ítem
+  - Subítem indentado
+
+1. Lista numerada
+2. Segundo ítem
+
+> Cita textual o bloque destacado
+
+`código en línea`
+
+[Texto del enlace](https://url.com)
+
+| Columna 1 | Columna 2 |
+|-----------|-----------|
+| Dato 1    | Dato 2    |
+```
+
+### Estructura de un artículo académico en Markdown
+
+```markdown
+# Título del artículo
+
+**Autores:** Nombre Apellido^1^, Nombre Apellido^2^
+
+^1^ Afiliación 1
+^2^ Afiliación 2
+
+## Resumen
+
+[Resumen de 150-300 palabras]
+
+**Palabras clave:** palabra1, palabra2, palabra3
+
+## Introducción
+
+[Contexto, problema, objetivo, estructura del artículo]
+
+## Marco teórico
+
+### Concepto 1
+[Desarrollo]
+
+### Concepto 2
+[Desarrollo]
+
+## Metodología
+
+### Diseño del estudio
+[Tipo de estudio, enfoque]
+
+### Participantes/Muestra
+[Descripción]
+
+### Instrumentos
+[Descripción]
+
+### Procedimiento
+[Descripción]
+
+### Análisis de datos
+[Descripción]
+
+## Resultados
+
+### Hallazgo 1
+[Descripción con datos]
+
+### Hallazgo 2
+[Descripción con datos]
+
+## Discusión
+
+[Interpretación, comparación con literatura, implicaciones]
+
+## Conclusiones
+
+[Síntesis, limitaciones, futuras líneas]
+
+## Referencias
+
+[Lista de referencias en formato requerido]
+```
+
+::: {.panel-tabset}
+
+## Camino A: Google Docs + IA
+
+1. **Crea el esqueleto en el chat:**
+   ```
+   Genera la estructura en Markdown para un artículo académico
+   sobre [TU TEMA]. Incluye todas las secciones estándar de
+   un artículo empírico.
+   ```
+
+2. **Copia el resultado a Google Docs**
+
+3. **Convierte Markdown a formato visual:**
+   - Usa una extensión como "Docs to Markdown"
+   - O convierte manualmente los encabezados (#) a estilos
+
+4. **Trabaja sección por sección** con la IA
+
+## Camino B: VS Code / Editor de código
+
+1. **Crea un archivo `.md` o `.qmd`:**
+   ```bash
+   touch mi-articulo.qmd
+   ```
+
+2. **Usa la estructura base** del ejemplo anterior
+
+3. **Con Gemini CLI, genera secciones:**
+   ```bash
+   gemini "Genera el contenido para la sección de Metodología
+   de un estudio sobre [TEMA]. Tipo de estudio: [TIPO].
+   Responde solo en Markdown."
+   ```
+
+4. **Previsualiza en VS Code:**
+   - `Cmd+Shift+V` (Mac) o `Ctrl+Shift+V` (Windows)
+
+5. **Exporta a Word/PDF:**
+   ```bash
+   quarto render mi-articulo.qmd --to docx
+   ```
+
+:::
+
+::: {.callout-tip}
+## Actividad práctica
+
+Crea la estructura Markdown para tu artículo:
+
+1. Abre tu editor preferido
+2. Copia la plantilla de estructura
+3. Adapta las secciones a tu investigación
+4. Pídele a la IA que sugiera subsecciones adicionales si es necesario
+:::
+
+---
+
+## Actividad 2.2: Redacción en español con IA
+
+**Duración:** 30 minutos
+
+### Objetivo
+
+Usar IA como asistente de redacción para generar borradores, mejorar la claridad y mantener un estilo académico consistente.
+
+### Principios de la redacción aumentada
+
+::: {.callout-important}
+## Regla de oro
+La IA genera borradores; tú aportas el conocimiento experto, la interpretación y la responsabilidad final.
+:::
+
+| La IA puede | Tú debes |
+|-------------|----------|
+| Generar borradores iniciales | Verificar precisión del contenido |
+| Mejorar claridad y fluidez | Asegurar que refleja tu argumento |
+| Sugerir conectores y transiciones | Mantener tu voz académica |
+| Identificar redundancias | Validar con fuentes primarias |
+| Proponer estructuras alternativas | Tomar decisiones editoriales |
+
+### Paso 1: Generar borrador de una sección
+
+::: {.panel-tabset}
+
+## Camino A: Chat web
+
+Usa este prompt para generar un borrador:
+
+```
+Actúa como asistente de redacción académica en español.
+
+Necesito escribir la sección de [NOMBRE DE SECCIÓN] para un
+artículo sobre [TEMA].
+
+Información clave que debe incluir:
+- [Punto 1]
+- [Punto 2]
+- [Punto 3]
+
+Contexto: [BREVE DESCRIPCIÓN DEL ESTUDIO]
+
+Genera un borrador de 300-400 palabras en estilo académico
+formal. Usa voz activa cuando sea posible. No incluyas
+afirmaciones que no puedas respaldar con los puntos que te di.
+```
+
+## Camino B: Editor + CLI
+
+Crea un archivo con notas y pide expansión:
+
+```bash
+# Archivo: notas-metodologia.md
+# - Estudio cualitativo
+# - 15 entrevistas semiestructuradas
+# - Análisis temático
+# - Muestreo por conveniencia
+
+gemini "Expande estas notas en una sección de Metodología
+académica en español. 300-400 palabras. Solo Markdown." \
+  < notas-metodologia.md > metodologia-borrador.md
+```
+
+:::
+
+### Paso 2: Mejorar la redacción
+
+Una vez tengas el borrador, pide mejoras específicas:
+
+```
+Revisa este texto académico y mejora:
+1. Claridad: simplifica oraciones complejas
+2. Precisión: elimina ambigüedades
+3. Fluidez: mejora las transiciones entre párrafos
+4. Concisión: elimina redundancias
+
+Mantén el tono académico formal. No cambies el significado.
+
+[PEGA TU TEXTO]
+```
+
+### Paso 3: Verificar consistencia de estilo
+
+```
+Revisa este texto y asegura consistencia en:
+- Uso de tiempos verbales (pasado para métodos y resultados)
+- Persona gramatical (tercera persona o impersonal)
+- Terminología (usa siempre los mismos términos para conceptos clave)
+- Formato de números y porcentajes
+
+[PEGA TU TEXTO]
+```
+
+### Errores comunes a evitar
+
+::: {.callout-warning}
+## Atención
+
+| Error | Por qué es problema | Solución |
+|-------|---------------------|----------|
+| Aceptar todo sin revisar | La IA puede inventar o malinterpretar | Lee críticamente cada oración |
+| Sobre-editar | El texto pierde tu voz | Pide cambios específicos, no generales |
+| Pegar secciones sin conectar | El texto queda fragmentado | Pide transiciones explícitas |
+| No verificar afirmaciones | Pueden ser alucinaciones | Contrasta con tus fuentes |
+:::
+
+::: {.callout-tip}
+## Actividad práctica
+
+1. Elige una sección de tu artículo (Introducción o Discusión)
+2. Escribe 3-5 puntos clave que debe contener
+3. Genera un borrador con IA
+4. Revisa y marca lo que necesita verificación
+5. Pide una mejora específica
+:::
+
+---
+
+## Actividad 2.3: Traducción al inglés académico
+
+**Duración:** 30 minutos
+
+### Objetivo
+
+Traducir tu manuscrito al inglés académico manteniendo precisión terminológica y estilo apropiado para publicación internacional.
+
+### ¿Por qué no usar Google Translate directamente?
+
+| Google Translate | IA con prompt especializado |
+|------------------|----------------------------|
+| Traducción literal | Adaptación al registro académico |
+| No considera contexto disciplinar | Usa terminología de tu área |
+| Puede perder matices | Mantiene el argumento |
+| Sin control de estilo | Puedes especificar convenciones |
+
+### El prompt de traducción académica
+
+```
+Actúa como traductor especializado en textos académicos de
+[TU DISCIPLINA].
+
+Traduce el siguiente texto del español al inglés académico.
+
+Instrucciones:
+1. Usa terminología estándar de [TU DISCIPLINA] en inglés
+2. Mantén el registro formal académico
+3. Adapta expresiones idiomáticas al equivalente en inglés académico
+4. Conserva la estructura argumentativa del original
+5. Si hay términos que podrían traducirse de varias formas,
+   usa el más común en revistas de alto impacto
+
+No traduzcas literalmente. Produce un texto que suene natural
+para un lector académico anglófono.
+
+Texto a traducir:
+[PEGA TU TEXTO EN ESPAÑOL]
+```
+
+::: {.panel-tabset}
+
+## Camino A: Chat web
+
+1. **Traduce por secciones** (no todo el documento de una vez)
+2. **Revisa cada sección** antes de continuar
+3. **Pide alternativas** para frases que no te convenzan:
+   ```
+   Dame 3 formas alternativas de expresar esta idea en inglés
+   académico: "[FRASE]"
+   ```
+4. **Verifica terminología** con papers de referencia en tu área
+
+## Camino B: Traducción por lotes
+
+Crea un script para traducir múltiples archivos:
+
+```bash
+# traducir.sh
+for file in secciones/*.md; do
+  gemini "Traduce este texto académico del español al inglés.
+  Disciplina: [TU ÁREA]. Mantén formato Markdown." \
+    < "$file" > "translated/$(basename $file)"
+done
+```
+
+O traduce sección por sección con control:
+
+```bash
+gemini "Traduce al inglés académico. Área: ciencias sociales.
+Mantén Markdown." < introduccion.md > introduction.md
+```
+
+:::
+
+### Refinamiento de la traducción
+
+Después de la traducción inicial:
+
+```
+Revisa esta traducción al inglés académico y mejora:
+
+1. Naturalidad: ¿suena como lo escribiría un nativo?
+2. Precisión: ¿se mantiene el significado original?
+3. Convenciones: ¿sigue las normas del inglés académico?
+   - Hedging apropiado (may, might, suggest, appear to)
+   - Voz pasiva donde corresponde
+   - Conectores formales
+
+Original en español:
+[TEXTO ESPAÑOL]
+
+Traducción a revisar:
+[TEXTO INGLÉS]
+```
+
+### Glosario de términos clave
+
+Antes de traducir, crea un glosario:
+
+```
+Estoy por traducir un artículo sobre [TEMA].
+
+Genera un glosario bilingüe con los términos técnicos más
+importantes de esta área. Formato tabla:
+
+| Español | Inglés | Notas de uso |
+```
+
+Luego úsalo como referencia:
+
+```
+Usa este glosario para mantener consistencia terminológica
+en la traducción:
+
+[PEGA GLOSARIO]
+
+Texto a traducir:
+[TEXTO]
+```
+
+::: {.callout-tip}
+## Actividad práctica
+
+1. Toma un párrafo de tu borrador en español
+2. Tradúcelo con el prompt especializado
+3. Compara con Google Translate: ¿qué diferencias notas?
+4. Pide refinamiento de 2-3 frases específicas
+5. Verifica un término técnico en un paper de referencia
+:::
+
+---
+
+## Actividad 2.4: Revisión final y lista de verificación
+
+**Duración:** 20 minutos
+
+### Objetivo
+
+Asegurar que tu manuscrito cumple con todos los requisitos antes de enviarlo a una revista.
+
+### Lista de verificación general
+
+Antes de enviar, verifica cada punto:
+
+#### Contenido y estructura
+
+- [ ] El título refleja el contenido del artículo
+- [ ] El resumen incluye: objetivo, método, resultados principales, conclusión
+- [ ] Las palabras clave son relevantes y buscables
+- [ ] La introducción termina con el objetivo/pregunta de investigación
+- [ ] La metodología es suficientemente detallada para replicar el estudio
+- [ ] Los resultados responden a las preguntas planteadas
+- [ ] La discusión interpreta (no repite) los resultados
+- [ ] Las conclusiones se derivan de los hallazgos
+
+#### Formato y estilo
+
+- [ ] El formato sigue las guías de la revista objetivo
+- [ ] Las citas están en el estilo requerido (APA, Vancouver, etc.)
+- [ ] Todas las referencias citadas están en la bibliografía
+- [ ] Todas las referencias en la bibliografía están citadas en el texto
+- [ ] Las tablas y figuras están numeradas y tienen títulos descriptivos
+- [ ] El conteo de palabras está dentro del límite
+
+#### Verificación de uso de IA
+
+- [ ] La IA **NO** está listada como autor
+- [ ] Se ha incluido la declaración de uso de IA (si aplica)
+- [ ] Se especifica: herramienta, versión, propósito
+- [ ] Todo el contenido generado por IA fue verificado
+- [ ] Las referencias fueron verificadas manualmente
+- [ ] Las imágenes **NO** fueron generadas con IA
+
+### Prompt de revisión final
+
+Usa este prompt para una revisión automatizada:
+
+```
+Actúa como editor de una revista académica de [TU ÁREA].
+
+Revisa este manuscrito y genera un informe con:
+
+1. ESTRUCTURA
+   - ¿Están todas las secciones requeridas?
+   - ¿La organización es lógica?
+
+2. CLARIDAD
+   - ¿Hay oraciones confusas o ambiguas?
+   - ¿Los argumentos son fáciles de seguir?
+
+3. CONSISTENCIA
+   - ¿Los tiempos verbales son consistentes?
+   - ¿La terminología es consistente?
+   - ¿Las abreviaturas están definidas en primer uso?
+
+4. POSIBLES PROBLEMAS
+   - ¿Hay afirmaciones sin respaldo?
+   - ¿Hay saltos lógicos?
+   - ¿Falta información importante?
+
+5. RECOMENDACIONES PRIORITARIAS
+   - Lista las 3-5 mejoras más importantes
+
+[PEGA TU MANUSCRITO]
+```
+
+::: {.panel-tabset}
+
+## Camino A: Revisión en chat
+
+1. Pega tu manuscrito completo (o por secciones si es muy largo)
+2. Revisa el informe generado
+3. Haz las correcciones manualmente
+4. Pide una segunda revisión de las secciones modificadas
+
+## Camino B: Revisión automatizada
+
+```bash
+# Revisa todo el documento
+gemini "Actúa como editor. Revisa este manuscrito académico.
+Genera lista de problemas ordenados por prioridad." \
+  < manuscrito.md > revision-informe.md
+
+# Revisa consistencia de citas
+gemini "Extrae todas las citas (Autor, año) del texto.
+Luego lista las referencias. Identifica discrepancias." \
+  < manuscrito.md > verificacion-citas.md
+```
+
+:::
+
+### Declaración de uso de IA
+
+Si usaste IA en la preparación del manuscrito, incluye una declaración como esta:
+
+```
+## Declaration of Generative AI Use
+
+During the preparation of this manuscript, the authors used
+[HERRAMIENTA] ([VERSIÓN]) for [PROPÓSITO: improving language
+clarity / translating from Spanish to English / organizing
+the literature review structure].
+
+After using this tool, the authors reviewed and edited the
+content as needed and take full responsibility for the
+content of the publication.
+```
+
+::: {.callout-important}
+## Ubicación de la declaración
+
+| Editorial | Ubicación |
+|-----------|-----------|
+| Elsevier | Antes de las referencias |
+| Springer Nature | En la sección de Métodos |
+| Taylor & Francis | En Acknowledgments o según instrucciones |
+
+Siempre revisa las instrucciones específicas de la revista.
+:::
+
+### Checklist final antes de enviar
+
+```markdown
+## Checklist de envío
+
+### Documentos
+- [ ] Manuscrito principal (anónimo si requiere revisión ciega)
+- [ ] Página de título con autores y afiliaciones
+- [ ] Carta de presentación (cover letter)
+- [ ] Tablas (archivo separado si lo requiere)
+- [ ] Figuras (alta resolución, formato requerido)
+- [ ] Material suplementario (si aplica)
+
+### Requisitos éticos
+- [ ] Aprobación de comité de ética (si aplica)
+- [ ] Consentimiento informado mencionado
+- [ ] Conflictos de interés declarados
+- [ ] Financiamiento declarado
+
+### Formato
+- [ ] Conteo de palabras verificado
+- [ ] Formato de referencias correcto
+- [ ] Figuras en resolución y formato requeridos
+- [ ] Nombres de archivos según instrucciones
+```
+
+::: {.callout-tip}
+## Actividad práctica
+
+1. Descarga las instrucciones para autores de tu revista objetivo
+2. Crea un checklist personalizado basado en esas instrucciones
+3. Usa el prompt de revisión final con una sección de tu manuscrito
+4. Identifica 3 mejoras prioritarias
+:::
+
+---
+
+## Resumen del Módulo 2
+
+| Actividad | Producto |
+|-----------|----------|
+| 2.1 Estructurar documento | Esqueleto en Markdown de tu artículo |
+| 2.2 Redacción en español | Borrador mejorado de al menos una sección |
+| 2.3 Traducción al inglés | Sección traducida al inglés académico |
+| 2.4 Revisión final | Checklist personalizado + informe de revisión |
+
+---
+
+## Cierre del taller
+
+### Recursos para continuar
+
+- **Este cuadernillo**: Disponible para consulta y referencia
+- **Prompts**: Capítulo [Prompts](prompts.qmd) con todos los prompts listos para usar
+- **Políticas editoriales**: Capítulo [Recursos](recursos.qmd) con detalle de cada editorial
+
+### Próximos pasos sugeridos
+
+1. **Esta semana**: Completa la estructura Markdown de tu artículo
+2. **Próximas 2 semanas**: Genera borradores de todas las secciones
+3. **Antes de enviar**: Usa la lista de verificación completa
+
+### Contacto y soporte
+
+[Información de contacto del facilitador o unidad organizadora]
+
+::: {.callout-note}
+## Recordatorio final
+La IA es una herramienta poderosa, pero la responsabilidad del contenido siempre es tuya. Verifica, revisa y mantén tu criterio experto en cada paso del proceso.
+:::

@@ -1,0 +1,305 @@
+# Recursos
+
+Este capítulo reúne materiales de referencia para usar durante y después del taller: políticas editoriales sobre IA, listas de verificación y herramientas recomendadas.
+
+---
+
+## Políticas de IA en publicaciones científicas
+
+Las principales editoriales científicas han desarrollado políticas convergentes sobre el uso de IA generativa en manuscritos. Esta sección sintetiza los puntos clave para investigadores que desean publicar utilizando herramientas de IA de manera responsable.
+
+### Puntos de convergencia entre editoriales
+
+#### 1. La IA no puede ser autora
+
+**Todas las editoriales coinciden:** Las herramientas de IA no pueden ser listadas como autores ni coautores. La autoría implica responsabilidades que solo pueden ser asumidas por humanos.
+
+> "Authorship responsibilities are uniquely human and cannot be undertaken by AI tools." — Taylor & Francis
+
+#### 2. Declaración obligatoria de uso de IA
+
+El uso de IA generativa **debe ser explicitado** en el manuscrito mediante una declaración formal. Esta declaración debe incluir:
+
+| Elemento | Descripción | Ejemplo |
+|----------|-------------|---------|
+| **Herramienta** | Nombre específico del modelo o servicio | ChatGPT, Claude, Gemini |
+| **Versión** | Identificador de versión utilizada | GPT-4o, Claude 3.5 Sonnet |
+| **Propósito** | Para qué se utilizó la herramienta | Mejora de redacción, traducción |
+| **Alcance** | Qué partes del manuscrito fueron asistidas | Introducción, revisión de estilo |
+| **Supervisión** | Cómo se verificó y editó el resultado | Revisión manual completa |
+
+::: {.callout-note}
+## Excepción común
+La corrección básica de gramática, ortografía y puntuación generalmente no requiere declaración.
+:::
+
+#### 3. Prohibición en imágenes y figuras
+
+**Ninguna editorial permite** el uso de IA generativa para:
+
+- Crear imágenes o figuras
+- Manipular imágenes existentes (aumentar, ocultar, mover, eliminar elementos)
+- Generar datos de investigación originales
+
+#### 4. Responsabilidad humana total
+
+Los autores mantienen **responsabilidad completa** sobre:
+
+- Originalidad del contenido
+- Veracidad de la información
+- Integridad del manuscrito
+- Corrección de errores y sesgos generados por IA
+
+#### 5. Confidencialidad en revisión por pares
+
+**Prohibido para revisores:** Subir manuscritos no publicados a herramientas de IA generativa (viola confidencialidad y derechos de propiedad).
+
+---
+
+### Políticas por editorial
+
+#### Taylor & Francis
+
+**Fuente:** [taylorandfrancis.com/our-policies/ai-policy](https://taylorandfrancis.com/our-policies/ai-policy/)
+
+| Aspecto | Política |
+|---------|----------|
+| Autoría IA | No permitida |
+| Declaración de uso | Obligatoria (herramienta, versión, propósito) |
+| Imágenes con IA | Prohibido crear o manipular |
+| Datos con IA | No permitido generar datos originales |
+| Revisores | No pueden usar IA con manuscritos |
+
+**Usos prohibidos específicos:**
+
+- Generar abstracts con IA
+- Crear materiales suplementarios automáticamente
+- Reemplazar responsabilidades centrales del investigador
+
+---
+
+#### Elsevier
+
+**Fuente:** [elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals](https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals)
+
+| Aspecto | Política |
+|---------|----------|
+| Autoría IA | No permitida, no citar como autor |
+| Declaración de uso | Sección específica antes de referencias |
+| Imágenes con IA | Prohibido (excepto portadas con permiso previo) |
+| Uso en investigación | Declarar en sección de métodos |
+| Revisores | Prohibido subir manuscritos a IA |
+
+**Ubicación de la declaración:**
+
+- Final del manuscrito, inmediatamente antes de referencias
+- Título: "Declaration of Generative AI and AI-assisted technologies in the writing process"
+
+---
+
+#### Springer Nature
+
+**Fuente:** [nature.com/nature-portfolio/editorial-policies/ai](https://www.nature.com/nature-portfolio/editorial-policies/ai)
+
+| Aspecto | Política |
+|---------|----------|
+| Autoría IA | No cumple criterios de autoría |
+| Declaración de uso | En sección de Métodos |
+| Imágenes con IA | No permitido (excepciones específicas) |
+| Copy editing con IA | No requiere declaración |
+| Revisores | No subir manuscritos; declarar si usaron IA |
+
+**Excepciones para imágenes:**
+
+- Imágenes de agencias con contratos específicos
+- Imágenes referenciadas en artículos *sobre* IA (caso por caso)
+- Herramientas de IA con datos científicos verificables
+
+---
+
+### Ejemplo de declaración de uso de IA
+
+```
+Declaration of Generative AI and AI-assisted Technologies
+
+During the preparation of this manuscript, the authors used
+ChatGPT (GPT-4o, OpenAI) to improve language clarity and
+fluency in English. After using this tool, the authors
+reviewed and edited the content as needed and take full
+responsibility for the content of the publication.
+```
+
+---
+
+## Listas de verificación
+
+### Verificación de uso de IA en manuscrito
+
+Antes de enviar un manuscrito que utilizó herramientas de IA:
+
+#### Autoría y atribución
+
+- [ ] La IA **NO** está listada como autor/coautor
+- [ ] Todos los autores humanos aprueban el contenido final
+- [ ] Cada autor puede defender el contenido del manuscrito
+
+#### Declaración de uso de IA
+
+- [ ] Se explicita el nombre y versión de la herramienta de IA
+- [ ] Se especifica el propósito del uso
+- [ ] Se indica qué partes del manuscrito fueron asistidas
+- [ ] Se describe cómo se supervisó y verificó el resultado
+- [ ] La declaración está ubicada según requisitos de la revista específica
+
+#### Contenido
+
+- [ ] Se verificó la exactitud factual del contenido generado por IA
+- [ ] Se revisaron potenciales sesgos
+- [ ] No hay plagio (verificar con herramientas de detección)
+- [ ] Las referencias generadas por IA fueron verificadas manualmente
+
+#### Imágenes y datos
+
+- [ ] Las imágenes **NO** fueron creadas con IA generativa
+- [ ] Las imágenes **NO** fueron manipuladas con IA
+- [ ] Los datos de investigación son originales (no generados por IA)
+
+#### Confidencialidad
+
+- [ ] No se subió información confidencial a herramientas de IA
+- [ ] Se revisaron términos de uso de la herramienta respecto a privacidad
+
+---
+
+### Checklist de envío a revista
+
+#### Documentos principales
+
+- [ ] Manuscrito principal (formato requerido por la revista)
+- [ ] Manuscrito anónimo (si requiere revisión ciega)
+- [ ] Página de título con:
+  - [ ] Título del artículo
+  - [ ] Autores y afiliaciones
+  - [ ] Autor de correspondencia con email
+  - [ ] ORCID de autores (si requerido)
+- [ ] Carta de presentación (cover letter)
+
+#### Contenido del manuscrito
+
+- [ ] Título refleja el contenido
+- [ ] Resumen completo (objetivo, método, resultados, conclusión)
+- [ ] Palabras clave (número según revista)
+- [ ] Todas las secciones requeridas presentes
+- [ ] Conteo de palabras dentro del límite
+
+#### Referencias y citas
+
+- [ ] Formato de citas correcto (APA, Vancouver, etc.)
+- [ ] Todas las citas en texto están en referencias
+- [ ] Todas las referencias están citadas en el texto
+- [ ] DOI incluidos donde estén disponibles
+
+#### Figuras y tablas
+
+- [ ] Numeradas secuencialmente
+- [ ] Títulos descriptivos y completos
+- [ ] Leyendas explicativas
+- [ ] Resolución adecuada (generalmente 300 dpi mínimo)
+- [ ] Formato correcto (TIFF, EPS, PDF según revista)
+- [ ] Mencionadas en el texto en orden
+
+#### Declaraciones requeridas
+
+- [ ] Declaración de conflicto de intereses
+- [ ] Declaración de financiamiento
+- [ ] Declaración de uso de IA (si aplica)
+- [ ] Aprobación de comité de ética (si aplica)
+- [ ] Consentimiento informado mencionado (si aplica)
+- [ ] Declaración de disponibilidad de datos
+
+#### Material suplementario (si aplica)
+
+- [ ] Archivos correctamente nombrados
+- [ ] Referenciados en el manuscrito principal
+- [ ] Formato aceptado por la revista
+
+---
+
+### Usos permitidos y recomendados de IA
+
+| Uso | Recomendación | Verificación requerida |
+|-----|---------------|------------------------|
+| Mejora de redacción | Permitido con declaración | Revisar que no cambie significado |
+| Corrección de gramática | Generalmente no requiere declaración | Mínima |
+| Traducción asistida | Permitido con declaración | Revisión exhaustiva por humano |
+| Búsqueda bibliográfica | Permitido | Verificar cada referencia existe |
+| Estructuración de ideas | Permitido | Asegurar originalidad del contenido |
+| Revisión de coherencia | Permitido | Validar sugerencias |
+| **Generación de imágenes** | **Prohibido** | N/A |
+| **Fabricación de datos** | **Prohibido** | N/A |
+| **Autoría** | **Prohibido** | N/A |
+
+---
+
+## Herramientas recomendadas
+
+### Búsqueda bibliográfica con IA
+
+| Herramienta | URL | Características | Limitaciones |
+|-------------|-----|-----------------|--------------|
+| **Elicit** | [elicit.com](https://elicit.com) | Busca papers reales, extrae datos, genera tablas comparativas | Solo inglés, plan gratuito limitado |
+| **SciSpace** | [typeset.io](https://typeset.io) | Chat con papers, análisis profundo de documentos | Requiere tener el paper |
+| **Perplexity** | [perplexity.ai](https://perplexity.ai) | Búsqueda con fuentes citadas, modo académico | No exclusivamente académico |
+| **Semantic Scholar** | [semanticscholar.org](https://semanticscholar.org) | Base de datos académica con IA | Sin chat interactivo |
+| **Connected Papers** | [connectedpapers.com](https://connectedpapers.com) | Visualización de relaciones entre papers | Limitado a exploración |
+
+### Asistentes de escritura
+
+| Herramienta | URL | Mejor para |
+|-------------|-----|------------|
+| **ChatGPT** | [chat.openai.com](https://chat.openai.com) | Redacción general, versatilidad |
+| **Claude** | [claude.ai](https://claude.ai) | Textos largos, análisis detallado |
+| **Gemini** | [gemini.google.com](https://gemini.google.com) | Integración con Google Workspace |
+
+### Gestores de referencias
+
+| Herramienta | URL | Integración con IA |
+|-------------|-----|-------------------|
+| **Zotero** | [zotero.org](https://zotero.org) | Plugins disponibles |
+| **Mendeley** | [mendeley.com](https://mendeley.com) | Recomendaciones de papers |
+| **EndNote** | [endnote.com](https://endnote.com) | Funciones básicas |
+
+### Editores de texto
+
+| Herramienta | URL | Ventajas para académicos |
+|-------------|-----|-------------------------|
+| **VS Code** | [code.visualstudio.com](https://code.visualstudio.com) | Extensiones de IA, Markdown, Git |
+| **RStudio** | [posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/) | Integrado con R, Quarto |
+| **Overleaf** | [overleaf.com](https://overleaf.com) | LaTeX colaborativo |
+
+---
+
+## Enlaces de referencia
+
+### Políticas editoriales oficiales
+
+- [Taylor & Francis AI Policy](https://taylorandfrancis.com/our-policies/ai-policy/)
+- [Elsevier Generative AI Policies](https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals)
+- [Springer Nature Editorial Policies](https://www.springernature.com/gp/policies/editorial-policies)
+- [Nature Portfolio AI Policy](https://www.nature.com/nature-portfolio/editorial-policies/ai)
+
+### Recursos adicionales
+
+- [COPE (Committee on Publication Ethics)](https://publicationethics.org/)
+- [ICMJE Recommendations](https://www.icmje.org/recommendations/)
+- [Purdue University - Publisher Policies on AI](https://guides.lib.purdue.edu/c.php?g=1371380&p=10135076)
+
+### Documentación de herramientas
+
+- [Quarto Documentation](https://quarto.org/docs/guide/)
+- [Markdown Guide](https://www.markdownguide.org/)
+- [Zotero Documentation](https://www.zotero.org/support/)
+
+---
+
+*Recursos compilados para el taller "Herramientas de IA para la Productividad Científica" - Universidad de Aysén, enero 2026.*

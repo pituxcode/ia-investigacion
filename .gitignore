@@ -1,0 +1,24 @@
+# Quarto
+/.quarto/
+**/*.quarto_ipynb
+_book/
+_freeze/
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.tex
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~

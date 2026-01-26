@@ -1,0 +1,42 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "IA para Investigación Académica"
+  subtitle: "Guía práctica del taller"
+  author: "Universidad de Aysén"
+  date: "28 de enero 2026"
+  chapters:
+    - index.qmd
+    - fundamentos.qmd
+    - modulo-1.qmd
+    - modulo-2.qmd
+    - prompts.qmd
+    - recursos.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap
+  pdf:
+    documentclass: report
+    papersize: letter
+    toc: true
+    number-sections: true
+    colorlinks: true
+    keep-tex: false
+    pdf-engine: xelatex
+
+lang: es
+
+execute:
+  echo: false
+  warning: false

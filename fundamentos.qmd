@@ -1,0 +1,176 @@
+# Fundamentos: tres ideas fuerza
+
+Este capítulo presenta los conceptos esenciales para usar IA generativa de forma responsable en investigación. La primera sección contiene las **tres ideas fuerza** que se presentan en el taller. El resto es material de profundización para leer después.
+
+## Las tres ideas fuerza
+
+### 1. Un LLM predice la siguiente palabra
+
+Un modelo de lenguaje grande (LLM, por *Large Language Model*) no "sabe" cosas ni "entiende" como un humano. Su funcionamiento es fundamentalmente diferente:
+
+> **El modelo calcula la probabilidad de qué palabra viene después**, basándose en patrones estadísticos aprendidos de millones de textos.
+
+Cuando escribes "El cielo es...", el modelo calcula que "azul" tiene alta probabilidad de ser la siguiente palabra, porque ha visto esa secuencia muchas veces en su entrenamiento.
+
+::: {.callout-note}
+## Analogía útil
+Imagina un autocompletado muy sofisticado. Cuando tu teléfono sugiere la siguiente palabra en un mensaje, hace algo similar (aunque a menor escala). El LLM hace esto con toda la potencia de miles de millones de parámetros.
+:::
+
+**Implicación práctica:** El modelo genera texto que *parece* correcto porque sigue patrones de lenguaje humano, pero no está razonando sobre la verdad de lo que dice.
+
+### 2. Por eso alucina
+
+Las "alucinaciones" son respuestas que parecen plausibles pero son incorrectas o inventadas. Ocurren porque:
+
+> **El modelo siempre genera la siguiente palabra más probable**, aunque no tenga información real sobre el tema.
+
+Si le preguntas por una referencia bibliográfica, el modelo puede generar algo como:
+
+> García, M. & López, J. (2023). Métodos innovadores en ciencias sociales. *Revista de Investigación Social*, 45(2), 112-128.
+
+Esta referencia puede no existir. El modelo generó un patrón que *parece* una cita académica válida porque ha visto miles de citas similares.
+
+::: {.callout-warning}
+## Atención
+Las alucinaciones son especialmente peligrosas en investigación porque:
+
+- Suenan autoritativas y bien redactadas
+- Siguen el formato esperado (DOI, números de página, etc.)
+- Son difíciles de detectar sin verificación manual
+:::
+
+**Implicación práctica:** Nunca confíes en referencias, datos o afirmaciones factuales generadas por IA sin verificar en fuentes primarias.
+
+### 3. Meta prompting: usar IA para mejorar tus prompts
+
+El *meta prompting* consiste en usar la propia IA para generar o mejorar los prompts que le darás después.
+
+> **Primero le preguntas a la IA qué deberías preguntarle.**
+
+En lugar de escribir directamente tu solicitud, puedes pedirle al modelo que te ayude a estructurar una mejor solicitud:
+
+```
+Soy investigador en [tu área]. Quiero usar IA para [tu objetivo].
+¿Qué información necesitarías de mí para ayudarme mejor?
+```
+
+El modelo te responderá con preguntas que puedes usar para construir un prompt más efectivo.
+
+::: {.callout-tip}
+## ¿Por qué funciona?
+El meta prompting funciona porque:
+
+1. Te obliga a clarificar tu objetivo
+2. Aprovecha el conocimiento del modelo sobre qué información es relevante
+3. Genera prompts más estructurados y específicos
+4. Reduce la ambigüedad que causa respuestas genéricas
+:::
+
+**Implicación práctica:** Antes de pedir directamente lo que necesitas, considera preguntarle al modelo cómo debería estructurarse tu solicitud.
+
+---
+
+## Profundización teórica
+
+::: {.callout-note}
+## Lectura posterior
+Esta sección expande los conceptos anteriores para quienes deseen entender mejor el funcionamiento de los LLM. No es necesaria para las actividades del taller.
+:::
+
+### Cómo aprenden los LLM
+
+Los modelos de lenguaje actuales se entrenan en dos fases principales:
+
+#### Fase 1: Pre-entrenamiento
+
+El modelo procesa cantidades masivas de texto (libros, artículos, páginas web) y aprende a predecir qué palabra viene después en una secuencia. Este proceso ajusta miles de millones de parámetros (pesos numéricos) que capturan patrones estadísticos del lenguaje.
+
+| Aspecto | Descripción |
+|---------|-------------|
+| **Datos** | Cientos de miles de millones de palabras |
+| **Tarea** | Predecir la siguiente palabra (o token) |
+| **Resultado** | Modelo base con conocimiento general |
+
+#### Fase 2: Ajuste fino (Fine-tuning)
+
+El modelo base se ajusta con ejemplos específicos para seguir instrucciones, responder preguntas y mantener conversaciones. Técnicas como RLHF (*Reinforcement Learning from Human Feedback*) alinean las respuestas con preferencias humanas.
+
+| Aspecto | Descripción |
+|---------|-------------|
+| **Datos** | Conversaciones y preferencias humanas |
+| **Tarea** | Generar respuestas útiles y seguras |
+| **Resultado** | Modelo asistente (ChatGPT, Claude, etc.) |
+
+### Tipos de alucinaciones
+
+Las alucinaciones pueden clasificarse según su naturaleza:
+
+| Tipo | Descripción | Ejemplo |
+|------|-------------|---------|
+| **Fabricación** | Inventar información inexistente | Citas bibliográficas falsas |
+| **Contradicción** | Afirmar algo opuesto a hechos conocidos | "Einstein nació en Francia" |
+| **Inconsistencia** | Contradecirse en la misma respuesta | Dar dos fechas diferentes para el mismo evento |
+| **Extrapolación** | Generalizar incorrectamente | "Todos los estudios muestran que..." cuando solo hay algunos |
+
+### Estrategias para reducir alucinaciones
+
+Aunque no puedes eliminar las alucinaciones completamente, puedes reducirlas:
+
+1. **Proporcionar contexto**: Incluye información relevante en tu prompt
+2. **Pedir fuentes**: Solicita que cite de dónde proviene la información
+3. **Verificar siempre**: Contrasta afirmaciones con fuentes primarias
+4. **Usar herramientas especializadas**: Elicit y SciSpace trabajan directamente con papers reales
+5. **Limitar el alcance**: Preguntas específicas generan menos alucinaciones que preguntas amplias
+
+### Limitaciones fundamentales de los LLM
+
+Es importante entender qué **no pueden** hacer los LLM actuales:
+
+| Limitación | Explicación |
+|------------|-------------|
+| **No acceden a internet en tiempo real** | Solo conocen información de su entrenamiento (salvo que tengan plugins) |
+| **No recuerdan conversaciones previas** | Cada sesión comienza sin memoria (salvo sistemas con memoria explícita) |
+| **No razonan como humanos** | Simulan razonamiento mediante patrones, no comprensión real |
+| **No tienen intenciones** | No "quieren" nada; solo generan la siguiente secuencia probable |
+| **No pueden verificar hechos** | Generan texto plausible, no necesariamente verdadero |
+
+### Implicaciones éticas para la investigación
+
+El uso de IA en investigación académica plantea consideraciones éticas específicas:
+
+#### Autoría y atribución
+
+- La IA no puede ser autora porque no asume responsabilidad
+- El investigador es responsable de todo el contenido, incluyendo errores de la IA
+- Debe declararse explícitamente el uso de herramientas de IA
+
+#### Integridad académica
+
+- El contenido generado por IA debe verificarse rigurosamente
+- No debe usarse IA para fabricar datos o resultados
+- Las imágenes científicas no deben ser generadas ni manipuladas con IA
+
+#### Transparencia
+
+- Los métodos deben ser reproducibles
+- El uso de IA en cualquier etapa debe documentarse
+- Los lectores deben poder evaluar el rol de la IA en el trabajo
+
+::: {.callout-important}
+## Recuerda
+Las políticas editoriales de Taylor & Francis, Elsevier y Springer Nature coinciden en estos principios. Consulta el capítulo [Recursos](recursos.qmd) para ver las políticas específicas.
+:::
+
+### Glosario
+
+| Término | Definición |
+|---------|------------|
+| **LLM** | *Large Language Model*. Modelo de lenguaje entrenado con grandes cantidades de texto. |
+| **Token** | Unidad mínima de texto que procesa el modelo (puede ser una palabra, parte de palabra o símbolo). |
+| **Prompt** | Instrucción o texto de entrada que se le da al modelo. |
+| **Alucinación** | Respuesta generada que parece plausible pero es incorrecta o inventada. |
+| **Meta prompting** | Técnica de usar IA para mejorar los prompts que se le darán después. |
+| **Fine-tuning** | Ajuste del modelo con datos específicos para una tarea particular. |
+| **RLHF** | *Reinforcement Learning from Human Feedback*. Técnica para alinear modelos con preferencias humanas. |
+| **Contexto** | Información adicional incluida en el prompt para guiar la respuesta. |
