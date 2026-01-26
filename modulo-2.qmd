@@ -618,8 +618,7 @@ Siempre revisa las instrucciones específicas de la revista.
 ### Recursos para continuar
 
 - **Este cuadernillo**: Disponible para consulta y referencia
-- **Prompts**: Capítulo [Prompts](prompts.qmd) con todos los prompts listos para usar
-- **Políticas editoriales**: Capítulo [Recursos](recursos.qmd) con detalle de cada editorial
+- **Políticas editoriales**: Capítulo [Recursos](recursos.qmd) con detalle de requisitos de cada editorial
 
 ### Próximos pasos sugeridos
 

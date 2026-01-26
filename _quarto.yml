@@ -5,7 +5,7 @@ project:
 book:
   title: "IA para Investigación Académica"
   subtitle: "Guía práctica del taller"
-  author: "Universidad de Aysén"
+  author: "José Cifuentes R.<br>Universidad de Aysén"
   date: "2026-01-28"
   date-format: "D [de] MMMM YYYY"
   chapters:
@@ -13,7 +13,6 @@ book:
     - fundamentos.qmd
     - modulo-1.qmd
     - modulo-2.qmd
-    - prompts.qmd
     - recursos.qmd
     - references.qmd
 
@@ -22,6 +21,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     toc-depth: 2
     number-sections: false

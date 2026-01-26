@@ -1,124 +1,152 @@
 # Bienvenida {.unnumbered}
 
-## Acerca de este documento
+## Acerca de esta guía
 
-Esta guía práctica acompaña el taller **"Herramientas de IA para la Productividad Científica"** de la Universidad de Aysén. Está diseñada para que puedas:
+La inteligencia artificial generativa está transformando la forma en que investigamos, escribimos y publicamos. Sin embargo, usar estas herramientas de manera efectiva y responsable requiere comprender tanto sus capacidades como sus limitaciones.
 
-- Seguir las actividades durante el taller.
-- Consultar los conceptos clave después.
-- Copiar y adaptar los prompts a tu propio trabajo.
-- Usar las herramientas de forma autónoma.
+Esta guía acompaña el taller **"Herramientas de IA para la Productividad Científica"** de la Universidad de Aysén. A lo largo de cuatro horas, exploraremos cómo integrar asistentes de IA en tu flujo de trabajo académico, desde la formulación de preguntas de investigación hasta la preparación de un manuscrito listo para enviar a una revista.
+
+El documento que tienes en tus manos está diseñado para dos momentos: durante el taller, como guía de las actividades prácticas; y después, como referencia para aplicar lo aprendido en tus propios proyectos. Cada sección incluye explicaciones, ejemplos y prompts que puedes copiar y adaptar a tu trabajo.
 
 ::: {.callout-note}
 ## Información del taller
 
-| | |
-|---|---|
-| **Fecha** | 28 de enero 2026, 09:00-13:00 |
-| **Lugar** | Sala D6-Campus Lillo |
-| **Audiencia** | Cuerpo académico |
+- **Fecha:** 28 de enero de 2026, 09:00-13:00
+- **Lugar:** Sala D6, Campus Lillo, Universidad de Aysén
+- **Audiencia:** Cuerpo académico
 :::
 
-## Estructura del taller
+## Objetivos del taller
 
-El taller se organiza en dos módulos:
+::: {.callout-note appearance="simple" icon=false}
+- Explicar qué es un LLM, por qué genera alucinaciones y cómo mitigar este riesgo en el trabajo académico.
+- Aplicar técnicas de prompting efectivas, incluyendo meta prompting, para refinar preguntas de investigación.
+- Buscar literatura científica con herramientas especializadas como Elicit, SciSpace y Perplexity.
+- Organizar y redactar documentos académicos con asistencia de IA, manteniendo tu criterio experto.
+- Producir traducciones al inglés académico que respeten el registro formal y la terminología disciplinar.
+- Declarar correctamente el uso de IA según las políticas de las principales editoriales científicas.
+:::
 
-### M1: Marco ético y escritura aumentada 
+## Programa del taller
+
+El taller se organiza en dos módulos, con una pausa para café entre ellos. Cada módulo combina breves explicaciones conceptuales con actividades prácticas que realizarás con tu propio material de investigación.
+
+### M1: Marco ético y escritura aumentada
+
 **(09:00-11:00)**
 
 | Tiempo | Actividad |
 |--------|-----------|
 | 15 min | **Un breve repaso.** ¿Qué es un LLM?, ¿Qué son las alucinaciones?, técnicas de prompting (meta prompting), la importancia del contexto (del prompt engineering al context engineering). |
-| 30 min | **Preguntas de investigación con IA.** Uso de asistentes de IA para enmarcar la investigación |
-| 40 min | **Búsqueda bibliográfica.** Herramientas para búsquedas bibliográficas para investigación académica (Semantic Scholar, Elicit, SciSpace, Perplexity) |
-| 35 min | **Organización del trabajo de investigación.** Fichas de trabajo para organizar hallazgos y preparar documento |
+| 30 min | **Preguntas de investigación con IA.** Uso de asistentes de IA para enmarcar la investigación. |
+| 40 min | **Búsqueda bibliográfica.** Herramientas para búsquedas bibliográficas para investigación académica (Semantic Scholar, Elicit, SciSpace, Perplexity). |
+| 35 min | **Organización del trabajo de investigación.** Fichas de trabajo para organizar hallazgos y preparar documento. |
 
-**Café (11:00-11:15)**
+::: {.callout-note appearance="simple"}
+## Café (11:00-11:15)
+Pausa de 15 minutos.
+:::
 
-### M2: Pulido, inglés y envío 
+### M2: Pulido, inglés y envío
+
 **(11:15-13:00)**
 
-| Actividad |
-|-----------|
-| Estructurar documento con Markdown |
-| Redacción en español con IA |
-| Traducción al inglés académico |
-| Revisión final y lista de verificación |
+| Tiempo | Actividad |
+|--------|-----------|
+| 25 min | **Estructurar documento con Markdown.** Formato simple y portable para documentos académicos, compatible con herramientas de IA. |
+| 30 min | **Redacción en español con IA.** Generar borradores, mejorar claridad y mantener consistencia de estilo. |
+| 30 min | **Traducción al inglés académico.** Técnicas para traducción especializada que mantiene el registro formal y la terminología disciplinar. |
+| 20 min | **Revisión final y lista de verificación.** Checklist de cumplimiento antes de enviar, incluyendo declaración de uso de IA. |
 
-## Dos caminos para cada actividad
+## Enfoque práctico: dos caminos
 
-Este cuadernillo ofrece **dos caminos** para cada actividad, según tu nivel de experiencia técnica:
+Cada actividad de esta guía ofrece dos caminos según tu experiencia técnica. Puedes elegir el que mejor se adapte a tu forma de trabajar; ambos logran el mismo resultado.
 
 ::: {.callout-tip}
-## Camino A: Nivel básico
+## Camino A: Asistentes web
 
-- Prefieres interfaces simples y visuales.
-- **Herramientas:** ChatGPT, Claude o Gemini en su versión web
-- **Flujo:** Copiar texto → pegar en chat → copiar resultado → guardar.
+- **Es tu opción.** Si prefieres herramientas visuales y simples, sin instalaciones adicionales. Es lo mismo que has usado siempre.
+- **Herramientas.** Gemini, ChatGPT o Claude directamente en el navegador.
+- **Flujo de trabajo.** Copiar texto de tu documento, pegarlo en el chat, obtener la respuesta, y copiar el resultado de vuelta a tu documento.
 :::
 
 ::: {.callout-tip}
-## Camino B: Nivel avanzado
+## Camino B: Integración con editor (contexto integrado y texto plano)
 
-**Para ti si:** Ya usas VS Code, R o herramientas de línea de comandos.
+**Es tu opción.** Si ya usas VS Code, RStudio u otras herramientas de desarrollo. 
 
-**Herramientas:** VS Code + Gemini CLI, RStudio con asistente de IA.
+**Herramientas.** Extensiones de IA en tu editor de código, o Gemini CLI en la terminal.
 
-**Flujo:** Edición directa con IA integrada en tu editor.
+**Flujo de trabajo.** Edición directa con asistencia de IA integrada, sin cambiar de aplicación. Requiere configuración previa.
 :::
-
-Puedes elegir el camino que mejor se adapte a tu forma de trabajar. Ambos logran el mismo resultado.
 
 ## Cómo usar esta guía
 
 ### Durante el taller
 
-1. Sigue las actividades en orden
-2. Usa los callouts de **Actividad** para las tareas prácticas
-3. Copia los prompts desde el capítulo [Prompts](prompts.qmd)
-4. Pregunta si algo no queda claro
+Sigue las actividades en el orden propuesto. Cada sección incluye:
+
+- **Objetivo y contexto.** Una explicación de por qué esta actividad es relevante para tu trabajo.
+- **Pasos concretos.** Instrucciones claras para realizar la tarea.
+- **Prompts listos para copiar.** Plantillas que puedes adaptar a tu tema de investigación.
+- **Actividades prácticas.** Momentos específicos para trabajar con tu propio material.
+
+Si algo no queda claro, pregunta. El taller es un espacio para experimentar y resolver dudas.
 
 ### Después del taller
 
-1. Consulta el capítulo [Fundamentos](fundamentos.qmd) para profundizar en la teoría
-2. Adapta los prompts a tus propias preguntas de investigación
-3. Revisa las [políticas editoriales](recursos.qmd) antes de enviar un manuscrito
-4. Usa la lista de verificación para asegurar cumplimiento
+Esta guía seguirá siendo útil como referencia. Te recomendamos:
 
-## Convenciones
+- **Profundizar en la teoría.** El capítulo [Fundamentos](fundamentos.qmd) explica en detalle cómo funcionan los LLMs y por qué alucinan.
+- **Reutilizar los prompts.** El capítulo [Prompts](prompts.qmd) es una biblioteca de plantillas que puedes adaptar a cualquier proyecto.
+- **Revisar las políticas antes de publicar.** El capítulo [Recursos](recursos.qmd) detalla los requisitos de las principales editoriales sobre declaración de uso de IA.
+- **Usar la lista de verificación.** Antes de cada envío, revisa el checklist completo para asegurar cumplimiento.
 
-En este cuadernillo usamos los siguientes elementos:
+## Convenciones de esta guía
+
+A lo largo del documento encontrarás estos elementos visuales que te ayudarán a identificar diferentes tipos de contenido:
 
 ::: {.callout-note}
 ## Nota
-Información complementaria o aclaratoria.
+**Información complementaria.** Contexto adicional o aclaraciones que enriquecen el contenido principal.
 :::
 
 ::: {.callout-tip}
-## Actividad
-Tareas prácticas para realizar durante el taller.
+## Actividad práctica
+**Momento de trabajar.** Indica que debes aplicar lo aprendido con tu propio material de investigación.
 :::
 
 ::: {.callout-warning}
 ## Atención
-Puntos importantes que no debes olvidar.
+**No olvides esto.** Puntos importantes relacionados con buenas prácticas o errores comunes a evitar.
 :::
 
 ::: {.callout-important}
 ## Crítico
-Aspectos éticos o de cumplimiento obligatorio.
+**Cumplimiento obligatorio.** Aspectos éticos o requisitos de las políticas editoriales que debes respetar.
 :::
 
+**Bloques de código.** Contienen prompts listos para copiar. Pasa el cursor sobre el bloque y haz clic en el botón de copiar.
+
+```text
+Este es un ejemplo de prompt que puedes
+copiar y pegar en Gemini u otra herramienta.
 ```
-Bloques de código como este
-contienen prompts para copiar
-```
 
-## Requisitos previos
+## Antes de comenzar
 
-Para aprovechar al máximo el taller, necesitas:
+Para aprovechar al máximo el taller, asegúrate de tener:
 
-- [ ] Cuenta en ChatGPT, Claude o Gemini (versión gratuita es suficiente)
-- [ ] Navegador web actualizado
-- [ ] Una pregunta de investigación o tema en el que estés trabajando
-- [ ] (Opcional) VS Code instalado si quieres probar el Camino B
+- **Navegador web actualizado.** Chrome, Firefox, Safari o Edge en su versión más reciente.
+- **Material propio de trabajo.** Una pregunta de investigación, un borrador de artículo, o un tema que quieras explorar. Trabajaremos con tu contenido real durante las actividades prácticas.
+- **(Opcional) VS Code instalado.** Solo si quieres explorar el Camino B con herramientas de línea de comandos.
+
+::: {.callout-tip}
+## Herramienta recomendada: Gemini
+
+Durante el taller usaremos principalmente **Gemini** ([gemini.google.com](https://gemini.google.com)) porque la Universidad de Aysén cuenta con acceso a través de Google Workspace. 
+
+Puedes ingresar con tu cuenta de correo institucional (tu-nombre`@uaysen.cl`). 
+
+Los prompts y técnicas que aprenderás también funcionan en ChatGPT y Claude si prefieres usar esas herramientas.
+:::

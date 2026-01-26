@@ -1,0 +1,18 @@
+/* Callouts con mismo tamaño de fuente que el documento */
+.callout {
+  font-size: 1rem;
+}
+
+.callout-body-container {
+  font-size: 1rem;
+}
+
+.callout-title-container {
+  font-size: 1rem;
+}
+
+.callout-body-container p,
+.callout-body-container ul,
+.callout-body-container li {
+  font-size: 1rem;
+}

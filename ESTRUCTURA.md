@@ -6,16 +6,22 @@
 capacitacion-ia-investigacion/
 │
 ├── _quarto.yml          ← Configuración del libro
+├── styles.css           ← Estilos personalizados
+├── copy-button.html     ← Script para copiar bloques de código
 │
 ├── index.qmd            ← Bienvenida (portada)
 ├── fundamentos.qmd      ← Fundamentos (3 ideas fuerza)
 ├── modulo-1.qmd         ← Módulo 1 (09:00-11:00)
 ├── modulo-2.qmd         ← Módulo 2 (11:15-13:00)
-├── prompts.qmd          ← Prompts (referencia)
 ├── recursos.qmd         ← Recursos (políticas, checklists)
 ├── references.qmd       ← Referencias bibliográficas
 │
-└── references.bib       ← Bibliografía en formato BibTeX
+├── references.bib       ← Bibliografía en formato BibTeX
+│
+└── assets/              ← Recursos multimedia
+    ├── fundamentos/     ← Imágenes y recursos del capítulo
+    ├── modulo-1/        ← Imágenes y recursos del capítulo
+    └── modulo-2/        ← Imágenes y recursos del capítulo
 ```
 
 ## Orden de lectura
@@ -28,17 +34,16 @@ capacitacion-ia-investigacion/
 
 3. **modulo-1.qmd** — Módulo 1
    - Preguntas de investigación, búsqueda bibliográfica, fichas
+   - Prompts integrados en cada actividad
 
 4. **modulo-2.qmd** — Módulo 2
    - Markdown, redacción español, traducción inglés, revisión
+   - Prompts integrados en cada actividad
 
-5. **prompts.qmd** — Prompts
-   - Todos los prompts organizados por actividad
-
-6. **recursos.qmd** — Recursos
+5. **recursos.qmd** — Recursos
    - Políticas editoriales, checklists, herramientas
 
-7. **references.qmd** — Referencias
+6. **references.qmd** — Referencias
    - Lista de referencias citadas
 
 ---
@@ -69,12 +74,6 @@ capacitacion-ia-investigacion/
 - Redacción en español (30 min) — Borradores con IA
 - Traducción al inglés (30 min) — Inglés académico
 - Revisión final (20 min) — Checklist
-
-### prompts.qmd (Prompts)
-- Prompts del Módulo 1 (preguntas, búsqueda, fichas)
-- Prompts del Módulo 2 (estructura, redacción, traducción, revisión)
-- Consejos para mejores prompts
-- Plantilla de sistema de prompts
 
 ### recursos.qmd (Recursos)
 - Políticas de IA: Taylor & Francis, Elsevier, Springer Nature
