@@ -98,7 +98,7 @@ Si algo no queda claro, pregunta. El taller es un espacio para experimentar y re
 Esta guía seguirá siendo útil como referencia. Te recomendamos:
 
 - **Profundizar en la teoría.** El capítulo [Fundamentos](fundamentos.qmd) explica en detalle cómo funcionan los LLMs y por qué alucinan.
-- **Reutilizar los prompts.** El capítulo [Prompts](prompts.qmd) es una biblioteca de plantillas que puedes adaptar a cualquier proyecto.
+- **Reutilizar los prompts.** Cada módulo incluye prompts listos para copiar y adaptar a cualquier proyecto.
 - **Revisar las políticas antes de publicar.** El capítulo [Recursos](recursos.qmd) detalla los requisitos de las principales editoriales sobre declaración de uso de IA.
 - **Usar la lista de verificación.** Antes de cada envío, revisa el checklist completo para asegurar cumplimiento.
 
