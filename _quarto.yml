@@ -23,7 +23,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-    toc-depth: 2
+    toc-depth: 4
     number-sections: false
     code-copy: true
     code-overflow: wrap

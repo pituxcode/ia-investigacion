@@ -128,7 +128,7 @@ Texto normal con **negrita** y *cursiva*.
 
 ::: {.panel-tabset}
 
-## Camino A: Google Docs + IA
+## Web
 
 1. **Crea el esqueleto en el chat:**
    ```
@@ -145,7 +145,7 @@ Texto normal con **negrita** y *cursiva*.
 
 4. **Trabaja sección por sección** con la IA
 
-## Camino B: VS Code / Editor de código
+## Terminal
 
 1. **Crea un archivo `.md` o `.qmd`:**
    ```bash
@@ -211,7 +211,7 @@ La IA genera borradores; tú aportas el conocimiento experto, la interpretación
 
 ::: {.panel-tabset}
 
-## Camino A: Chat web
+## Web
 
 Usa este prompt para generar un borrador:
 
@@ -233,7 +233,7 @@ formal. Usa voz activa cuando sea posible. No incluyas
 afirmaciones que no puedas respaldar con los puntos que te di.
 ```
 
-## Camino B: Editor + CLI
+## Terminal
 
 Crea un archivo con notas y pide expansión:
 
@@ -346,7 +346,7 @@ Texto a traducir:
 
 ::: {.panel-tabset}
 
-## Camino A: Chat web
+## Web
 
 1. **Traduce por secciones** (no todo el documento de una vez)
 2. **Revisa cada sección** antes de continuar
@@ -357,7 +357,7 @@ Texto a traducir:
    ```
 4. **Verifica terminología** con papers de referencia en tu área
 
-## Camino B: Traducción por lotes
+## Terminal
 
 Crea un script para traducir múltiples archivos:
 
@@ -513,14 +513,14 @@ Revisa este manuscrito y genera un informe con:
 
 ::: {.panel-tabset}
 
-## Camino A: Revisión en chat
+## Web
 
 1. Pega tu manuscrito completo (o por secciones si es muy largo)
 2. Revisa el informe generado
 3. Haz las correcciones manualmente
 4. Pide una segunda revisión de las secciones modificadas
 
-## Camino B: Revisión automatizada
+## Terminal
 
 ```bash
 # Revisa todo el documento

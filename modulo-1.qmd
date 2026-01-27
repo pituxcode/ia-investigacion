@@ -1,120 +1,199 @@
-# Módulo 1: Marco ético y escritura aumentada
+# Módulo 1
+## Marco ético y escritura aumentada
 
 **Duración:** 09:00-11:00 (2 horas)
 
 Este módulo te guía desde la formulación de preguntas de investigación hasta la organización de literatura relevante. Aprenderás a usar IA como asistente en las etapas iniciales del proceso investigativo.
 
-## Preguntas de investigación con meta prompting
+### Flujo de trabajo
+
+El siguiente esquema muestra el recorrido completo del módulo. Las dos técnicas de IA que aprenderás --- *iterative prompting* y *meta prompting* --- te acompañarán en cada etapa.
+
+::: {style="background-color: #dce8f5; border: 2px solid #6b9bd2; border-radius: 8px; padding: 0.6rem 1rem; text-align: center; color: #2c5282; font-weight: bold; font-style: italic; margin-bottom: 1rem;"}
+Iterative prompting · Meta prompting
+:::
+
+```{mermaid}
+%%| label: fig-flujo-modulo1
+%%| fig-cap: "Flujo de trabajo del Módulo 1. La estructura del documento se desarrolla en el Módulo 2."
+flowchart LR
+  A["Interés de<br>investigación"]:::startNode --> B["Preguntas de<br>investigación"] --> C["Búsqueda<br>bibliográfica"] --> D["Fichas de<br>trabajo"] --> E["Estructura del<br>documento"]:::endNode
+
+  classDef startNode fill:#f9f9f9,stroke:#333
+  classDef endNode fill:#f9f9f9,stroke:#333,stroke-dasharray: 5 5
+```
+
+## Preguntas de investigación con IA
 
 **Duración:** 30 minutos
 
 ### Objetivo
 
-Usar la técnica de *meta prompting* para refinar y mejorar tus preguntas de investigación.
+Formular preguntas de investigación claras y específicas usando dos técnicas complementarias de interacción con IA, y transformarlas en consultas listas para búsqueda bibliográfica.
 
-### ¿Qué es meta prompting?
+### Dos técnicas para trabajar con IA
 
-En lugar de escribir directamente tu pregunta, le pides a la IA que te ayude a formularla mejor. Es como tener un colega que te hace preguntas para clarificar tu pensamiento.
+A lo largo del taller usarás dos técnicas complementarias. Ambas son transversales --- las puedes aplicar en cualquier etapa de la investigación.
 
-::: {.callout-tip}
-## Actividad práctica
+#### Iterative prompting (diálogo iterativo)
 
-Piensa en un proyecto de investigación actual o potencial. Puede ser:
+Consiste en **conversar con la IA** de forma sostenida: explorar ideas, discutir enfoques, hacer preguntas y profundizar progresivamente. Al final del diálogo, le pides que **sintetice** lo conversado en un formato útil.
 
-- Un artículo que estés escribiendo
-- Una tesis o proyecto que estés dirigiendo
-- Una pregunta que te gustaría explorar
+Es la forma más natural de interactuar con la IA. Úsala cuando necesitas **explorar** un tema, pensar en voz alta o discutir opciones.
+
+#### Meta prompting
+
+Consiste en **pedirle a la IA que diseñe instrucciones (prompts) especializadas** que usarás después. En vez de conversar, le pides que construya una herramienta: un prompt reutilizable para una tarea específica.
+
+Úsalo cuando ya sabes **qué necesitas** pero quieres que la IA te ayude a pedirlo de la mejor manera posible.
+
+| | **Iterative prompting** | **Meta prompting** |
+|---|---|---|
+| **Dinámica** | Conversas con la IA iterativamente, luego pides síntesis | Le pides a la IA que diseñe un prompt, luego lo usas |
+| **Cuándo usarlo** | Cuando necesitas explorar o pensar en voz alta | Cuando sabes qué necesitas pero no cómo pedirlo bien |
+| **Resultado** | Una síntesis construida a partir del diálogo | Un prompt especializado reutilizable |
+
+::: {.callout-note}
+## ¿Cuál elegir?
+No son excluyentes. En esta actividad practicarás ambas: primero *iterative prompting* para explorar tu tema de investigación, y luego *meta prompting* para diseñar un prompt que estructure tus preguntas.
 :::
 
-### Paso 1: El meta prompt inicial
+### Ejemplo práctico
 
-Copia y adapta este prompt:
-
-```
-Soy investigador/a en [TU ÁREA].
-
-Estoy trabajando en un proyecto sobre [DESCRIPCIÓN BREVE].
-
-Mi pregunta de investigación preliminar es:
-[TU PREGUNTA ACTUAL]
-
-Antes de ayudarme a refinarla, hazme preguntas para entender mejor:
-- El contexto de mi investigación
-- Los vacíos en la literatura que intento abordar
-- Las limitaciones metodológicas que enfrento
-- El público al que va dirigida la publicación
-```
-
-::: {.panel-tabset}
-
-## Camino A: Chat web
-
-1. Abre ChatGPT, Claude o Gemini en tu navegador
-2. Pega el meta prompt adaptado a tu caso
-3. Responde las preguntas que te haga el modelo
-4. Guarda la conversación o copia la pregunta refinada final
-
-## Camino B: CLI/Editor
-
-1. Abre tu terminal o VS Code
-2. Si usas Gemini CLI:
-   ```bash
-   gemini chat
-   ```
-3. Pega el meta prompt
-4. Guarda la salida en un archivo:
-   ```bash
-   # En la conversación, puedes exportar con:
-   /save preguntas-investigacion.md
-   ```
-
-:::
-
-### Paso 2: Refinamiento iterativo
-
-Después de que el modelo te haga preguntas, respóndelas. Luego pídele:
-
-```
-Con base en mis respuestas, genera 3 versiones alternativas de mi
-pregunta de investigación, ordenadas de más general a más específica.
-
-Para cada versión, explica:
-- Qué enfoque metodológico sugiere
-- Qué tipo de revista podría publicarlo
-- Qué limitaciones tendría
-```
-
-### Paso 3: Validar con políticas editoriales (caso práctico)
-
-Usaremos las políticas de IA de las editoriales como caso de estudio para practicar:
-
-```
-Mi pregunta de investigación es: "¿Cómo están respondiendo las
-principales editoriales científicas al uso de IA generativa en
-la redacción de manuscritos?"
-
-Ayúdame a:
-1. Identificar subpreguntas más específicas
-2. Sugerir un marco teórico apropiado
-3. Proponer una metodología viable
-```
+A lo largo de esta actividad usaremos un tema concreto como hilo conductor: **las políticas de las revistas editoriales frente al uso de IA en la producción científica**. Tú puedes seguir el ejemplo o trabajar directamente con tu propio tema de investigación.
 
 ::: {.callout-note}
 ## ¿Por qué este tema?
-Las políticas editoriales sobre IA son un tema que:
-
-- Es relevante para todos los asistentes
-- Tiene literatura reciente disponible
-- Permite practicar búsqueda bibliográfica en la siguiente actividad
+Las políticas editoriales sobre IA son relevantes para todos los participantes del taller, tienen literatura reciente disponible y nos permitirán practicar la búsqueda bibliográfica en la siguiente actividad.
 :::
+
+### Paso 1: Explorar tu tema (iterative prompting)
+
+Comienza una conversación con la IA para explorar tu interés de investigación. No necesitas un prompt elaborado --- simplemente cuéntale qué te interesa:
+
+::: {.panel-tabset}
+
+## Web
+
+1. Abre [gemini.google.com](https://gemini.google.com) en tu navegador
+2. Inicia la conversación con algo como:
+
+```text
+Soy investigador/a en [TU ÁREA] y me interesa explorar el tema
+de [TU INTERÉS]. Quiero conversar contigo para ir definiendo
+posibles preguntas de investigación.
+```
+
+3. Conversa libremente: haz preguntas, pide que profundice, discute enfoques
+4. Cuando sientas que exploraste lo suficiente, pídele:
+
+```text
+Sintetiza nuestra conversación en: un resumen del tema explorado,
+los enfoques que discutimos y 2-3 posibles direcciones de
+investigación.
+```
+
+## Terminal
+
+1. Abre tu terminal en el directorio de tu proyecto de investigación
+2. Inicia Gemini CLI:
+
+```bash
+gemini
+```
+
+3. Usa el mismo prompt inicial del Camino A y conversa con el modelo
+4. Al finalizar, pide la síntesis
+
+:::
+
+::: {.callout-tip}
+## Ejemplo con el tema del taller
+
+Podrías iniciar así:
+
+```text
+Soy académico en una universidad regional de Chile y me interesa
+investigar sobre las políticas y lineamientos que las revistas
+científicas han establecido para regular el uso de inteligencia
+artificial generativa en la producción de manuscritos. ¿Qué
+aspectos de este tema te parecen más relevantes para investigar?
+```
+
+A partir de ahí, conversa: pregunta por diferencias entre editoriales, por los vacíos en la literatura, por enfoques metodológicos posibles. La IA te ayudará a explorar el terreno.
+:::
+
+### Paso 2: Estructurar las preguntas (meta prompting)
+
+Con la exploración del paso anterior como contexto, ahora usarás meta prompting para obtener preguntas de investigación bien formuladas. En la misma conversación o en una nueva, pega:
+
+```text
+Diseña un prompt para crear un asistente que me permita definir
+de manera correcta mis preguntas de investigación.
+
+El asistente debe:
+- Guiarme paso a paso durante todo el proceso
+- Pedirme información sobre mi área de investigación y mi interés
+  específico
+- Ayudarme a delimitar el alcance de la investigación
+- Producir como resultado una pregunta general y al menos dos
+  preguntas específicas
+- Las preguntas deben ser viables para una búsqueda bibliográfica
+  sistemática
+```
+
+Copia el prompt que la IA genere, abre una **nueva conversación** y pégalo. Cuando el asistente te pida tu tema, responde con lo que exploraste en el Paso 1.
+
+::: {.callout-tip}
+## Ejemplo de resultado esperado
+
+**Pregunta general:**
+¿Cómo están respondiendo las principales editoriales científicas al uso de IA generativa en la redacción de manuscritos?
+
+**Preguntas específicas:**
+
+1. ¿Qué requisitos de declaración de uso de IA exigen Elsevier, Springer Nature y Taylor & Francis en sus políticas editoriales vigentes?
+2. ¿En qué medida convergen o divergen estas políticas respecto a los roles permitidos y prohibidos de la IA en el proceso de escritura académica?
+:::
+
+::: {.callout-important}
+## Trabaja con tu propio tema
+El ejemplo sirve para practicar, pero lo ideal es que uses tu propia investigación. Si ya tienes un tema definido, úsalo desde el Paso 1. Si no, este es un buen momento para explorar una idea que te interese.
+:::
+
+### Paso 3: De preguntas a búsqueda
+
+Con tus preguntas de investigación definidas, el último paso es transformarlas en consultas de búsqueda para la siguiente actividad. Pídele a la IA:
+
+```text
+Tengo estas preguntas de investigación:
+
+[PEGA TUS PREGUNTAS AQUÍ]
+
+Transfórmalas en 3-5 consultas de búsqueda en inglés, optimizadas
+para buscar en bases de datos académicas como Semantic Scholar.
+Usa términos técnicos y operadores booleanos si es necesario.
+```
+
+::: {.callout-tip}
+## Ejemplo de resultado esperado
+
+Para las preguntas del ejemplo, las consultas podrían ser:
+
+1. `editorial policies generative AI academic publishing`
+2. `Elsevier Springer Nature Taylor Francis AI disclosure requirements`
+3. `generative AI manuscript preparation guidelines scientific journals`
+:::
+
+Guarda tus preguntas de investigación y las consultas de búsqueda --- las usarás directamente en la siguiente actividad con Elicit.
 
 ### Resumen de la actividad
 
-| Paso | Acción | Resultado |
-|------|--------|-----------|
-| 1 | Meta prompt inicial | El modelo te hace preguntas clarificadoras |
-| 2 | Refinamiento | Obtienes versiones alternativas de tu pregunta |
-| 3 | Validación | Aplicas la técnica a un caso concreto |
+| Paso | Técnica | Acción | Resultado |
+|------|---------|--------|-----------|
+| 1 | *Iterative prompting* | Conversas con la IA para explorar tu tema | Mapa del terreno de investigación |
+| 2 | *Meta prompting* | La IA diseña un prompt para formular preguntas | Pregunta general + preguntas específicas |
+| 3 | --- | Transformas las preguntas en consultas de búsqueda | Consultas en inglés listas para Elicit |
 
 ---
 
@@ -124,160 +203,70 @@ Las políticas editoriales sobre IA son un tema que:
 
 ### Objetivo
 
-Explorar tres herramientas de IA diseñadas específicamente para búsqueda de literatura científica.
+Usar las consultas de búsqueda generadas en la actividad anterior para encontrar papers relevantes en herramientas de IA especializadas en literatura científica.
 
 ::: {.callout-warning}
 ## Importante
-A diferencia de ChatGPT o Claude, estas herramientas trabajan con papers **reales**. No inventan referencias porque buscan en bases de datos académicas.
+A diferencia de ChatGPT, Claude o Gemini, las herramientas de esta actividad trabajan con papers **reales**. No inventan referencias porque buscan directamente en bases de datos académicas como Semantic Scholar y OpenAlex, que indexan más de 200 millones de publicaciones.
 :::
 
-### Herramienta 1: Elicit
+### La herramienta principal: Elicit
 
 **URL:** [elicit.com](https://elicit.com)
 
-Elicit es un asistente de investigación que busca papers reales y extrae información clave.
+[Elicit](https://elicit.com) es un asistente de investigación que busca papers reales y extrae información clave de ellos. A diferencia de un buscador como Google Scholar, Elicit no solo encuentra papers: los lee, los resume y te permite extraer datos estructurados (metodología, hallazgos, tamaño de muestra) en tablas comparativas.
 
-::: {.panel-tabset}
-
-## Camino A: Interfaz web
+#### Cómo usarlo
 
 1. Ve a [elicit.com](https://elicit.com) y crea una cuenta gratuita
-2. En la barra de búsqueda, escribe tu pregunta de investigación
-3. Elicit mostrará papers relevantes con:
-   - Resumen generado
-   - Hallazgos principales
-   - Metodología
-4. Usa "Extract data" para crear una tabla comparativa de papers
+2. Pega las consultas de búsqueda que generaste en la actividad anterior. Por ejemplo:
 
-## Camino B: Exportación estructurada
+```text
+editorial policies generative AI academic publishing
+```
 
-1. Realiza la búsqueda en Elicit
-2. Selecciona los papers relevantes
-3. Exporta como CSV o BibTeX
-4. Importa en tu gestor de referencias (Zotero, Mendeley)
-
-:::
+3. Elicit mostrará papers relevantes con resúmenes generados, hallazgos principales y metodología
+4. Usa **"Extract data"** para crear una tabla comparativa de los papers encontrados
+5. Selecciona los papers más relevantes y expórtalos como CSV o BibTeX para importar en tu gestor de referencias (Zotero, Mendeley)
 
 ::: {.callout-tip}
 ## Actividad práctica
 
-Busca en Elicit:
+Busca en Elicit usando tus propias consultas o las del ejemplo:
 
-```
-How are scientific publishers responding to generative AI use
-in manuscript preparation?
+```text
+Elsevier Springer Nature Taylor Francis AI disclosure requirements
 ```
 
-Identifica 5 papers relevantes y anota:
+Identifica **5 papers relevantes** y para cada uno anota:
 
 - Autor(es) y año
 - Hallazgo principal
 - Metodología usada
+
+Estos datos serán la base para tus fichas de trabajo en la siguiente actividad.
 :::
 
-### Herramienta 2: SciSpace
+### Herramientas complementarias
 
-**URL:** [typeset.io](https://typeset.io)
+Elicit es la herramienta principal del taller, pero existen otras opciones que pueden complementar tu búsqueda:
 
-SciSpace permite "conversar" con papers individuales para extraer información específica.
+**[SciSpace](https://typeset.io)** (typeset.io) es otra plataforma de investigación con IA que permite buscar en más de 280 millones de papers. Además de búsqueda, ofrece chat con papers individuales (puedes hacerle preguntas específicas sobre un artículo), generación de revisiones de literatura y soporte multilingüe --- incluyendo búsquedas en español. Si un paper te interesa pero necesitas entenderlo en profundidad, SciSpace es una buena alternativa.
 
-::: {.panel-tabset}
+**[Perplexity](https://perplexity.ai)** funciona de forma distinta: es un motor de búsqueda web con síntesis de IA que cita sus fuentes. Tiene un modo **"Focus: Academic"** que prioriza resultados de publicaciones académicas. Es útil para obtener una visión general rápida de un tema, pero no es una base de datos académica --- siempre debes verificar que las fuentes citadas existan y sean correctas.
 
-## Camino A: Chat con papers
-
-1. Ve a [typeset.io](https://typeset.io)
-2. Sube un PDF o busca un paper por título
-3. Usa el chat para hacer preguntas específicas:
-   - "¿Cuál es la metodología de este estudio?"
-   - "¿Cuáles son las limitaciones mencionadas?"
-   - "Resume los hallazgos principales en 3 puntos"
-4. Copia las respuestas a tu documento
-
-## Camino B: Análisis sistemático
-
-1. Crea una colección en SciSpace con tus papers
-2. Usa "Literature Review" para generar síntesis
-3. Exporta las notas en formato estructurado
-4. Integra con tu flujo de trabajo en VS Code/Quarto
-
+::: {.callout-note}
+## ¿Cuál elegir?
+No necesitas usar las tres. Elicit es suficiente para esta actividad. SciSpace y Perplexity son alternativas que puedes explorar después del taller según tus necesidades. Lo fundamental no es la herramienta de búsqueda, sino lo que harás con los papers encontrados: **extraer, resumir y organizar la información** en fichas de trabajo.
 :::
-
-::: {.callout-tip}
-## Actividad práctica
-
-Encuentra un paper de tu búsqueda en Elicit y ábrelo en SciSpace. Pregúntale:
-
-```
-¿Qué recomendaciones hace este artículo para investigadores
-que quieren usar IA en su trabajo académico?
-```
-:::
-
-### Herramienta 3: Perplexity
-
-**URL:** [perplexity.ai](https://perplexity.ai)
-
-Perplexity combina búsqueda web con síntesis de información, citando fuentes.
-
-::: {.panel-tabset}
-
-## Camino A: Búsqueda con fuentes
-
-1. Ve a [perplexity.ai](https://perplexity.ai)
-2. Escribe tu pregunta de investigación
-3. Revisa la respuesta Y las fuentes citadas
-4. Haz clic en las fuentes para verificarlas
-5. Usa "Focus: Academic" para priorizar fuentes académicas
-
-## Camino B: Investigación profunda
-
-1. Activa el modo "Pro" o "Academic" si está disponible
-2. Pide específicamente fuentes peer-reviewed:
-   ```
-   Busca solo en literatura peer-reviewed: [tu pregunta]
-   ```
-3. Exporta la bibliografía generada
-4. Verifica cada fuente en Google Scholar o base de datos original
-
-:::
-
-::: {.callout-warning}
-## Verificación obligatoria
-Aunque Perplexity cita fuentes, **siempre verifica** que:
-
-- La fuente existe
-- La cita es correcta
-- La interpretación es fiel al original
-:::
-
-::: {.callout-tip}
-## Actividad práctica
-
-Busca en Perplexity (modo Academic si está disponible):
-
-```
-What are the current editorial policies of Elsevier, Springer
-Nature, and Taylor & Francis regarding AI use in manuscripts?
-```
-
-Compara las fuentes citadas con lo que encontraste en Elicit.
-:::
-
-### Comparación de herramientas
-
-| Herramienta | Mejor para | Limitaciones |
-|-------------|------------|--------------|
-| **Elicit** | Búsqueda sistemática, extracción de datos | Solo papers en inglés, plan gratuito limitado |
-| **SciSpace** | Análisis profundo de papers individuales | Requiere tener el paper |
-| **Perplexity** | Visión general rápida, fuentes diversas | No exclusivamente académico, verificar siempre |
 
 ### Resumen de la actividad
 
 Al terminar, deberías tener:
 
-- [ ] 5-10 papers relevantes identificados
-- [ ] Notas sobre hallazgos principales de cada uno
-- [ ] Una idea de qué herramienta prefieres para tu flujo de trabajo
+- [ ] 5-10 papers relevantes identificados en Elicit
+- [ ] Datos básicos de cada paper (autores, año, hallazgo, metodología)
+- [ ] Papers exportados o guardados para la siguiente actividad
 
 ---
 
@@ -315,11 +304,11 @@ Cada ficha debe contener:
 
 ::: {.panel-tabset}
 
-## Camino A: Chat web
+## Web
 
 Usa este prompt para cada paper:
 
-```
+```text
 Ayúdame a crear una ficha de trabajo académica para este paper:
 
 [PEGA EL ABSTRACT O INFORMACIÓN DEL PAPER]
@@ -335,7 +324,7 @@ Genera una ficha con:
    "Políticas editoriales sobre IA en publicaciones científicas"
 ```
 
-## Camino B: Plantilla automatizada
+## Terminal
 
 Crea un archivo `ficha-template.md`:
 
@@ -390,7 +379,7 @@ Crea fichas para 3 de los papers que encontraste en la actividad anterior. Prior
 
 Una vez que tengas varias fichas, usa este prompt para identificar patrones:
 
-```
+```text
 Tengo fichas de X papers sobre [TEMA]. Los temas principales son:
 
 1. [Paper 1]: [tema principal]
@@ -409,7 +398,7 @@ Ayúdame a:
 
 Con los patrones identificados, genera un esquema para tu revisión de literatura:
 
-```
+```text
 Basándote en los patrones identificados, sugiere una estructura
 para una sección de revisión de literatura que:
 
@@ -421,14 +410,14 @@ para una sección de revisión de literatura que:
 
 ::: {.panel-tabset}
 
-## Camino A: Documento en Google Docs
+## Web
 
 1. Crea un nuevo documento
 2. Pega el esquema generado
 3. Bajo cada subsección, lista los papers relevantes
 4. Copia fragmentos de tus fichas como punto de partida
 
-## Camino B: Documento Quarto/Markdown
+## Terminal
 
 Crea un archivo `revision-literatura.qmd`:
 
@@ -469,7 +458,7 @@ Al terminar, deberías tener:
 
 | Actividad | Producto |
 |-----------|----------|
-| Preguntas de investigación | Pregunta refinada mediante meta prompting |
+| Preguntas de investigación | Preguntas refinadas mediante *iterative prompting* y *meta prompting* |
 | Búsqueda bibliográfica | 5-10 papers relevantes con notas |
 | Fichas de trabajo | Fichas estructuradas + esquema de revisión |
 

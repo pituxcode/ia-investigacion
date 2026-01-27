@@ -53,3 +53,63 @@ Comenzar documentación del Módulo 1: Marco ético y escritura aumentada
 - Revisión final para envío de manuscrito
 
 ---
+
+## 2026-01-27 | Sesión 2: Revisión y mejora de fundamentos
+
+### Contexto
+- Taller programado para mañana (28 enero)
+- Cuadernillo (Fase 1) ya completado en sesión anterior
+- Esta sesión se dedicó a revisar y enriquecer el capítulo de fundamentos
+
+### Acciones realizadas
+
+#### Sección "Un LLM predice la siguiente palabra"
+- [x] Nueva subsección "IA generativa: más que texto" con tabla de tipos de modelos (lenguaje, imagen, audio, video, multimodal)
+- [x] Callout sobre Gemini como caso multimodal y mención de Nano Banana (modelos de imagen de Google)
+- [x] Nueva subsección "Dos formas de usar un modelo" con tabla comparativa asistente web vs CLI/editor
+- [x] Nueva subsección "La arquitectura transformer" con explicación del mecanismo de atención
+- [x] Ejemplo de desambiguación con la palabra "banco"
+- [x] Imagen del Transformer Explainer descargada (`assets/fundamentos/transformer-explainer.png`) y referenciada con callout de demostración en vivo
+- [x] Subsección "De la arquitectura a la predicción" conectando transformer con predicción de palabras
+- [x] Columna "Genera" simplificada a "Texto y código" en tabla de modelos de lenguaje
+
+#### Sección "Por eso alucina"
+- [x] Nueva subsección "Por qué las alucinaciones son inevitables" basada en artículo de OpenAI (Kalai et al., 2025)
+- [x] Tres puntos clave: patrones vs verdades, hechos sin patrón, evaluaciones que premian adivinar
+- [x] Gráfico de asíntota generado con matplotlib (`assets/fundamentos/asintota-alucinaciones.png`)
+- [x] "Autoritativas" reemplazado por "Están bien redactadas y usan un tono formal que inspira confianza"
+- [x] Punto adicional en callout: "El modelo no sabe que no sabe"
+- [x] Imagen del paper de OpenAI descartada (confusa para la audiencia)
+- [x] Referencia BibTeX agregada para Kalai et al. (2025)
+
+#### Numeración y estructura
+- [x] Eliminada numeración de títulos en las tres ideas fuerza (se usan solo jerarquías de encabezados)
+
+#### Glosario
+- [x] Nuevos términos: "Transformer", "Atención"
+- [x] Definición de LLM actualizada para mencionar arquitectura transformer
+
+#### Configuración
+- [x] `toc-depth` aumentado de 2 a 4 en `_quarto.yml`
+- [x] `toc-expand` probado y revertido (se mantiene comportamiento colapsable)
+
+### Pendiente para próxima sesión
+
+#### Inmediato (fundamentos)
+- [ ] **Buscar e insertar imagen de Gemini web** (interfaz de chat en gemini.google.com) — la imagen del CLI ya está lista (`assets/fundamentos/gemini-cli.png`)
+- [ ] Insertar ambas imágenes en la subsección "Dos formas de usar un modelo"
+- [ ] Completar placeholder de contacto en `modulo-2.qmd`: "[Información de contacto del facilitador o unidad organizadora]"
+
+#### Revisión de otros capítulos
+- [ ] Revisar `modulo-1.qmd` con el mismo nivel de detalle
+- [ ] Revisar `modulo-2.qmd` con el mismo nivel de detalle
+- [ ] Revisar `recursos.qmd`
+
+#### Producción final
+- [ ] Render final del PDF con `quarto render`
+- [ ] Commit de todos los cambios
+
+### Estado actual
+**En progreso**: Fundamentos mejorado sustancialmente. Falta una imagen (Gemini web) y revisión del resto de capítulos.
+
+---

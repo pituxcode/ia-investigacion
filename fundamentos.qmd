@@ -1,25 +1,85 @@
-# Fundamentos: tres ideas fuerza
+# Fundamentos
 
 Este capítulo presenta los conceptos esenciales para usar IA generativa de forma responsable en investigación. La primera sección contiene las **tres ideas fuerza** que se presentan en el taller. El resto es material de profundización para leer después.
 
-## Las tres ideas fuerza
+## Tres ideas fuerza
 
-### 1. Un LLM predice la siguiente palabra
+### Un LLM predice la siguiente palabra
 
-Un modelo de lenguaje grande (LLM, por *Large Language Model*) no "sabe" cosas ni "entiende" como un humano. Su funcionamiento es fundamentalmente diferente:
+#### IA generativa: más que texto
 
-> **El modelo calcula la probabilidad de qué palabra viene después**, basándose en patrones estadísticos aprendidos de millones de textos.
+Cuando hablamos de "inteligencia artificial generativa", nos referimos a modelos capaces de crear contenido nuevo. Existen distintos tipos según lo que generan:
 
-Cuando escribes "El cielo es...", el modelo calcula que "azul" tiene alta probabilidad de ser la siguiente palabra, porque ha visto esa secuencia muchas veces en su entrenamiento.
+| Tipo de modelo | Ejemplos | Genera |
+|----------------|----------|--------|
+| **Lenguaje (LLM)** | ChatGPT, Claude, Gemini | Texto y código |
+| **Imagen** | DALL-E, Midjourney, Stable Diffusion | Imágenes a partir de texto |
+| **Audio** | Suno, ElevenLabs | Música, voz sintética |
+| **Video** | Sora, Runway, Gemini | Videos a partir de texto |
+| **Multimodal** | GPT-4o, Gemini | Combinan texto, imagen, audio |
+
+A la fecha, **los modelos de lenguaje son los más maduros y confiables** para uso profesional. Por eso el taller se centra en ellos --- pero es importante saber que el ecosistema es más amplio y evoluciona rápidamente.
+
+::: {.callout-note}
+## Gemini: un caso multimodal
+Gemini (Google) aparece en varias filas de la tabla porque es un modelo multimodal: puede procesar y generar texto, imágenes, audio y video. Sin embargo, su uso más extendido sigue siendo la generación de texto, y es la herramienta principal que usaremos en el taller. Google ha ido diferenciando sus modelos especializados --- por ejemplo, [Nano Banana](https://deepmind.google/models/gemini-image/) es su familia de modelos dedicados a generación de imágenes.
+:::
+
+#### Dos formas de usar un modelo
+
+Un mismo modelo de lenguaje puede usarse de formas muy distintas según la interfaz:
+
+| | **Asistente web** | **Integración CLI / editor** |
+|---|---|---|
+| **Ejemplos** | gemini.google.com, chatgpt.com, claude.ai | Gemini CLI, Claude Code, GitHub Copilot |
+| **Interfaz** | Chat en el navegador, diseñado para ser fácil de usar | Terminal o editor de código, requiere familiaridad técnica |
+| **Contexto** | Tú copias y pegas el texto que quieres que el modelo vea | El modelo accede directamente a los archivos de tu proyecto |
+| **Ideal para** | Consultas puntuales, redacción, exploración | Trabajo sostenido sobre un proyecto completo |
+
+Los **asistentes web** son aplicaciones donde el modelo viene envuelto en una interfaz visual orientada al usuario: escribes en un chat y recibes respuestas. Son el punto de entrada más accesible.
+
+Las **herramientas CLI** (línea de comandos) no tienen esa interfaz visual, pero ofrecen una ventaja importante: el modelo puede leer y operar sobre todo el contexto de tu proyecto --- archivos, estructura de carpetas, código --- sin que tengas que copiar nada manualmente.
+
+::: {#fig-interfaces layout-ncol=2}
+
+![Asistente web (gemini.google.com)](assets/fundamentos/gemini-web.png){#fig-gemini-web}
+
+![Gemini CLI en la terminal](assets/fundamentos/gemini-cli.png){#fig-gemini-cli}
+
+Dos formas de usar el mismo modelo: interfaz web conversacional (izquierda) vs. línea de comandos con acceso al contexto del proyecto (derecha).
+:::
+
+En este taller trabajaremos con ambas formas. Cada actividad ofrece un **Camino A** (asistente web) y un **Camino B** (CLI/editor) para que elijas según tu comodidad.
+
+#### La arquitectura transformer
+
+Todos los LLM actuales se basan en una arquitectura llamada **transformer**, introducida en 2017 por investigadores de Google en el artículo *"Attention Is All You Need"*. Su innovación clave es el **mecanismo de atención**: en lugar de procesar el texto palabra por palabra en orden, el modelo puede "mirar" todas las palabras de una secuencia simultáneamente y determinar cuáles son relevantes entre sí.
+
+Por ejemplo, en la frase *"Fui al banco a sentarme"*, el mecanismo de atención conecta "banco" con "sentarme" y deduce que se trata de un asiento, no de una institución financiera. Sin atención, el modelo procesaría "banco" sin considerar el resto de la frase y no podría desambiguar.
+
+![Transformer Explainer: herramienta interactiva que visualiza en tiempo real cómo un transformer procesa texto, mostrando el embedding, los bloques de atención y las probabilidades de la siguiente palabra. Fuente: Polo Club of Data Science, Georgia Tech.](assets/fundamentos/transformer-explainer.png){#fig-transformer-explainer}
+
+::: {.callout-tip}
+## Demostración en vivo
+Durante el taller exploraremos [Transformer Explainer](https://poloclub.github.io/transformer-explainer/), una herramienta interactiva que permite ver en tiempo real cómo un transformer procesa texto y calcula la siguiente palabra. Puedes escribir cualquier frase y observar cómo fluye a través de las capas del modelo.
+:::
+
+#### De la arquitectura a la predicción
+
+Un modelo de lenguaje grande (LLM, por *Large Language Model*) no "sabe" cosas ni "entiende" como un humano. Gracias a la arquitectura transformer, lo que hace es:
+
+> **Calcular la probabilidad de qué palabra viene después**, basándose en patrones estadísticos aprendidos de millones de textos.
+
+Cuando escribes "El cielo es...", el modelo calcula que "azul" tiene alta probabilidad de ser la siguiente palabra, porque ha visto esa secuencia muchas veces en su entrenamiento. En el Transformer Explainer (@fig-transformer-explainer) puedes ver exactamente esto: a la derecha aparecen las palabras candidatas con sus probabilidades.
 
 ::: {.callout-note}
 ## Analogía útil
-Imagina un autocompletado muy sofisticado. Cuando tu teléfono sugiere la siguiente palabra en un mensaje, hace algo similar (aunque a menor escala). El LLM hace esto con toda la potencia de miles de millones de parámetros.
+Imagina un autocompletado muy sofisticado. Cuando tu teléfono sugiere la siguiente palabra en un mensaje, hace algo similar (aunque a menor escala). El LLM hace esto con toda la potencia de miles de millones de parámetros y la capacidad de atención del transformer.
 :::
 
 **Implicación práctica:** El modelo genera texto que *parece* correcto porque sigue patrones de lenguaje humano, pero no está razonando sobre la verdad de lo que dice.
 
-### 2. Por eso alucina
+### Por eso alucina
 
 Las "alucinaciones" son respuestas que parecen plausibles pero son incorrectas o inventadas. Ocurren porque:
 
@@ -31,43 +91,82 @@ Si le preguntas por una referencia bibliográfica, el modelo puede generar algo 
 
 Esta referencia puede no existir. El modelo generó un patrón que *parece* una cita académica válida porque ha visto miles de citas similares.
 
+#### Por qué las alucinaciones son inevitables
+
+Un artículo de investigación de OpenAI [@kalai2025hallucinate] explica que las alucinaciones no son un defecto que se pueda corregir por completo, sino una consecuencia estructural del entrenamiento:
+
+1. **El modelo aprende de patrones, no de verdades.** Durante el pre-entrenamiento, el modelo ve millones de textos pero nunca recibe etiquetas de "verdadero" o "falso". Aprende *qué suena correcto*, no *qué es correcto*.
+
+2. **Algunos hechos no tienen patrón.** Hay información que sigue reglas claras (ortografía, gramática) y el modelo la aprende bien. Pero datos arbitrarios --- como la fecha de nacimiento de una persona específica --- no siguen ningún patrón predecible, y ahí el modelo necesariamente inventa.
+
+3. **Las evaluaciones premian adivinar.** Cuando los modelos se evalúan solo por precisión, les conviene más adivinar que decir "no sé". Un modelo que responde al azar tiene alguna probabilidad de acertar; uno que se abstiene, obtiene cero puntos.
+
+Dicho de otro modo: las alucinaciones se pueden reducir, pero no eliminar --- son parte de la naturaleza estadística de estos modelos. Como una curva que se acerca cada vez más a cero sin llegar a tocarlo.
+
+![A medida que los modelos mejoran, las alucinaciones disminuyen, pero nunca llegan a cero: se comportan como una asíntota.](assets/fundamentos/asintota-alucinaciones.png){#fig-asintota}
+
 ::: {.callout-warning}
 ## Atención
 Las alucinaciones son especialmente peligrosas en investigación porque:
 
-- Suenan autoritativas y bien redactadas
+- Están bien redactadas y usan un tono formal que inspira confianza
 - Siguen el formato esperado (DOI, números de página, etc.)
 - Son difíciles de detectar sin verificación manual
+- El modelo *no sabe que no sabe*: genera con la misma confianza una respuesta correcta y una inventada
 :::
 
 **Implicación práctica:** Nunca confíes en referencias, datos o afirmaciones factuales generadas por IA sin verificar en fuentes primarias.
 
-### 3. Meta prompting: usar IA para mejorar tus prompts
+### Dos técnicas para trabajar con IA
 
-El *meta prompting* consiste en usar la propia IA para generar o mejorar los prompts que le darás después.
+Un LLM responde según cómo le preguntes. Por eso, la forma en que interactúas con el modelo importa tanto como lo que le pides. En el taller usaremos dos técnicas complementarias:
 
-> **Primero le preguntas a la IA qué deberías preguntarle.**
+#### Iterative prompting (diálogo iterativo)
 
-En lugar de escribir directamente tu solicitud, puedes pedirle al modelo que te ayude a estructurar una mejor solicitud:
+Consiste en **conversar con la IA de forma sostenida**: explorar ideas, hacer preguntas, discutir enfoques y profundizar progresivamente. Al final de la conversación, le pides al modelo que **sintetice** lo discutido en un formato útil.
 
+> **Conversas con la IA y luego le pides que sintetice.**
+
+Es la forma más natural de interactuar con un LLM. Funciona especialmente bien cuando necesitas explorar un tema, pensar en voz alta o evaluar diferentes opciones antes de tomar una decisión.
+
+```text
+Soy investigador/a en [tu área] y me interesa explorar [tu tema].
+Quiero conversar contigo para ir definiendo posibles preguntas
+de investigación.
 ```
-Soy investigador en [tu área]. Quiero usar IA para [tu objetivo].
-¿Qué información necesitarías de mí para ayudarme mejor?
+
+Después de varias rondas de conversación, puedes cerrar con:
+
+```text
+Sintetiza nuestra conversación en: un resumen del tema explorado,
+los enfoques que discutimos y 2-3 posibles direcciones de
+investigación.
 ```
 
-El modelo te responderá con preguntas que puedes usar para construir un prompt más efectivo.
+#### Meta prompting
+
+Consiste en **pedirle a la IA que diseñe instrucciones (prompts) especializadas** que usarás después. En vez de conversar, le pides que construya una herramienta reutilizable para una tarea específica.
+
+> **Le pides a la IA que diseñe un prompt, y luego usas ese prompt.**
+
+```text
+Diseña un prompt para crear un asistente que me permita definir
+de manera correcta mis preguntas de investigación. El asistente
+debe guiarme durante todo el proceso y el resultado es tener una
+pregunta general y al menos dos específicas.
+```
+
+El modelo te entregará un prompt que puedes copiar y usar en una nueva conversación, o guardar para reutilizarlo en el futuro.
 
 ::: {.callout-tip}
-## ¿Por qué funciona?
-El meta prompting funciona porque:
+## ¿Cuándo usar cada una?
 
-1. Te obliga a clarificar tu objetivo
-2. Aprovecha el conocimiento del modelo sobre qué información es relevante
-3. Genera prompts más estructurados y específicos
-4. Reduce la ambigüedad que causa respuestas genéricas
+- **Iterative prompting** cuando necesitas *explorar*: no tienes claro el enfoque, quieres discutir opciones o estás en una etapa temprana de la investigación.
+- **Meta prompting** cuando necesitas *producir*: ya sabes qué quieres lograr y necesitas un prompt bien diseñado para obtener un resultado estructurado.
+- En la práctica, se combinan: primero exploras con iterative prompting y luego diseñas prompts especializados con meta prompting.
 :::
 
-**Implicación práctica:** Antes de pedir directamente lo que necesitas, considera preguntarle al modelo cómo debería estructurarse tu solicitud.
+**Implicación práctica:** No te limites a escribir un prompt directo. Conversa con la IA para explorar tu tema y pídele que diseñe instrucciones especializadas para las tareas que necesitas realizar.
 
 ---
 
@@ -129,7 +228,7 @@ Es importante entender qué **no pueden** hacer los LLM actuales:
 
 | Limitación | Explicación |
 |------------|-------------|
-| **No acceden a internet en tiempo real** | Solo conocen información de su entrenamiento (salvo que tengan plugins) |
+| **No acceden a internet en tiempo real** | Solo conocen información de su entrenamiento (salvo que tengan búsqueda web integrada) |
 | **No recuerdan conversaciones previas** | Cada sesión comienza sin memoria (salvo sistemas con memoria explícita) |
 | **No razonan como humanos** | Simulan razonamiento mediante patrones, no comprensión real |
 | **No tienen intenciones** | No "quieren" nada; solo generan la siguiente secuencia probable |
@@ -166,11 +265,14 @@ Las políticas editoriales de Taylor & Francis, Elsevier y Springer Nature coinc
 
 | Término | Definición |
 |---------|------------|
-| **LLM** | *Large Language Model*. Modelo de lenguaje entrenado con grandes cantidades de texto. |
+| **LLM** | *Large Language Model*. Modelo de lenguaje entrenado con grandes cantidades de texto, basado en la arquitectura transformer. |
+| **Transformer** | Arquitectura de red neuronal introducida en 2017. Su mecanismo de atención permite procesar todas las palabras de una secuencia simultáneamente. |
+| **Atención** | Mecanismo que permite al modelo determinar qué palabras de la entrada son relevantes entre sí para generar la siguiente palabra. |
 | **Token** | Unidad mínima de texto que procesa el modelo (puede ser una palabra, parte de palabra o símbolo). |
 | **Prompt** | Instrucción o texto de entrada que se le da al modelo. |
 | **Alucinación** | Respuesta generada que parece plausible pero es incorrecta o inventada. |
-| **Meta prompting** | Técnica de usar IA para mejorar los prompts que se le darán después. |
+| **Iterative prompting** | Técnica de conversar con la IA de forma sostenida, explorando y profundizando, para luego pedir una síntesis de lo discutido. |
+| **Meta prompting** | Técnica de pedirle a la IA que diseñe instrucciones (prompts) especializadas para usarlas después. |
 | **Fine-tuning** | Ajuste del modelo con datos específicos para una tarea particular. |
 | **RLHF** | *Reinforcement Learning from Human Feedback*. Técnica para alinear modelos con preferencias humanas. |
 | **Contexto** | Información adicional incluida en el prompt para guiar la respuesta. |
