@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Módulo 1 – IA para Investigación Académica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./modulo-2.html" rel="next">
+<link href="./fundamentos.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bf8030b5a8b8f2de5bceddfb8bf38a1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modulo-1.html"><span class="chapter-title">Módulo 1</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">IA para Investigación Académica</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bienvenida</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fundamentos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fundamentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modulo-1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Módulo 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modulo-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Módulo 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./recursos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recursos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#marco-ético-y-escritura-aumentada" id="toc-marco-ético-y-escritura-aumentada" class="nav-link active" data-scroll-target="#marco-ético-y-escritura-aumentada">Marco ético y escritura aumentada</a>
+  <ul>
+  <li><a href="#flujo-de-trabajo" id="toc-flujo-de-trabajo" class="nav-link" data-scroll-target="#flujo-de-trabajo">Flujo de trabajo</a></li>
+  </ul></li>
+  <li><a href="#preguntas-de-investigación-con-ia" id="toc-preguntas-de-investigación-con-ia" class="nav-link" data-scroll-target="#preguntas-de-investigación-con-ia">Preguntas de investigación con IA</a>
+  <ul>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
+  <li><a href="#dos-técnicas-para-trabajar-con-ia" id="toc-dos-técnicas-para-trabajar-con-ia" class="nav-link" data-scroll-target="#dos-técnicas-para-trabajar-con-ia">Dos técnicas para trabajar con IA</a>
+  <ul class="collapse">
+  <li><a href="#iterative-prompting-diálogo-iterativo" id="toc-iterative-prompting-diálogo-iterativo" class="nav-link" data-scroll-target="#iterative-prompting-diálogo-iterativo">Iterative prompting (diálogo iterativo)</a></li>
+  <li><a href="#meta-prompting" id="toc-meta-prompting" class="nav-link" data-scroll-target="#meta-prompting">Meta prompting</a></li>
+  </ul></li>
+  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico">Ejemplo práctico</a></li>
+  <li><a href="#paso-1-explorar-tu-tema-iterative-prompting" id="toc-paso-1-explorar-tu-tema-iterative-prompting" class="nav-link" data-scroll-target="#paso-1-explorar-tu-tema-iterative-prompting">Paso 1: Explorar tu tema (iterative prompting)</a></li>
+  <li><a href="#paso-2-estructurar-las-preguntas-meta-prompting" id="toc-paso-2-estructurar-las-preguntas-meta-prompting" class="nav-link" data-scroll-target="#paso-2-estructurar-las-preguntas-meta-prompting">Paso 2: Estructurar las preguntas (meta prompting)</a></li>
+  <li><a href="#paso-3-de-preguntas-a-búsqueda" id="toc-paso-3-de-preguntas-a-búsqueda" class="nav-link" data-scroll-target="#paso-3-de-preguntas-a-búsqueda">Paso 3: De preguntas a búsqueda</a></li>
+  <li><a href="#resumen-de-la-actividad" id="toc-resumen-de-la-actividad" class="nav-link" data-scroll-target="#resumen-de-la-actividad">Resumen de la actividad</a></li>
+  </ul></li>
+  <li><a href="#búsqueda-bibliográfica-con-ia" id="toc-búsqueda-bibliográfica-con-ia" class="nav-link" data-scroll-target="#búsqueda-bibliográfica-con-ia">Búsqueda bibliográfica con IA</a>
+  <ul>
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1">Objetivo</a></li>
+  <li><a href="#la-herramienta-principal-elicit" id="toc-la-herramienta-principal-elicit" class="nav-link" data-scroll-target="#la-herramienta-principal-elicit">La herramienta principal: Elicit</a>
+  <ul class="collapse">
+  <li><a href="#cómo-usarlo" id="toc-cómo-usarlo" class="nav-link" data-scroll-target="#cómo-usarlo">Cómo usarlo</a></li>
+  </ul></li>
+  <li><a href="#herramientas-complementarias" id="toc-herramientas-complementarias" class="nav-link" data-scroll-target="#herramientas-complementarias">Herramientas complementarias</a></li>
+  <li><a href="#resumen-de-la-actividad-1" id="toc-resumen-de-la-actividad-1" class="nav-link" data-scroll-target="#resumen-de-la-actividad-1">Resumen de la actividad</a></li>
+  </ul></li>
+  <li><a href="#fichas-de-trabajo" id="toc-fichas-de-trabajo" class="nav-link" data-scroll-target="#fichas-de-trabajo">Fichas de trabajo</a>
+  <ul>
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2">Objetivo</a></li>
+  <li><a href="#por-qué-fichas-de-trabajo" id="toc-por-qué-fichas-de-trabajo" class="nav-link" data-scroll-target="#por-qué-fichas-de-trabajo">¿Por qué fichas de trabajo?</a></li>
+  <li><a href="#estructura-de-una-ficha" id="toc-estructura-de-una-ficha" class="nav-link" data-scroll-target="#estructura-de-una-ficha">Estructura de una ficha</a></li>
+  <li><a href="#paso-1-generar-fichas-con-ia" id="toc-paso-1-generar-fichas-con-ia" class="nav-link" data-scroll-target="#paso-1-generar-fichas-con-ia">Paso 1: Generar fichas con IA</a></li>
+  <li><a href="#paso-2-sintetizar-patrones" id="toc-paso-2-sintetizar-patrones" class="nav-link" data-scroll-target="#paso-2-sintetizar-patrones">Paso 2: Sintetizar patrones</a></li>
+  <li><a href="#paso-3-estructurar-el-documento" id="toc-paso-3-estructurar-el-documento" class="nav-link" data-scroll-target="#paso-3-estructurar-el-documento">Paso 3: Estructurar el documento</a></li>
+  <li><a href="#resumen-de-la-actividad-2" id="toc-resumen-de-la-actividad-2" class="nav-link" data-scroll-target="#resumen-de-la-actividad-2">Resumen de la actividad</a></li>
+  </ul></li>
+  <li><a href="#resumen-del-módulo-1" id="toc-resumen-del-módulo-1" class="nav-link" data-scroll-target="#resumen-del-módulo-1">Resumen del Módulo 1</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Módulo 1</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="marco-ético-y-escritura-aumentada" class="level2">
+<h2 class="anchored" data-anchor-id="marco-ético-y-escritura-aumentada">Marco ético y escritura aumentada</h2>
+<p><strong>Duración:</strong> 09:00-11:00 (2 horas)</p>
+<p>Este módulo te guía desde la formulación de preguntas de investigación hasta la organización de literatura relevante. Aprenderás a usar IA como asistente en las etapas iniciales del proceso investigativo.</p>
+<section id="flujo-de-trabajo" class="level3">
+<h3 class="anchored" data-anchor-id="flujo-de-trabajo">Flujo de trabajo</h3>
+<p>El siguiente esquema muestra el recorrido completo del módulo. Las dos técnicas de IA que aprenderás — <em>iterative prompting</em> y <em>meta prompting</em> — te acompañarán en cada etapa.</p>
+<div style="background-color: #dce8f5; border: 2px solid #6b9bd2; border-radius: 8px; padding: 0.6rem 1rem; text-align: center; color: #2c5282; font-weight: bold; font-style: italic; margin-bottom: 1rem;">
+<p>Iterative prompting · Meta prompting</p>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-flujo-modulo1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flujo-modulo1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-flujo-modulo1">flowchart LR
+  A["Interés de&lt;br&gt;investigación"]:::startNode --&gt; B["Preguntas de&lt;br&gt;investigación"] --&gt; C["Búsqueda&lt;br&gt;bibliográfica"] --&gt; D["Fichas de&lt;br&gt;trabajo"] --&gt; E["Estructura del&lt;br&gt;documento"]:::endNode
+
+  classDef startNode fill:#f9f9f9,stroke:#333
+  classDef endNode fill:#f9f9f9,stroke:#333,stroke-dasharray: 5 5
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flujo-modulo1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Flujo de trabajo del Módulo 1. La estructura del documento se desarrolla en el Módulo 2.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="preguntas-de-investigación-con-ia" class="level2">
+<h2 class="anchored" data-anchor-id="preguntas-de-investigación-con-ia">Preguntas de investigación con IA</h2>
+<p><strong>Duración:</strong> 30 minutos</p>
+<section id="objetivo" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo">Objetivo</h3>
+<p>Formular preguntas de investigación claras y específicas usando dos técnicas complementarias de interacción con IA, y transformarlas en consultas listas para búsqueda bibliográfica.</p>
+</section>
+<section id="dos-técnicas-para-trabajar-con-ia" class="level3">
+<h3 class="anchored" data-anchor-id="dos-técnicas-para-trabajar-con-ia">Dos técnicas para trabajar con IA</h3>
+<p>A lo largo del taller usarás dos técnicas complementarias. Ambas son transversales — las puedes aplicar en cualquier etapa de la investigación.</p>
+<section id="iterative-prompting-diálogo-iterativo" class="level4">
+<h4 class="anchored" data-anchor-id="iterative-prompting-diálogo-iterativo">Iterative prompting (diálogo iterativo)</h4>
+<p>Consiste en <strong>conversar con la IA</strong> de forma sostenida: explorar ideas, discutir enfoques, hacer preguntas y profundizar progresivamente. Al final del diálogo, le pides que <strong>sintetice</strong> lo conversado en un formato útil.</p>
+<p>Es la forma más natural de interactuar con la IA. Úsala cuando necesitas <strong>explorar</strong> un tema, pensar en voz alta o discutir opciones.</p>
+</section>
+<section id="meta-prompting" class="level4">
+<h4 class="anchored" data-anchor-id="meta-prompting">Meta prompting</h4>
+<p>Consiste en <strong>pedirle a la IA que diseñe instrucciones (prompts) especializadas</strong> que usarás después. En vez de conversar, le pides que construya una herramienta: un prompt reutilizable para una tarea específica.</p>
+<p>Úsalo cuando ya sabes <strong>qué necesitas</strong> pero quieres que la IA te ayude a pedirlo de la mejor manera posible.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Iterative prompting</strong></th>
+<th><strong>Meta prompting</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Dinámica</strong></td>
+<td>Conversas con la IA iterativamente, luego pides síntesis</td>
+<td>Le pides a la IA que diseñe un prompt, luego lo usas</td>
+</tr>
+<tr class="even">
+<td><strong>Cuándo usarlo</strong></td>
+<td>Cuando necesitas explorar o pensar en voz alta</td>
+<td>Cuando sabes qué necesitas pero no cómo pedirlo bien</td>
+</tr>
+<tr class="odd">
+<td><strong>Resultado</strong></td>
+<td>Una síntesis construida a partir del diálogo</td>
+<td>Un prompt especializado reutilizable</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿Cuál elegir?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No son excluyentes. En esta actividad practicarás ambas: primero <em>iterative prompting</em> para explorar tu tema de investigación, y luego <em>meta prompting</em> para diseñar un prompt que estructure tus preguntas.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="ejemplo-práctico" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo práctico</h3>
+<p>A lo largo de esta actividad usaremos un tema concreto como hilo conductor: <strong>las políticas de las revistas editoriales frente al uso de IA en la producción científica</strong>. Tú puedes seguir el ejemplo o trabajar directamente con tu propio tema de investigación.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿Por qué este tema?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las políticas editoriales sobre IA son relevantes para todos los participantes del taller, tienen literatura reciente disponible y nos permitirán practicar la búsqueda bibliográfica en la siguiente actividad.</p>
+</div>
+</div>
+</section>
+<section id="paso-1-explorar-tu-tema-iterative-prompting" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-explorar-tu-tema-iterative-prompting">Paso 1: Explorar tu tema (iterative prompting)</h3>
+<p>Comienza una conversación con la IA para explorar tu interés de investigación. No necesitas un prompt elaborado — simplemente cuéntale qué te interesa:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Web</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Terminal</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Abre <a href="https://gemini.google.com">gemini.google.com</a> en tu navegador</li>
+<li>Inicia la conversación con algo como:</li>
+</ol>
+<pre class="text"><code>Soy investigador/a en [TU ÁREA] y me interesa explorar el tema
+de [TU INTERÉS]. Quiero conversar contigo para ir definiendo
+posibles preguntas de investigación.</code></pre>
+<ol start="3" type="1">
+<li>Conversa libremente: haz preguntas, pide que profundice, discute enfoques</li>
+<li>Cuando sientas que exploraste lo suficiente, pídele:</li>
+</ol>
+<pre class="text"><code>Sintetiza nuestra conversación en: un resumen del tema explorado,
+los enfoques que discutimos y 2-3 posibles direcciones de
+investigación.</code></pre>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li>Abre tu terminal en el directorio de tu proyecto de investigación</li>
+<li>Inicia Gemini CLI:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>Usa el mismo prompt inicial del Camino A y conversa con el modelo</li>
+<li>Al finalizar, pide la síntesis</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejemplo con el tema del taller
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Podrías iniciar así:</p>
+<pre class="text"><code>Soy académico en una universidad regional de Chile y me interesa
+investigar sobre las políticas y lineamientos que las revistas
+científicas han establecido para regular el uso de inteligencia
+artificial generativa en la producción de manuscritos. ¿Qué
+aspectos de este tema te parecen más relevantes para investigar?</code></pre>
+<p>A partir de ahí, conversa: pregunta por diferencias entre editoriales, por los vacíos en la literatura, por enfoques metodológicos posibles. La IA te ayudará a explorar el terreno.</p>
+</div>
+</div>
+</section>
+<section id="paso-2-estructurar-las-preguntas-meta-prompting" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-estructurar-las-preguntas-meta-prompting">Paso 2: Estructurar las preguntas (meta prompting)</h3>
+<p>Con la exploración del paso anterior como contexto, ahora usarás meta prompting para obtener preguntas de investigación bien formuladas. En la misma conversación o en una nueva, pega:</p>
+<pre class="text"><code>Diseña un prompt para crear un asistente que me permita definir
+de manera correcta mis preguntas de investigación.
+
+El asistente debe:
+- Guiarme paso a paso durante todo el proceso
+- Pedirme información sobre mi área de investigación y mi interés
+  específico
+- Ayudarme a delimitar el alcance de la investigación
+- Producir como resultado una pregunta general y al menos dos
+  preguntas específicas
+- Las preguntas deben ser viables para una búsqueda bibliográfica
+  sistemática</code></pre>
+<p>Copia el prompt que la IA genere, abre una <strong>nueva conversación</strong> y pégalo. Cuando el asistente te pida tu tema, responde con lo que exploraste en el Paso 1.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejemplo de resultado esperado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Pregunta general:</strong> ¿Cómo están respondiendo las principales editoriales científicas al uso de IA generativa en la redacción de manuscritos?</p>
+<p><strong>Preguntas específicas:</strong></p>
+<ol type="1">
+<li>¿Qué requisitos de declaración de uso de IA exigen Elsevier, Springer Nature y Taylor &amp; Francis en sus políticas editoriales vigentes?</li>
+<li>¿En qué medida convergen o divergen estas políticas respecto a los roles permitidos y prohibidos de la IA en el proceso de escritura académica?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Trabaja con tu propio tema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ejemplo sirve para practicar, pero lo ideal es que uses tu propia investigación. Si ya tienes un tema definido, úsalo desde el Paso 1. Si no, este es un buen momento para explorar una idea que te interese.</p>
+</div>
+</div>
+</section>
+<section id="paso-3-de-preguntas-a-búsqueda" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-de-preguntas-a-búsqueda">Paso 3: De preguntas a búsqueda</h3>
+<p>Con tus preguntas de investigación definidas, el último paso es transformarlas en consultas de búsqueda para la siguiente actividad. Pídele a la IA:</p>
+<pre class="text"><code>Tengo estas preguntas de investigación:
+
+[PEGA TUS PREGUNTAS AQUÍ]
+
+Transfórmalas en 3-5 consultas de búsqueda en inglés, optimizadas
+para buscar en bases de datos académicas como Semantic Scholar.
+Usa términos técnicos y operadores booleanos si es necesario.</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejemplo de resultado esperado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para las preguntas del ejemplo, las consultas podrían ser:</p>
+<ol type="1">
+<li><code>editorial policies generative AI academic publishing</code></li>
+<li><code>Elsevier Springer Nature Taylor Francis AI disclosure requirements</code></li>
+<li><code>generative AI manuscript preparation guidelines scientific journals</code></li>
+</ol>
+</div>
+</div>
+<p>Guarda tus preguntas de investigación y las consultas de búsqueda — las usarás directamente en la siguiente actividad con Elicit.</p>
+</section>
+<section id="resumen-de-la-actividad" class="level3">
+<h3 class="anchored" data-anchor-id="resumen-de-la-actividad">Resumen de la actividad</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 26%">
+<col style="width: 23%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Paso</th>
+<th>Técnica</th>
+<th>Acción</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><em>Iterative prompting</em></td>
+<td>Conversas con la IA para explorar tu tema</td>
+<td>Mapa del terreno de investigación</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><em>Meta prompting</em></td>
+<td>La IA diseña un prompt para formular preguntas</td>
+<td>Pregunta general + preguntas específicas</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>—</td>
+<td>Transformas las preguntas en consultas de búsqueda</td>
+<td>Consultas en inglés listas para Elicit</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="búsqueda-bibliográfica-con-ia" class="level2">
+<h2 class="anchored" data-anchor-id="búsqueda-bibliográfica-con-ia">Búsqueda bibliográfica con IA</h2>
+<p><strong>Duración:</strong> 40 minutos</p>
+<section id="objetivo-1" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-1">Objetivo</h3>
+<p>Usar las consultas de búsqueda generadas en la actividad anterior para encontrar papers relevantes en herramientas de IA especializadas en literatura científica.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A diferencia de ChatGPT, Claude o Gemini, las herramientas de esta actividad trabajan con papers <strong>reales</strong>. No inventan referencias porque buscan directamente en bases de datos académicas como Semantic Scholar y OpenAlex, que indexan más de 200 millones de publicaciones.</p>
+</div>
+</div>
+</section>
+<section id="la-herramienta-principal-elicit" class="level3">
+<h3 class="anchored" data-anchor-id="la-herramienta-principal-elicit">La herramienta principal: Elicit</h3>
+<p><strong>URL:</strong> <a href="https://elicit.com">elicit.com</a></p>
+<p><a href="https://elicit.com">Elicit</a> es un asistente de investigación que busca papers reales y extrae información clave de ellos. A diferencia de un buscador como Google Scholar, Elicit no solo encuentra papers: los lee, los resume y te permite extraer datos estructurados (metodología, hallazgos, tamaño de muestra) en tablas comparativas.</p>
+<section id="cómo-usarlo" class="level4">
+<h4 class="anchored" data-anchor-id="cómo-usarlo">Cómo usarlo</h4>
+<ol type="1">
+<li>Ve a <a href="https://elicit.com">elicit.com</a> y crea una cuenta gratuita</li>
+<li>Pega las consultas de búsqueda que generaste en la actividad anterior. Por ejemplo:</li>
+</ol>
+<pre class="text"><code>editorial policies generative AI academic publishing</code></pre>
+<ol start="3" type="1">
+<li>Elicit mostrará papers relevantes con resúmenes generados, hallazgos principales y metodología</li>
+<li>Usa <strong>“Extract data”</strong> para crear una tabla comparativa de los papers encontrados</li>
+<li>Selecciona los papers más relevantes y expórtalos como CSV o BibTeX para importar en tu gestor de referencias (Zotero, Mendeley)</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Actividad práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Busca en Elicit usando tus propias consultas o las del ejemplo:</p>
+<pre class="text"><code>Elsevier Springer Nature Taylor Francis AI disclosure requirements</code></pre>
+<p>Identifica <strong>5 papers relevantes</strong> y para cada uno anota:</p>
+<ul>
+<li>Autor(es) y año</li>
+<li>Hallazgo principal</li>
+<li>Metodología usada</li>
+</ul>
+<p>Estos datos serán la base para tus fichas de trabajo en la siguiente actividad.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="herramientas-complementarias" class="level3">
+<h3 class="anchored" data-anchor-id="herramientas-complementarias">Herramientas complementarias</h3>
+<p>Elicit es la herramienta principal del taller, pero existen otras opciones que pueden complementar tu búsqueda:</p>
+<p><strong><a href="https://typeset.io">SciSpace</a></strong> (typeset.io) es otra plataforma de investigación con IA que permite buscar en más de 280 millones de papers. Además de búsqueda, ofrece chat con papers individuales (puedes hacerle preguntas específicas sobre un artículo), generación de revisiones de literatura y soporte multilingüe — incluyendo búsquedas en español. Si un paper te interesa pero necesitas entenderlo en profundidad, SciSpace es una buena alternativa.</p>
+<p><strong><a href="https://perplexity.ai">Perplexity</a></strong> funciona de forma distinta: es un motor de búsqueda web con síntesis de IA que cita sus fuentes. Tiene un modo <strong>“Focus: Academic”</strong> que prioriza resultados de publicaciones académicas. Es útil para obtener una visión general rápida de un tema, pero no es una base de datos académica — siempre debes verificar que las fuentes citadas existan y sean correctas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿Cuál elegir?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No necesitas usar las tres. Elicit es suficiente para esta actividad. SciSpace y Perplexity son alternativas que puedes explorar después del taller según tus necesidades. Lo fundamental no es la herramienta de búsqueda, sino lo que harás con los papers encontrados: <strong>extraer, resumir y organizar la información</strong> en fichas de trabajo.</p>
+</div>
+</div>
+</section>
+<section id="resumen-de-la-actividad-1" class="level3">
+<h3 class="anchored" data-anchor-id="resumen-de-la-actividad-1">Resumen de la actividad</h3>
+<p>Al terminar, deberías tener:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">5-10 papers relevantes identificados en Elicit</label></li>
+<li><label><input type="checkbox">Datos básicos de cada paper (autores, año, hallazgo, metodología)</label></li>
+<li><label><input type="checkbox">Papers exportados o guardados para la siguiente actividad</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="fichas-de-trabajo" class="level2">
+<h2 class="anchored" data-anchor-id="fichas-de-trabajo">Fichas de trabajo</h2>
+<p><strong>Duración:</strong> 35 minutos</p>
+<section id="objetivo-2" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-2">Objetivo</h3>
+<p>Organizar los hallazgos de tu búsqueda bibliográfica en fichas estructuradas que faciliten la escritura posterior.</p>
+</section>
+<section id="por-qué-fichas-de-trabajo" class="level3">
+<h3 class="anchored" data-anchor-id="por-qué-fichas-de-trabajo">¿Por qué fichas de trabajo?</h3>
+<p>Las fichas de trabajo te permiten:</p>
+<ul>
+<li>Sistematizar la información de múltiples fuentes</li>
+<li>Identificar patrones y vacíos en la literatura</li>
+<li>Tener “bloques” listos para construir tu argumento</li>
+<li>Citar correctamente al momento de escribir</li>
+</ul>
+</section>
+<section id="estructura-de-una-ficha" class="level3">
+<h3 class="anchored" data-anchor-id="estructura-de-una-ficha">Estructura de una ficha</h3>
+<p>Cada ficha debe contener:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Referencia</strong></td>
+<td>Cita completa en formato APA/Vancouver</td>
+</tr>
+<tr class="even">
+<td><strong>Tema principal</strong></td>
+<td>Una frase que capture el aporte del paper</td>
+</tr>
+<tr class="odd">
+<td><strong>Resumen</strong></td>
+<td>3-5 oraciones con los puntos clave</td>
+</tr>
+<tr class="even">
+<td><strong>Citas textuales</strong></td>
+<td>Fragmentos relevantes con número de página</td>
+</tr>
+<tr class="odd">
+<td><strong>Conexiones</strong></td>
+<td>Cómo se relaciona con otros papers/tu investigación</td>
+</tr>
+<tr class="even">
+<td><strong>Notas propias</strong></td>
+<td>Ideas, críticas, preguntas que te surgen</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="paso-1-generar-fichas-con-ia" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-generar-fichas-con-ia">Paso 1: Generar fichas con IA</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Web</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Terminal</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Usa este prompt para cada paper:</p>
+<pre class="text"><code>Ayúdame a crear una ficha de trabajo académica para este paper:
+
+[PEGA EL ABSTRACT O INFORMACIÓN DEL PAPER]
+
+Genera una ficha con:
+1. Referencia completa (formato APA 7)
+2. Tema principal (una frase)
+3. Resumen (3-5 oraciones)
+4. Metodología (tipo de estudio, muestra, instrumentos)
+5. Hallazgos principales (lista de 3-5 puntos)
+6. Limitaciones mencionadas por los autores
+7. Sugerencias de cómo se relaciona con el tema:
+   "Políticas editoriales sobre IA en publicaciones científicas"</code></pre>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Crea un archivo <code>ficha-template.md</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ficha: [Apellido, Año]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencia</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cita APA 7</span><span class="co">]</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tema principal</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Una frase</span><span class="co">]</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">3-5 oraciones</span><span class="co">]</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metodología</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tipo de estudio:</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Muestra:</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Instrumentos:</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hallazgos principales</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>1.</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>2.</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>3.</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitaciones</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>-</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conexiones con mi investigación</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>-</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Notas propias</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>-</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Usa Gemini CLI para llenar cada ficha:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">--prompt</span> <span class="st">"Llena esta plantilla de ficha académica con</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">información del siguiente abstract: [ABSTRACT]"</span> <span class="op">&lt;</span> ficha-template.md</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Actividad práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Crea fichas para 3 de los papers que encontraste en la actividad anterior. Prioriza los más relevantes para tu pregunta de investigación.</p>
+</div>
+</div>
+</section>
+<section id="paso-2-sintetizar-patrones" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-sintetizar-patrones">Paso 2: Sintetizar patrones</h3>
+<p>Una vez que tengas varias fichas, usa este prompt para identificar patrones:</p>
+<pre class="text"><code>Tengo fichas de X papers sobre [TEMA]. Los temas principales son:
+
+1. [Paper 1]: [tema principal]
+2. [Paper 2]: [tema principal]
+3. [Paper 3]: [tema principal]
+...
+
+Ayúdame a:
+1. Identificar los principales puntos de consenso
+2. Identificar los principales puntos de debate
+3. Detectar vacíos en la literatura
+4. Sugerir cómo mi investigación podría contribuir</code></pre>
+</section>
+<section id="paso-3-estructurar-el-documento" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-estructurar-el-documento">Paso 3: Estructurar el documento</h3>
+<p>Con los patrones identificados, genera un esquema para tu revisión de literatura:</p>
+<pre class="text"><code>Basándote en los patrones identificados, sugiere una estructura
+para una sección de revisión de literatura que:
+
+- Tenga 3-5 subsecciones temáticas
+- Fluya de lo general a lo específico
+- Termine señalando el vacío que mi investigación aborda
+- Use los papers que he fichado como evidencia</code></pre>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Web</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Terminal</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ol type="1">
+<li>Crea un nuevo documento</li>
+<li>Pega el esquema generado</li>
+<li>Bajo cada subsección, lista los papers relevantes</li>
+<li>Copia fragmentos de tus fichas como punto de partida</li>
+</ol>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Crea un archivo <code>revision-literatura.qmd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Revisión de literatura"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección 1: [Tema]</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Síntesis de papers relevantes</span><span class="co">]</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección 2: [Tema]</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Síntesis de papers relevantes</span><span class="co">]</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vacío identificado</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cómo tu investigación contribuye</span><span class="co">]</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resumen-de-la-actividad-2" class="level3">
+<h3 class="anchored" data-anchor-id="resumen-de-la-actividad-2">Resumen de la actividad</h3>
+<p>Al terminar, deberías tener:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">3+ fichas de trabajo completas</label></li>
+<li><label><input type="checkbox">Patrones y vacíos identificados</label></li>
+<li><label><input type="checkbox">Un esquema preliminar de revisión de literatura</label></li>
+<li><label><input type="checkbox">Papers organizados por tema/subsección</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="resumen-del-módulo-1" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-del-módulo-1">Resumen del Módulo 1</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Actividad</th>
+<th>Producto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Preguntas de investigación</td>
+<td>Preguntas refinadas mediante <em>iterative prompting</em> y <em>meta prompting</em></td>
+</tr>
+<tr class="even">
+<td>Búsqueda bibliográfica</td>
+<td>5-10 papers relevantes con notas</td>
+</tr>
+<tr class="odd">
+<td>Fichas de trabajo</td>
+<td>Fichas estructuradas + esquema de revisión</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Pausa para café
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>11:00-11:15</p>
+<p>Regresamos con el Módulo 2: Pulido, inglés y envío.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Add copy button to all pre elements that don't have one
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('pre.text').forEach(function(pre) {
+    // Create button container
+    const container = document.createElement('div');
+    container.className = 'code-copy-container';
+    container.style.position = 'relative';
+
+    // Wrap pre in container
+    pre.parentNode.insertBefore(container, pre);
+    container.appendChild(pre);
+
+    // Create copy button
+    const button = document.createElement('button');
+    button.className = 'code-copy-button';
+    button.setAttribute('title', 'Copiar');
+    button.innerHTML = '<i class="bi bi-clipboard"></i>';
+    button.style.cssText = 'position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.25rem 0.5rem; border: none; background: #f8f9fa; border-radius: 4px; cursor: pointer; opacity: 0; transition: opacity 0.2s;';
+
+    container.appendChild(button);
+
+    // Show button on hover
+    container.addEventListener('mouseenter', function() {
+      button.style.opacity = '1';
+    });
+    container.addEventListener('mouseleave', function() {
+      button.style.opacity = '0';
+    });
+
+    // Copy functionality
+    button.addEventListener('click', function() {
+      const code = pre.querySelector('code') ? pre.querySelector('code').textContent : pre.textContent;
+      navigator.clipboard.writeText(code).then(function() {
+        button.innerHTML = '<i class="bi bi-check"></i>';
+        setTimeout(function() {
+          button.innerHTML = '<i class="bi bi-clipboard"></i>';
+        }, 2000);
+      });
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./fundamentos.html" class="pagination-link" aria-label="Fundamentos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Fundamentos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./modulo-2.html" class="pagination-link" aria-label="Módulo 2">
+        <span class="nav-page-text"><span class="chapter-title">Módulo 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
