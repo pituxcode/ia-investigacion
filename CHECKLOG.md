@@ -110,6 +110,50 @@ Comenzar documentación del Módulo 1: Marco ético y escritura aumentada
 - [ ] Commit de todos los cambios
 
 ### Estado actual
-**En progreso**: Fundamentos mejorado sustancialmente. Falta una imagen (Gemini web) y revisión del resto de capítulos.
+**Completado**: Fundamentos mejorado sustancialmente.
+
+---
+
+## 2026-01-27 | Sesión 3: Revisión final, deploy y nuevas secciones
+
+### Contexto
+- Taller programado para mañana (28 enero)
+- Incorporación de feedback de `modificaciones.pdf`
+- Primera publicación del sitio web
+
+### Acciones realizadas
+
+#### Contenido nuevo en modulo-2.qmd
+- [x] Sección "Texto plano: la base de todo" — por qué los LLMs operan sobre texto plano
+- [x] Subsección "Quarto: de texto plano a publicación" con imagen del pipeline (qmd → Pandoc → PDF/Word/HTML)
+- [x] Subsección "El editor como centro de operaciones" (VS Code, Cursor, IA integrada)
+- [x] Subsección "LaTeX, ecuaciones y referencias" — ecuación renderizada, sistema `.bib`, ejemplo real
+- [x] Subsección "Cómputo científico integrado" — bloque Python ejecutable con numpy
+- [x] Enlace a guía oficial de Markdown en Quarto
+
+#### Correcciones y consistencia
+- [x] Todos los bloques de código con indicador de lenguaje (`text`, `bash`, `markdown`)
+- [x] Pestañas Terminal reescritas: sin `touch`, sin `gemini` como bash, asumiendo sesión dentro del proyecto
+- [x] Viñetas en Camino B de `index.qmd` (consistencia con Camino A)
+- [x] Datos Python igualados entre ejemplo y bloque ejecutable
+- [x] Placeholder de contacto completado en `modulo-2.qmd`
+- [x] Bloque de declaración de IA en `recursos.qmd` con indicador `text`
+- [x] `nocite: @*` en `_quarto.yml` para incluir todas las referencias en bibliografía
+
+#### Infraestructura
+- [x] Repositorio creado en GitHub: `pituxcode/ia-investigacion`
+- [x] GitHub CLI instalado y autenticado
+- [x] Primer deploy a GitHub Pages con `quarto publish gh-pages`
+- [x] Página de conexión (`conectar.qmd`) con URL grande y código QR
+- [x] Documentación de deploy en `gh-pages.md`
+- [x] `modificaciones.pdf` eliminado (cambios ya incorporados)
+
+#### Archivos de proyecto
+- [x] `ESTRUCTURA.md` actualizado con estado actual
+- [x] `AGENTS.md` actualizado con herramientas y convenciones
+- [x] `CHECKLOG.md` actualizado (esta entrada)
+
+### Estado actual
+**Completado**: Material listo para el taller. Sitio publicado en https://pituxcode.github.io/ia-investigacion/
 
 ---
