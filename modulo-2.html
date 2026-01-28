@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -106,6 +126,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -191,6 +240,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
   <li><a href="#por-qué-markdown" id="toc-por-qué-markdown" class="nav-link" data-scroll-target="#por-qué-markdown">¿Por qué Markdown?</a></li>
+  <li><a href="#texto-plano-la-base-de-todo" id="toc-texto-plano-la-base-de-todo" class="nav-link" data-scroll-target="#texto-plano-la-base-de-todo">Texto plano: la base de todo</a>
+  <ul class="collapse">
+  <li><a href="#quarto-de-texto-plano-a-publicación" id="toc-quarto-de-texto-plano-a-publicación" class="nav-link" data-scroll-target="#quarto-de-texto-plano-a-publicación">Quarto: de texto plano a publicación</a></li>
+  <li><a href="#el-editor-como-centro-de-operaciones" id="toc-el-editor-como-centro-de-operaciones" class="nav-link" data-scroll-target="#el-editor-como-centro-de-operaciones">El editor como centro de operaciones</a></li>
+  <li><a href="#latex-ecuaciones-y-referencias" id="toc-latex-ecuaciones-y-referencias" class="nav-link" data-scroll-target="#latex-ecuaciones-y-referencias">LaTeX, ecuaciones y referencias</a></li>
+  <li><a href="#cómputo-científico-integrado" id="toc-cómputo-científico-integrado" class="nav-link" data-scroll-target="#cómputo-científico-integrado">Cómputo científico integrado</a></li>
+  </ul></li>
   <li><a href="#sintaxis-básica-de-markdown" id="toc-sintaxis-básica-de-markdown" class="nav-link" data-scroll-target="#sintaxis-básica-de-markdown">Sintaxis básica de Markdown</a></li>
   <li><a href="#estructura-de-un-artículo-académico-en-markdown" id="toc-estructura-de-un-artículo-académico-en-markdown" class="nav-link" data-scroll-target="#estructura-de-un-artículo-académico-en-markdown">Estructura de un artículo académico en Markdown</a></li>
   </ul></li>
@@ -322,101 +378,193 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="texto-plano-la-base-de-todo" class="level3">
+<h3 class="anchored" data-anchor-id="texto-plano-la-base-de-todo">Texto plano: la base de todo</h3>
+<p>Hay una razón de fondo por la que Markdown importa para la investigación con IA: <strong>los modelos de lenguaje operan sobre texto plano</strong>. Cuando trabajas en Word, la IA no puede leer tu documento directamente — necesitas copiar fragmentos, pegarlos en un chat y volver a copiar el resultado. Cuando trabajas en texto plano, la IA puede leer, editar y generar contenido dentro de tu mismo flujo de trabajo.</p>
+<p>Esto no es solo una conveniencia técnica. Es un cambio de paradigma: el texto plano se convierte en la interfaz común entre tu escritura, la IA, el cómputo científico y la publicación final.</p>
+<section id="quarto-de-texto-plano-a-publicación" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-de-texto-plano-a-publicación">Quarto: de texto plano a publicación</h4>
+<p><a href="https://quarto.org">Quarto</a> es una herramienta open source que convierte archivos de texto plano (<code>.qmd</code>) en documentos publicables. Un mismo archivo puede generar un PDF para la revista, un documento Word para tus coautores y un sitio web para difusión — sin cambiar nada del contenido.</p>
+<div id="fig-quarto-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quarto-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/modulo-2/qmd-how-it-works.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quarto-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Flujo de trabajo de Quarto: un archivo <code>.qmd</code> pasa por Jupyter (si tiene código ejecutable), se convierte a Markdown, y Pandoc lo transforma en PDF, Word o HTML. Fuente: <a href="https://quarto.org/docs/get-started/hello/quarto-ojs-jupyter.html">quarto.org</a>.
+</figcaption>
+</figure>
+</div>
+<p>El flujo es: escribes en Markdown, ejecutas código si lo necesitas (R, Python, Julia), y Quarto produce el formato final. Esta guía que estás leyendo fue creada exactamente así.</p>
+</section>
+<section id="el-editor-como-centro-de-operaciones" class="level4">
+<h4 class="anchored" data-anchor-id="el-editor-como-centro-de-operaciones">El editor como centro de operaciones</h4>
+<p>Herramientas como <strong>VS Code</strong> o <strong>Cursor</strong> permiten trabajar con texto plano y tener asistencia de IA integrada en el mismo entorno. Esto significa que puedes:</p>
+<ul>
+<li>Redactar tu manuscrito en Markdown</li>
+<li>Pedir a la IA que revise, traduzca o mejore secciones — sin salir del editor</li>
+<li>Ejecutar análisis estadísticos en R o Python dentro del mismo documento</li>
+<li>Generar PDF, Word y HTML con un solo comando</li>
+<li>Controlar versiones con Git</li>
+</ul>
+<p>Todo desde una herramienta open source, con texto plano como base. No dependes de licencias, formatos propietarios ni plataformas que pueden cambiar sus condiciones.</p>
+</section>
+<section id="latex-ecuaciones-y-referencias" class="level4">
+<h4 class="anchored" data-anchor-id="latex-ecuaciones-y-referencias">LaTeX, ecuaciones y referencias</h4>
+<p>Quarto tiene integración completa con LaTeX. Puedes escribir ecuaciones directamente en tu documento. Por ejemplo, esto:</p>
+<pre class="text"><code>$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+$$ {#eq-regresion}</code></pre>
+<p>Se renderiza automáticamente como:</p>
+<p><span id="eq-regresion"><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+\tag{3.1}\]</span></span></p>
+<p>Las ecuaciones se numeran y puedes referenciarlas en el texto con <code>@eq-regresion</code>: “como se observa en la <a href="#eq-regresion" class="quarto-xref">Ecuación&nbsp;<span>3.1</span></a>, los coeficientes…”. Esto funciona igual en HTML, PDF y Word.</p>
+<p>Para las <strong>referencias bibliográficas</strong>, Quarto usa archivos <code>.bib</code> (el mismo formato que LaTeX y Zotero). Defines tus fuentes en un archivo <code>.bib</code> y las citas en el texto con <code>[@autor2025]</code>. Quarto genera la bibliografía automáticamente en el formato que necesites (APA, Vancouver, Chicago, etc.).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ejemplo real
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esta misma guía gestiona sus referencias así: el archivo <code>references.bib</code> contiene las fuentes y en el texto se citan con <code>[@kalai2025hallucinate]</code>. Quarto genera la sección de Referencias en formato APA automáticamente. Si exportas a Word o PDF, las citas se adaptan al formato correspondiente.</p>
+</div>
+</div>
+</section>
+<section id="cómputo-científico-integrado" class="level4">
+<h4 class="anchored" data-anchor-id="cómputo-científico-integrado">Cómputo científico integrado</h4>
+<p>Quarto no es solo un formato de documento: también puede <strong>ejecutar código</strong>. Puedes incluir bloques de Python, R o Julia directamente en tu manuscrito, y Quarto ejecuta el código y presenta los resultados — tablas, gráficos, estadísticas — como parte del documento final.</p>
+<p>Por ejemplo, un bloque como este en tu archivo <code>.qmd</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown text code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> [<span class="fl">23.1</span>, <span class="fl">25.4</span>, <span class="fl">22.8</span>, <span class="fl">24.6</span>, <span class="fl">23.9</span>, <span class="fl">26.1</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Media: </span><span class="sc">{</span>np<span class="sc">.</span>mean(datos)<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Desviación estándar: </span><span class="sc">{</span>np<span class="sc">.</span>std(datos)<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Produce directamente en el documento:</p>
+<div id="f463d557" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Media: 24.32
+Desviación estándar: 1.18</code></pre>
+</div>
+</div>
+<p>Esto significa que tus resultados nunca se desactualizan: si cambian los datos, el documento se regenera con los valores correctos. No más copiar números de una planilla a un Word.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Para profundizar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La guía oficial de Markdown en Quarto cubre toda la sintaxis disponible para documentos académicos: ecuaciones, referencias cruzadas, citaciones, figuras con subtítulos, tablas, código ejecutable y más.</p>
+<p>Consulta: <a href="https://quarto.org/docs/authoring/markdown-basics.html">quarto.org/docs/authoring/markdown-basics.html</a></p>
+</div>
+</div>
+</section>
+</section>
 <section id="sintaxis-básica-de-markdown" class="level3">
 <h3 class="anchored" data-anchor-id="sintaxis-básica-de-markdown">Sintaxis básica de Markdown</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título principal (H1)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección (H2)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Subsección (H3)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Texto normal con **negrita** y *cursiva*.</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lista con viñetas</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Otro ítem</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Subítem indentado</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Lista numerada</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Segundo ítem</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Cita textual o bloque destacado</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">`código en línea`</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Texto del enlace</span><span class="co">](https://url.com)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Columna 1 <span class="pp">|</span> Columna 2 <span class="pp">|</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------|-----------|</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dato 1    <span class="pp">|</span> Dato 2    <span class="pp">|</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título principal (H1)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección (H2)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Subsección (H3)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Texto normal con **negrita** y *cursiva*.</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lista con viñetas</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Otro ítem</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Subítem indentado</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Lista numerada</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Segundo ítem</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Cita textual o bloque destacado</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="in">`código en línea`</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Texto del enlace</span><span class="co">](https://url.com)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Columna 1 <span class="pp">|</span> Columna 2 <span class="pp">|</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------|-----------|</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dato 1    <span class="pp">|</span> Dato 2    <span class="pp">|</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="estructura-de-un-artículo-académico-en-markdown" class="level3">
 <h3 class="anchored" data-anchor-id="estructura-de-un-artículo-académico-en-markdown">Estructura de un artículo académico en Markdown</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título del artículo</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>**Autores:** Nombre Apellido^1^, Nombre Apellido^2^</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>^1^ Afiliación 1</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>^2^ Afiliación 2</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Resumen de 150-300 palabras</span><span class="co">]</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>**Palabras clave:** palabra1, palabra2, palabra3</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Contexto, problema, objetivo, estructura del artículo</span><span class="co">]</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Marco teórico</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Concepto 1</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Desarrollo</span><span class="co">]</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Concepto 2</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Desarrollo</span><span class="co">]</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metodología</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Diseño del estudio</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Tipo de estudio, enfoque</span><span class="co">]</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Participantes/Muestra</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instrumentos</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Procedimiento</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de datos</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resultados</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hallazgo 1</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción con datos</span><span class="co">]</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hallazgo 2</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción con datos</span><span class="co">]</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discusión</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Interpretación, comparación con literatura, implicaciones</span><span class="co">]</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusiones</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Síntesis, limitaciones, futuras líneas</span><span class="co">]</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lista de referencias en formato requerido</span><span class="co">]</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Título del artículo</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>**Autores:** Nombre Apellido^1^, Nombre Apellido^2^</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>^1^ Afiliación 1</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>^2^ Afiliación 2</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Resumen de 150-300 palabras</span><span class="co">]</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>**Palabras clave:** palabra1, palabra2, palabra3</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introducción</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Contexto, problema, objetivo, estructura del artículo</span><span class="co">]</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Marco teórico</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Concepto 1</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Desarrollo</span><span class="co">]</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Concepto 2</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Desarrollo</span><span class="co">]</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metodología</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Diseño del estudio</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Tipo de estudio, enfoque</span><span class="co">]</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Participantes/Muestra</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Instrumentos</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Procedimiento</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análisis de datos</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción</span><span class="co">]</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resultados</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hallazgo 1</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción con datos</span><span class="co">]</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hallazgo 2</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Descripción con datos</span><span class="co">]</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discusión</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Interpretación, comparación con literatura, implicaciones</span><span class="co">]</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusiones</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Síntesis, limitaciones, futuras líneas</span><span class="co">]</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lista de referencias en formato requerido</span><span class="co">]</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Web</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Terminal</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <ol type="1">
 <li><p><strong>Crea el esqueleto en el chat:</strong></p>
-<pre><code>Genera la estructura en Markdown para un artículo académico
+<pre class="text"><code>Genera la estructura en Markdown para un artículo académico
 sobre [TU TEMA]. Incluye todas las secciones estándar de
 un artículo empírico.</code></pre></li>
 <li><p><strong>Copia el resultado a Google Docs</strong></p></li>
@@ -429,20 +577,22 @@ un artículo empírico.</code></pre></li>
 </ol>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Desde Gemini dentro de tu proyecto:</p>
 <ol type="1">
-<li><p><strong>Crea un archivo <code>.md</code> o <code>.qmd</code>:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> mi-articulo.qmd</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Usa la estructura base</strong> del ejemplo anterior</p></li>
-<li><p><strong>Con Gemini CLI, genera secciones:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Genera el contenido para la sección de Metodología</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">de un estudio sobre [TEMA]. Tipo de estudio: [TIPO].</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">Responde solo en Markdown."</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Pide que cree el archivo con la estructura:</strong></p>
+<pre class="text"><code>Crea el archivo mi-articulo.qmd con la estructura completa
+en Markdown para un artículo académico sobre [TU TEMA].
+Incluye todas las secciones estándar de un artículo empírico.</code></pre></li>
+<li><p><strong>Genera contenido sección por sección:</strong></p>
+<pre class="text"><code>Genera el contenido para la sección de Metodología.
+Tipo de estudio: [TIPO]. Escribe directamente en
+mi-articulo.qmd.</code></pre></li>
 <li><p><strong>Previsualiza en VS Code:</strong></p>
 <ul>
 <li><code>Cmd+Shift+V</code> (Mac) o <code>Ctrl+Shift+V</code> (Windows)</li>
 </ul></li>
 <li><p><strong>Exporta a Word/PDF:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render mi-articulo.qmd <span class="at">--to</span> docx</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render mi-articulo.qmd <span class="at">--to</span> docx</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </div>
 </div>
@@ -529,7 +679,7 @@ un artículo empírico.</code></pre></li>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Usa este prompt para generar un borrador:</p>
-<pre><code>Actúa como asistente de redacción académica en español.
+<pre class="text"><code>Actúa como asistente de redacción académica en español.
 
 Necesito escribir la sección de [NOMBRE DE SECCIÓN] para un
 artículo sobre [TEMA].
@@ -546,16 +696,16 @@ formal. Usa voz activa cuando sea posible. No incluyas
 afirmaciones que no puedas respaldar con los puntos que te di.</code></pre>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Crea un archivo con notas y pide expansión:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Archivo: notas-metodologia.md</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Estudio cualitativo</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - 15 entrevistas semiestructuradas</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Análisis temático</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># - Muestreo por conveniencia</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Expande estas notas en una sección de Metodología</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">académica en español. 300-400 palabras. Solo Markdown."</span> <span class="dt">\</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span> notas-metodologia.md <span class="op">&gt;</span> metodologia-borrador.md</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Desde Gemini dentro de tu proyecto, pide que expanda tus notas:</p>
+<pre class="text"><code>Crea el archivo notas-metodologia.md con estos puntos:
+- Estudio cualitativo
+- 15 entrevistas semiestructuradas
+- Análisis temático
+- Muestreo por conveniencia
+
+Luego expande esas notas en una sección de Metodología
+académica en español. 300-400 palabras. Guarda el resultado
+en metodologia-borrador.md.</code></pre>
 </div>
 </div>
 </div>
@@ -563,7 +713,7 @@ afirmaciones que no puedas respaldar con los puntos que te di.</code></pre>
 <section id="paso-2-mejorar-la-redacción" class="level3">
 <h3 class="anchored" data-anchor-id="paso-2-mejorar-la-redacción">Paso 2: Mejorar la redacción</h3>
 <p>Una vez tengas el borrador, pide mejoras específicas:</p>
-<pre><code>Revisa este texto académico y mejora:
+<pre class="text"><code>Revisa este texto académico y mejora:
 1. Claridad: simplifica oraciones complejas
 2. Precisión: elimina ambigüedades
 3. Fluidez: mejora las transiciones entre párrafos
@@ -575,7 +725,7 @@ Mantén el tono académico formal. No cambies el significado.
 </section>
 <section id="paso-3-verificar-consistencia-de-estilo" class="level3">
 <h3 class="anchored" data-anchor-id="paso-3-verificar-consistencia-de-estilo">Paso 3: Verificar consistencia de estilo</h3>
-<pre><code>Revisa este texto y asegura consistencia en:
+<pre class="text"><code>Revisa este texto y asegura consistencia en:
 - Uso de tiempos verbales (pasado para métodos y resultados)
 - Persona gramatical (tercera persona o impersonal)
 - Terminología (usa siempre los mismos términos para conceptos clave)
@@ -693,7 +843,7 @@ Mantén el tono académico formal. No cambies el significado.
 </section>
 <section id="el-prompt-de-traducción-académica" class="level3">
 <h3 class="anchored" data-anchor-id="el-prompt-de-traducción-académica">El prompt de traducción académica</h3>
-<pre><code>Actúa como traductor especializado en textos académicos de
+<pre class="text"><code>Actúa como traductor especializado en textos académicos de
 [TU DISCIPLINA].
 
 Traduce el siguiente texto del español al inglés académico.
@@ -719,22 +869,21 @@ Texto a traducir:
 <li><p><strong>Traduce por secciones</strong> (no todo el documento de una vez)</p></li>
 <li><p><strong>Revisa cada sección</strong> antes de continuar</p></li>
 <li><p><strong>Pide alternativas</strong> para frases que no te convenzan:</p>
-<pre><code>Dame 3 formas alternativas de expresar esta idea en inglés
+<pre class="text"><code>Dame 3 formas alternativas de expresar esta idea en inglés
 académico: "[FRASE]"</code></pre></li>
 <li><p><strong>Verifica terminología</strong> con papers de referencia en tu área</p></li>
 </ol>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Crea un script para traducir múltiples archivos:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># traducir.sh</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> file <span class="kw">in</span> secciones/<span class="pp">*</span>.md<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">gemini</span> <span class="st">"Traduce este texto académico del español al inglés.</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Disciplina: [TU ÁREA]. Mantén formato Markdown."</span> <span class="dt">\</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span> <span class="st">"</span><span class="va">$file</span><span class="st">"</span> <span class="op">&gt;</span> <span class="st">"translated/</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$file)</span><span class="st">"</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>O traduce sección por sección con control:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Traduce al inglés académico. Área: ciencias sociales.</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="st">Mantén Markdown."</span> <span class="op">&lt;</span> introduccion.md <span class="op">&gt;</span> introduction.md</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Desde Gemini dentro de tu proyecto, traduce sección por sección:</p>
+<pre class="text"><code>Traduce el archivo introduccion.md al inglés académico.
+Disciplina: ciencias sociales. Mantén el formato Markdown.
+Guarda el resultado en introduction.md.</code></pre>
+<p>Para traducir varios archivos:</p>
+<pre class="text"><code>Traduce al inglés académico todos los archivos .md que están
+en la carpeta secciones/. Disciplina: [TU ÁREA]. Mantén el
+formato Markdown. Guarda los resultados en la carpeta
+translated/ con los mismos nombres.</code></pre>
 </div>
 </div>
 </div>
@@ -742,7 +891,7 @@ académico: "[FRASE]"</code></pre></li>
 <section id="refinamiento-de-la-traducción" class="level3">
 <h3 class="anchored" data-anchor-id="refinamiento-de-la-traducción">Refinamiento de la traducción</h3>
 <p>Después de la traducción inicial:</p>
-<pre><code>Revisa esta traducción al inglés académico y mejora:
+<pre class="text"><code>Revisa esta traducción al inglés académico y mejora:
 
 1. Naturalidad: ¿suena como lo escribiría un nativo?
 2. Precisión: ¿se mantiene el significado original?
@@ -760,14 +909,14 @@ Traducción a revisar:
 <section id="glosario-de-términos-clave" class="level3">
 <h3 class="anchored" data-anchor-id="glosario-de-términos-clave">Glosario de términos clave</h3>
 <p>Antes de traducir, crea un glosario:</p>
-<pre><code>Estoy por traducir un artículo sobre [TEMA].
+<pre class="text"><code>Estoy por traducir un artículo sobre [TEMA].
 
 Genera un glosario bilingüe con los términos técnicos más
 importantes de esta área. Formato tabla:
 
 | Español | Inglés | Notas de uso |</code></pre>
 <p>Luego úsalo como referencia:</p>
-<pre><code>Usa este glosario para mantener consistencia terminológica
+<pre class="text"><code>Usa este glosario para mantener consistencia terminológica
 en la traducción:
 
 [PEGA GLOSARIO]
@@ -845,7 +994,7 @@ Texto a traducir:
 <section id="prompt-de-revisión-final" class="level3">
 <h3 class="anchored" data-anchor-id="prompt-de-revisión-final">Prompt de revisión final</h3>
 <p>Usa este prompt para una revisión automatizada:</p>
-<pre><code>Actúa como editor de una revista académica de [TU ÁREA].
+<pre class="text"><code>Actúa como editor de una revista académica de [TU ÁREA].
 
 Revisa este manuscrito y genera un informe con:
 
@@ -883,15 +1032,13 @@ Revisa este manuscrito y genera un informe con:
 </ol>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisa todo el documento</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Actúa como editor. Revisa este manuscrito académico.</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="st">Genera lista de problemas ordenados por prioridad."</span> <span class="dt">\</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span> manuscrito.md <span class="op">&gt;</span> revision-informe.md</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisa consistencia de citas</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="st">"Extrae todas las citas (Autor, año) del texto.</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="st">Luego lista las referencias. Identifica discrepancias."</span> <span class="dt">\</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span> manuscrito.md <span class="op">&gt;</span> verificacion-citas.md</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Desde Gemini dentro de tu proyecto:</p>
+<pre class="text"><code>Lee el archivo manuscrito.md y actúa como editor académico.
+Genera un informe con los problemas encontrados, ordenados
+por prioridad. Guarda el informe en revision-informe.md.</code></pre>
+<pre class="text"><code>Extrae todas las citas (Autor, año) del texto de manuscrito.md.
+Luego lista las referencias. Identifica discrepancias entre
+citas y referencias. Guarda el resultado en verificacion-citas.md.</code></pre>
 </div>
 </div>
 </div>
@@ -899,7 +1046,7 @@ Revisa este manuscrito y genera un informe con:
 <section id="declaración-de-uso-de-ia" class="level3">
 <h3 class="anchored" data-anchor-id="declaración-de-uso-de-ia">Declaración de uso de IA</h3>
 <p>Si usaste IA en la preparación del manuscrito, incluye una declaración como esta:</p>
-<pre><code>## Declaration of Generative AI Use
+<pre class="text"><code>## Declaration of Generative AI Use
 
 During the preparation of this manuscript, the authors used
 [HERRAMIENTA] ([VERSIÓN]) for [PROPÓSITO: improving language
@@ -947,27 +1094,27 @@ content of the publication.</code></pre>
 </section>
 <section id="checklist-final-antes-de-enviar" class="level3">
 <h3 class="anchored" data-anchor-id="checklist-final-antes-de-enviar">Checklist final antes de enviar</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Checklist de envío</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Documentos</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Manuscrito principal (anónimo si requiere revisión ciega)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Página de título con autores y afiliaciones</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Carta de presentación (cover letter)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Tablas (archivo separado si lo requiere)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Figuras (alta resolución, formato requerido)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Material suplementario (si aplica)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Requisitos éticos</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Aprobación de comité de ética (si aplica)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Consentimiento informado mencionado</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Conflictos de interés declarados</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Financiamiento declarado</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formato</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Conteo de palabras verificado</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Formato de referencias correcto</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Figuras en resolución y formato requeridos</span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Nombres de archivos según instrucciones</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Checklist de envío</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Documentos</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Manuscrito principal (anónimo si requiere revisión ciega)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Página de título con autores y afiliaciones</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Carta de presentación (cover letter)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Tablas (archivo separado si lo requiere)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Figuras (alta resolución, formato requerido)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Material suplementario (si aplica)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Requisitos éticos</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Aprobación de comité de ética (si aplica)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Consentimiento informado mencionado</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Conflictos de interés declarados</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Financiamiento declarado</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formato</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Conteo de palabras verificado</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Formato de referencias correcto</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Figuras en resolución y formato requeridos</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Nombres de archivos según instrucciones</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1038,7 +1185,7 @@ content of the publication.</code></pre>
 </section>
 <section id="contacto-y-soporte" class="level3">
 <h3 class="anchored" data-anchor-id="contacto-y-soporte">Contacto y soporte</h3>
-<p>[Información de contacto del facilitador o unidad organizadora]</p>
+<p>Para consultas posteriores al taller, puedes escribir a José Cifuentes R. a través de tu correo institucional.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1054,6 +1201,29 @@ content of the publication.</code></pre>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-elicit2025" class="csl-entry" role="listitem">
+Elicit. 2025. <span>«Elicit: The AI Research Assistant»</span>. 2025. <a href="https://elicit.com/">https://elicit.com/</a>.
+</div>
+<div id="ref-elsevier2025ai" class="csl-entry" role="listitem">
+Elsevier. 2025. <span>«Generative AI policies for journals»</span>. 2025. <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals">https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals</a>.
+</div>
+<div id="ref-kalai2025hallucinate" class="csl-entry" role="listitem">
+Kalai, Adam Tauman, Ofir Nachum, Santosh S. Vempala, y Edwin Zhang. 2025. <span>«Why Language Models Hallucinate»</span>. <a href="https://openai.com/index/why-language-models-hallucinate/">https://openai.com/index/why-language-models-hallucinate/</a>.
+</div>
+<div id="ref-perplexity2025" class="csl-entry" role="listitem">
+Perplexity AI. 2025. <span>«Perplexity»</span>. 2025. <a href="https://www.perplexity.ai/">https://www.perplexity.ai/</a>.
+</div>
+<div id="ref-scispace2025" class="csl-entry" role="listitem">
+SciSpace. 2025. <span>«SciSpace - Your AI Copilot to Decode Any Research Paper»</span>. 2025. <a href="https://typeset.io/">https://typeset.io/</a>.
+</div>
+<div id="ref-springer2025ai" class="csl-entry" role="listitem">
+Springer Nature. 2025. <span>«Artificial Intelligence (AI) - Nature Portfolio»</span>. 2025. <a href="https://www.nature.com/nature-portfolio/editorial-policies/ai">https://www.nature.com/nature-portfolio/editorial-policies/ai</a>.
+</div>
+<div id="ref-taylor2025ai" class="csl-entry" role="listitem">
+Taylor &amp; Francis. 2025. <span>«AI Policy»</span>. 2025. <a href="https://taylorandfrancis.com/our-policies/ai-policy/">https://taylorandfrancis.com/our-policies/ai-policy/</a>.
+</div>
+</div>
 </section>
 </section>
 

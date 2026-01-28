@@ -20,42 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -391,12 +376,8 @@ los enfoques que discutimos y 2-3 posibles direcciones de
 investigación.</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Desde Gemini dentro de tu proyecto de investigación:</p>
 <ol type="1">
-<li>Abre tu terminal en el directorio de tu proyecto de investigación</li>
-<li>Inicia Gemini CLI:</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="3" type="1">
 <li>Usa el mismo prompt inicial del Camino A y conversa con el modelo</li>
 <li>Al finalizar, pide la síntesis</li>
 </ol>
@@ -708,39 +689,23 @@ Genera una ficha con:
    "Políticas editoriales sobre IA en publicaciones científicas"</code></pre>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Crea un archivo <code>ficha-template.md</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ficha: [Apellido, Año]</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencia</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cita APA 7</span><span class="co">]</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tema principal</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Una frase</span><span class="co">]</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resumen</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">3-5 oraciones</span><span class="co">]</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metodología</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tipo de estudio:</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Muestra:</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Instrumentos:</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hallazgos principales</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>1.</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>2.</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>3.</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitaciones</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>-</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conexiones con mi investigación</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>-</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Notas propias</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>-</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Usa Gemini CLI para llenar cada ficha:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gemini</span> <span class="at">--prompt</span> <span class="st">"Llena esta plantilla de ficha académica con</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">información del siguiente abstract: [ABSTRACT]"</span> <span class="op">&lt;</span> ficha-template.md</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Desde Gemini dentro de tu proyecto, pide que cree la plantilla y la llene:</p>
+<pre class="text"><code>Crea el archivo ficha-template.md con esta estructura:
+- Referencia (APA 7)
+- Tema principal (una frase)
+- Resumen (3-5 oraciones)
+- Metodología (tipo, muestra, instrumentos)
+- Hallazgos principales (3-5 puntos)
+- Limitaciones
+- Conexiones con mi investigación
+- Notas propias</code></pre>
+<p>Luego, para cada paper:</p>
+<pre class="text"><code>Usa la plantilla ficha-template.md y llénala con la información
+de este abstract:
+
+[PEGA EL ABSTRACT]
+
+Guarda el resultado en fichas/ficha-apellido-2025.md.</code></pre>
 </div>
 </div>
 </div>
@@ -796,24 +761,13 @@ para una sección de revisión de literatura que:
 </ol>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Crea un archivo <code>revision-literatura.qmd</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Revisión de literatura"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección 1: [Tema]</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Síntesis de papers relevantes</span><span class="co">]</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección 2: [Tema]</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Síntesis de papers relevantes</span><span class="co">]</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vacío identificado</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cómo tu investigación contribuye</span><span class="co">]</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Desde Gemini dentro de tu proyecto:</p>
+<pre class="text"><code>Crea el archivo revision-literatura.qmd con formato Quarto
+(incluye YAML con title, format: html y bibliography: references.bib).
+
+Organiza el contenido en subsecciones temáticas basándote en
+los patrones que identificamos. Incluye una sección final que
+señale el vacío que mi investigación aborda.</code></pre>
 </div>
 </div>
 </div>
@@ -874,6 +828,29 @@ para una sección de revisión de literatura que:
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-elicit2025" class="csl-entry" role="listitem">
+Elicit. 2025. <span>«Elicit: The AI Research Assistant»</span>. 2025. <a href="https://elicit.com/">https://elicit.com/</a>.
+</div>
+<div id="ref-elsevier2025ai" class="csl-entry" role="listitem">
+Elsevier. 2025. <span>«Generative AI policies for journals»</span>. 2025. <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals">https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals</a>.
+</div>
+<div id="ref-kalai2025hallucinate" class="csl-entry" role="listitem">
+Kalai, Adam Tauman, Ofir Nachum, Santosh S. Vempala, y Edwin Zhang. 2025. <span>«Why Language Models Hallucinate»</span>. <a href="https://openai.com/index/why-language-models-hallucinate/">https://openai.com/index/why-language-models-hallucinate/</a>.
+</div>
+<div id="ref-perplexity2025" class="csl-entry" role="listitem">
+Perplexity AI. 2025. <span>«Perplexity»</span>. 2025. <a href="https://www.perplexity.ai/">https://www.perplexity.ai/</a>.
+</div>
+<div id="ref-scispace2025" class="csl-entry" role="listitem">
+SciSpace. 2025. <span>«SciSpace - Your AI Copilot to Decode Any Research Paper»</span>. 2025. <a href="https://typeset.io/">https://typeset.io/</a>.
+</div>
+<div id="ref-springer2025ai" class="csl-entry" role="listitem">
+Springer Nature. 2025. <span>«Artificial Intelligence (AI) - Nature Portfolio»</span>. 2025. <a href="https://www.nature.com/nature-portfolio/editorial-policies/ai">https://www.nature.com/nature-portfolio/editorial-policies/ai</a>.
+</div>
+<div id="ref-taylor2025ai" class="csl-entry" role="listitem">
+Taylor &amp; Francis. 2025. <span>«AI Policy»</span>. 2025. <a href="https://taylorandfrancis.com/our-policies/ai-policy/">https://taylorandfrancis.com/our-policies/ai-policy/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
