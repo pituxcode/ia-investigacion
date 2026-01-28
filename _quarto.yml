@@ -8,6 +8,15 @@ book:
   author: "José Cifuentes R.<br>Universidad de Aysén"
   date: "2026-01-28"
   date-format: "D [de] MMMM YYYY"
+  page-footer:
+    center: |
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+        <img alt="Licencia Creative Commons" style="border-width:0; height:22px; vertical-align:middle;"
+             src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" />
+      </a>
+      <span style="vertical-align:middle; margin-left:8px;">
+        Esta obra está bajo una <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>
+      </span>
   chapters:
     - conectar.qmd
     - index.qmd
