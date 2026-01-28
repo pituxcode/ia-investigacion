@@ -1,0 +1,11 @@
+# Conectar {.unnumbered}
+
+::: {style="text-align: center; padding: 2rem 0;"}
+
+Escanea el código QR o ingresa la URL en tu navegador:
+
+![](assets/qr-code.png){width=300 fig-align="center"}
+
+[**pituxcode.github.io/ia-investigacion**](https://pituxcode.github.io/ia-investigacion/){style="font-size: 2.5rem; display: block; margin-top: 1.5rem;"}
+
+:::

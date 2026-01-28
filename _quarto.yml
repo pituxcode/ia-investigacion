@@ -9,6 +9,7 @@ book:
   date: "2026-01-28"
   date-format: "D [de] MMMM YYYY"
   chapters:
+    - conectar.qmd
     - index.qmd
     - fundamentos.qmd
     - modulo-1.qmd
