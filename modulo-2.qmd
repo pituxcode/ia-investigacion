@@ -35,6 +35,92 @@ Markdown es un lenguaje de marcado simple que:
 | Exportación | Limitada | Múltiples formatos |
 :::
 
+### Texto plano: la base de todo
+
+Hay una razón de fondo por la que Markdown importa para la investigación con IA: **los modelos de lenguaje operan sobre texto plano**. Cuando trabajas en Word, la IA no puede leer tu documento directamente --- necesitas copiar fragmentos, pegarlos en un chat y volver a copiar el resultado. Cuando trabajas en texto plano, la IA puede leer, editar y generar contenido dentro de tu mismo flujo de trabajo.
+
+Esto no es solo una conveniencia técnica. Es un cambio de paradigma: el texto plano se convierte en la interfaz común entre tu escritura, la IA, el cómputo científico y la publicación final.
+
+#### Quarto: de texto plano a publicación
+
+[Quarto](https://quarto.org) es una herramienta open source que convierte archivos de texto plano (`.qmd`) en documentos publicables. Un mismo archivo puede generar un PDF para la revista, un documento Word para tus coautores y un sitio web para difusión --- sin cambiar nada del contenido.
+
+![Flujo de trabajo de Quarto: un archivo `.qmd` pasa por Jupyter (si tiene código ejecutable), se convierte a Markdown, y Pandoc lo transforma en PDF, Word o HTML. Fuente: [quarto.org](https://quarto.org/docs/get-started/hello/quarto-ojs-jupyter.html).](assets/modulo-2/qmd-how-it-works.png){#fig-quarto-pipeline}
+
+El flujo es: escribes en Markdown, ejecutas código si lo necesitas (R, Python, Julia), y Quarto produce el formato final. Esta guía que estás leyendo fue creada exactamente así.
+
+#### El editor como centro de operaciones
+
+Herramientas como **VS Code** o **Cursor** permiten trabajar con texto plano y tener asistencia de IA integrada en el mismo entorno. Esto significa que puedes:
+
+- Redactar tu manuscrito en Markdown
+- Pedir a la IA que revise, traduzca o mejore secciones --- sin salir del editor
+- Ejecutar análisis estadísticos en R o Python dentro del mismo documento
+- Generar PDF, Word y HTML con un solo comando
+- Controlar versiones con Git
+
+Todo desde una herramienta open source, con texto plano como base. No dependes de licencias, formatos propietarios ni plataformas que pueden cambiar sus condiciones.
+
+#### LaTeX, ecuaciones y referencias
+
+Quarto tiene integración completa con LaTeX. Puedes escribir ecuaciones directamente en tu documento. Por ejemplo, esto:
+
+```text
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+$$ {#eq-regresion}
+```
+
+Se renderiza automáticamente como:
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+$$ {#eq-regresion}
+
+Las ecuaciones se numeran y puedes referenciarlas en el texto con `@eq-regresion`: "como se observa en la @eq-regresion, los coeficientes...". Esto funciona igual en HTML, PDF y Word.
+
+Para las **referencias bibliográficas**, Quarto usa archivos `.bib` (el mismo formato que LaTeX y Zotero). Defines tus fuentes en un archivo `.bib` y las citas en el texto con `[@autor2025]`. Quarto genera la bibliografía automáticamente en el formato que necesites (APA, Vancouver, Chicago, etc.).
+
+::: {.callout-note}
+## Ejemplo real
+Esta misma guía gestiona sus referencias así: el archivo `references.bib` contiene las fuentes y en el texto se citan con `[@kalai2025hallucinate]`. Quarto genera la sección de Referencias en formato APA automáticamente. Si exportas a Word o PDF, las citas se adaptan al formato correspondiente.
+:::
+
+#### Cómputo científico integrado
+
+Quarto no es solo un formato de documento: también puede **ejecutar código**. Puedes incluir bloques de Python, R o Julia directamente en tu manuscrito, y Quarto ejecuta el código y presenta los resultados --- tablas, gráficos, estadísticas --- como parte del documento final.
+
+Por ejemplo, un bloque como este en tu archivo `.qmd`:
+
+````text
+```{{python}}
+import numpy as np
+
+datos = [23.1, 25.4, 22.8, 24.6, 23.9, 26.1]
+print(f"Media: {np.mean(datos):.2f}")
+print(f"Desviación estándar: {np.std(datos):.2f}")
+```
+````
+
+Produce directamente en el documento:
+
+```{python}
+import numpy as np
+
+datos = [23.1, 25.4, 22.8, 24.6, 23.9, 26.1]
+print(f"Media: {np.mean(datos):.2f}")
+print(f"Desviación estándar: {np.std(datos):.2f}")
+```
+
+Esto significa que tus resultados nunca se desactualizan: si cambian los datos, el documento se regenera con los valores correctos. No más copiar números de una planilla a un Word.
+
+::: {.callout-note}
+## Para profundizar
+La guía oficial de Markdown en Quarto cubre toda la sintaxis disponible para documentos académicos: ecuaciones, referencias cruzadas, citaciones, figuras con subtítulos, tablas, código ejecutable y más.
+
+Consulta: [quarto.org/docs/authoring/markdown-basics.html](https://quarto.org/docs/authoring/markdown-basics.html)
+:::
+
 ### Sintaxis básica de Markdown
 
 ```markdown
@@ -133,7 +219,7 @@ Texto normal con **negrita** y *cursiva*.
 ## Web
 
 1. **Crea el esqueleto en el chat:**
-   ```
+   ```text
    Genera la estructura en Markdown para un artículo académico
    sobre [TU TEMA]. Incluye todas las secciones estándar de
    un artículo empírico.
@@ -149,24 +235,26 @@ Texto normal con **negrita** y *cursiva*.
 
 ## Terminal
 
-1. **Crea un archivo `.md` o `.qmd`:**
-   ```bash
-   touch mi-articulo.qmd
+Desde Gemini dentro de tu proyecto:
+
+1. **Pide que cree el archivo con la estructura:**
+   ```text
+   Crea el archivo mi-articulo.qmd con la estructura completa
+   en Markdown para un artículo académico sobre [TU TEMA].
+   Incluye todas las secciones estándar de un artículo empírico.
    ```
 
-2. **Usa la estructura base** del ejemplo anterior
-
-3. **Con Gemini CLI, genera secciones:**
-   ```bash
-   gemini "Genera el contenido para la sección de Metodología
-   de un estudio sobre [TEMA]. Tipo de estudio: [TIPO].
-   Responde solo en Markdown."
+2. **Genera contenido sección por sección:**
+   ```text
+   Genera el contenido para la sección de Metodología.
+   Tipo de estudio: [TIPO]. Escribe directamente en
+   mi-articulo.qmd.
    ```
 
-4. **Previsualiza en VS Code:**
+3. **Previsualiza en VS Code:**
    - `Cmd+Shift+V` (Mac) o `Ctrl+Shift+V` (Windows)
 
-5. **Exporta a Word/PDF:**
+4. **Exporta a Word/PDF:**
    ```bash
    quarto render mi-articulo.qmd --to docx
    ```
@@ -217,7 +305,7 @@ La IA genera borradores; tú aportas el conocimiento experto, la interpretación
 
 Usa este prompt para generar un borrador:
 
-```
+```text
 Actúa como asistente de redacción académica en español.
 
 Necesito escribir la sección de [NOMBRE DE SECCIÓN] para un
@@ -237,18 +325,18 @@ afirmaciones que no puedas respaldar con los puntos que te di.
 
 ## Terminal
 
-Crea un archivo con notas y pide expansión:
+Desde Gemini dentro de tu proyecto, pide que expanda tus notas:
 
-```bash
-# Archivo: notas-metodologia.md
-# - Estudio cualitativo
-# - 15 entrevistas semiestructuradas
-# - Análisis temático
-# - Muestreo por conveniencia
+```text
+Crea el archivo notas-metodologia.md con estos puntos:
+- Estudio cualitativo
+- 15 entrevistas semiestructuradas
+- Análisis temático
+- Muestreo por conveniencia
 
-gemini "Expande estas notas en una sección de Metodología
-académica en español. 300-400 palabras. Solo Markdown." \
-  < notas-metodologia.md > metodologia-borrador.md
+Luego expande esas notas en una sección de Metodología
+académica en español. 300-400 palabras. Guarda el resultado
+en metodologia-borrador.md.
 ```
 
 :::
@@ -257,7 +345,7 @@ académica en español. 300-400 palabras. Solo Markdown." \
 
 Una vez tengas el borrador, pide mejoras específicas:
 
-```
+```text
 Revisa este texto académico y mejora:
 1. Claridad: simplifica oraciones complejas
 2. Precisión: elimina ambigüedades
@@ -271,7 +359,7 @@ Mantén el tono académico formal. No cambies el significado.
 
 ### Paso 3: Verificar consistencia de estilo
 
-```
+```text
 Revisa este texto y asegura consistencia en:
 - Uso de tiempos verbales (pasado para métodos y resultados)
 - Persona gramatical (tercera persona o impersonal)
@@ -325,7 +413,7 @@ Traducir tu manuscrito al inglés académico manteniendo precisión terminológi
 
 ### El prompt de traducción académica
 
-```
+```text
 Actúa como traductor especializado en textos académicos de
 [TU DISCIPLINA].
 
@@ -353,7 +441,7 @@ Texto a traducir:
 1. **Traduce por secciones** (no todo el documento de una vez)
 2. **Revisa cada sección** antes de continuar
 3. **Pide alternativas** para frases que no te convenzan:
-   ```
+   ```text
    Dame 3 formas alternativas de expresar esta idea en inglés
    académico: "[FRASE]"
    ```
@@ -361,22 +449,21 @@ Texto a traducir:
 
 ## Terminal
 
-Crea un script para traducir múltiples archivos:
+Desde Gemini dentro de tu proyecto, traduce sección por sección:
 
-```bash
-# traducir.sh
-for file in secciones/*.md; do
-  gemini "Traduce este texto académico del español al inglés.
-  Disciplina: [TU ÁREA]. Mantén formato Markdown." \
-    < "$file" > "translated/$(basename $file)"
-done
+```text
+Traduce el archivo introduccion.md al inglés académico.
+Disciplina: ciencias sociales. Mantén el formato Markdown.
+Guarda el resultado en introduction.md.
 ```
 
-O traduce sección por sección con control:
+Para traducir varios archivos:
 
-```bash
-gemini "Traduce al inglés académico. Área: ciencias sociales.
-Mantén Markdown." < introduccion.md > introduction.md
+```text
+Traduce al inglés académico todos los archivos .md que están
+en la carpeta secciones/. Disciplina: [TU ÁREA]. Mantén el
+formato Markdown. Guarda los resultados en la carpeta
+translated/ con los mismos nombres.
 ```
 
 :::
@@ -385,7 +472,7 @@ Mantén Markdown." < introduccion.md > introduction.md
 
 Después de la traducción inicial:
 
-```
+```text
 Revisa esta traducción al inglés académico y mejora:
 
 1. Naturalidad: ¿suena como lo escribiría un nativo?
@@ -406,7 +493,7 @@ Traducción a revisar:
 
 Antes de traducir, crea un glosario:
 
-```
+```text
 Estoy por traducir un artículo sobre [TEMA].
 
 Genera un glosario bilingüe con los términos técnicos más
@@ -417,7 +504,7 @@ importantes de esta área. Formato tabla:
 
 Luego úsalo como referencia:
 
-```
+```text
 Usa este glosario para mantener consistencia terminológica
 en la traducción:
 
@@ -484,7 +571,7 @@ Antes de enviar, verifica cada punto:
 
 Usa este prompt para una revisión automatizada:
 
-```
+```text
 Actúa como editor de una revista académica de [TU ÁREA].
 
 Revisa este manuscrito y genera un informe con:
@@ -524,16 +611,18 @@ Revisa este manuscrito y genera un informe con:
 
 ## Terminal
 
-```bash
-# Revisa todo el documento
-gemini "Actúa como editor. Revisa este manuscrito académico.
-Genera lista de problemas ordenados por prioridad." \
-  < manuscrito.md > revision-informe.md
+Desde Gemini dentro de tu proyecto:
 
-# Revisa consistencia de citas
-gemini "Extrae todas las citas (Autor, año) del texto.
-Luego lista las referencias. Identifica discrepancias." \
-  < manuscrito.md > verificacion-citas.md
+```text
+Lee el archivo manuscrito.md y actúa como editor académico.
+Genera un informe con los problemas encontrados, ordenados
+por prioridad. Guarda el informe en revision-informe.md.
+```
+
+```text
+Extrae todas las citas (Autor, año) del texto de manuscrito.md.
+Luego lista las referencias. Identifica discrepancias entre
+citas y referencias. Guarda el resultado en verificacion-citas.md.
 ```
 
 :::
@@ -542,7 +631,7 @@ Luego lista las referencias. Identifica discrepancias." \
 
 Si usaste IA en la preparación del manuscrito, incluye una declaración como esta:
 
-```
+```text
 ## Declaration of Generative AI Use
 
 During the preparation of this manuscript, the authors used
@@ -630,7 +719,7 @@ Siempre revisa las instrucciones específicas de la revista.
 
 ### Contacto y soporte
 
-[Información de contacto del facilitador o unidad organizadora]
+Para consultas posteriores al taller, puedes escribir a José Cifuentes R. a través de tu correo institucional.
 
 ::: {.callout-note}
 ## Recordatorio final

@@ -17,6 +17,8 @@ book:
     - references.qmd
 
 bibliography: references.bib
+nocite: |
+  @*
 
 format:
   html:

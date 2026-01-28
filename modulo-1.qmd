@@ -95,15 +95,10 @@ investigación.
 
 ## Terminal
 
-1. Abre tu terminal en el directorio de tu proyecto de investigación
-2. Inicia Gemini CLI:
+Desde Gemini dentro de tu proyecto de investigación:
 
-```bash
-gemini
-```
-
-3. Usa el mismo prompt inicial del Camino A y conversa con el modelo
-4. Al finalizar, pide la síntesis
+1. Usa el mismo prompt inicial del Camino A y conversa con el modelo
+2. Al finalizar, pide la síntesis
 
 :::
 
@@ -326,45 +321,29 @@ Genera una ficha con:
 
 ## Terminal
 
-Crea un archivo `ficha-template.md`:
+Desde Gemini dentro de tu proyecto, pide que cree la plantilla y la llene:
 
-```markdown
-# Ficha: [Apellido, Año]
-
-## Referencia
-[Cita APA 7]
-
-## Tema principal
-[Una frase]
-
-## Resumen
-[3-5 oraciones]
-
-## Metodología
-- Tipo de estudio:
-- Muestra:
-- Instrumentos:
-
-## Hallazgos principales
-1.
-2.
-3.
-
-## Limitaciones
--
-
-## Conexiones con mi investigación
--
-
-## Notas propias
--
+```text
+Crea el archivo ficha-template.md con esta estructura:
+- Referencia (APA 7)
+- Tema principal (una frase)
+- Resumen (3-5 oraciones)
+- Metodología (tipo, muestra, instrumentos)
+- Hallazgos principales (3-5 puntos)
+- Limitaciones
+- Conexiones con mi investigación
+- Notas propias
 ```
 
-Usa Gemini CLI para llenar cada ficha:
+Luego, para cada paper:
 
-```bash
-gemini --prompt "Llena esta plantilla de ficha académica con
-información del siguiente abstract: [ABSTRACT]" < ficha-template.md
+```text
+Usa la plantilla ficha-template.md y llénala con la información
+de este abstract:
+
+[PEGA EL ABSTRACT]
+
+Guarda el resultado en fichas/ficha-apellido-2025.md.
 ```
 
 :::
@@ -419,26 +398,15 @@ para una sección de revisión de literatura que:
 
 ## Terminal
 
-Crea un archivo `revision-literatura.qmd`:
+Desde Gemini dentro de tu proyecto:
 
-```markdown
----
-title: "Revisión de literatura"
-format: html
-bibliography: references.bib
----
+```text
+Crea el archivo revision-literatura.qmd con formato Quarto
+(incluye YAML con title, format: html y bibliography: references.bib).
 
-## Sección 1: [Tema]
-
-[Síntesis de papers relevantes]
-
-## Sección 2: [Tema]
-
-[Síntesis de papers relevantes]
-
-## Vacío identificado
-
-[Cómo tu investigación contribuye]
+Organiza el contenido en subsecciones temáticas basándote en
+los patrones que identificamos. Incluye una sección final que
+señale el vacío que mi investigación aborda.
 ```
 
 :::

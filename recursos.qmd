@@ -119,7 +119,7 @@ Los autores mantienen **responsabilidad completa** sobre:
 
 ### Ejemplo de declaración de uso de IA
 
-```
+```text
 Declaration of Generative AI and AI-assisted Technologies
 
 During the preparation of this manuscript, the authors used

@@ -73,11 +73,9 @@ Cada actividad de esta guía ofrece dos caminos según tu experiencia técnica. 
 ::: {.callout-tip}
 ## Camino B: Integración con editor (contexto integrado y texto plano)
 
-**Es tu opción.** Si ya usas VS Code, RStudio u otras herramientas de desarrollo. 
-
-**Herramientas.** Extensiones de IA en tu editor de código, o Gemini CLI en la terminal.
-
-**Flujo de trabajo.** Edición directa con asistencia de IA integrada, sin cambiar de aplicación. Requiere configuración previa.
+- **Es tu opción.** Si ya usas VS Code, RStudio u otras herramientas de desarrollo.
+- **Herramientas.** Extensiones de IA en tu editor de código, o Gemini CLI en la terminal.
+- **Flujo de trabajo.** Edición directa con asistencia de IA integrada, sin cambiar de aplicación. Requiere configuración previa.
 :::
 
 ## Cómo usar esta guía
