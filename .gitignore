@@ -22,3 +22,12 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Documentación interna del proyecto (no publicar)
+AGENTS.md
+CHECKLOG.md
+ESTRUCTURA.md
+EVERNOTE.md
+descripcion.md
+programa-taller.pdf
+gh-pages.md
